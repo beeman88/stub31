@@ -1,0 +1,65 @@
+What is the stub server?
+
+stub <- request - curl
+stub - xml     -> curl
+
+stub <- request - sa
+stub - xml     -> sa
+
+bb test app <- request - sa
+bb test app - xml     -> sa
+
+bb.com <- request - sa
+bb.com - xml     -> sa
+
+How to install the stub and curl on Windows?
+
+Download Python 2.65 from http://www.python.org/download/
+Install to C:\Python26
+Add C:\Python26 to system path
+
+Go to http://github.com/beeman88/stub copy everything but the curl folder the files to C:\Python26
+Make sure to put bottle.py in C:\Python26\Lib
+
+If you don't have curl, copy the curl folder to C:\
+If you have curl, copy curl_stub.bat to your curl folder
+ 
+How to run in Windows?
+Open command window
+cd c:\Python26
+python stub.py
+you will be prompted for a port number (8080) that corresponds to a test folder
+
+How does stub.py work?
+matches an url and response with the contents of an xml file
+sometimes a response status code is set 200, 401, 302
+sometimes a response header location is set to an url
+
+Open Dos window
+cd C:\curl
+curl_stub 8080 abc42b0d-d110-4f5c-ac79-d3aa11bd20cb user password tradingAccounts
+
+What does curl_stub do?
+curl_stub sends a series of requests that simulate a link and sync of resources
+
+What does curl_stub output?
+A log file in C:\Python26\8080\log.txt
+Lists requests, debugging and the xml response
+
+How are the test cases organized?
+Each test case has a folder in C:\Python26
+the folder is also used for the port number
+eg folder 8080 has xml files and curl_stub will call http://localhost:8080/...
+eg folder 8081 has xml files and curl_stub will call http://localhost:8081/...
+readme.txt contains the curl_stub command used for the test case
+
+How to set up tests?
+Copy a port folder
+in the port folder are xml responses, config, readme
+config.sys has a debug flag only
+readme has test case description including uuid and curl_stub command
+xml files has the responses
+the xml files are changed to create the tests - look out for uuids, tick
+
+
+
