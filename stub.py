@@ -436,7 +436,7 @@ def replace_tokens_in_feed(filename, tracking_id=''):
                 write_to_log("Length : %d" % len (uuids_dict), debug)
                 for k, v in list(uuids_dict.items()):
                     write_to_log("%s=%s" % (k, v), debug)
-                feed = feed.replace(token, uuids_dict[key])
+                feed = feed.replace(token, uuids_dict[key].strip())
         except Exception as e:
             write_to_log('Exception error is: %s' % e)        
 		

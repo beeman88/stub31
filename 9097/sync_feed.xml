@@ -9,8 +9,8 @@
       xmlns:sc="http://schemas.sage.com/sc/2009" 
       xmlns:crm="http://schemas.sage.com/crmErp/2008">
  
-  <title>salesInvoice synchronization feed bed1f2d0-5ec6-11df-a08a-0800200c9a66</title>
-  <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices/$syncSource('bed1f2d0-5ec6-11df-a08a-0800200c9a66')</id>
+  <title>salesInvoice synchronization feed {0}</title>
+  <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices/$syncSource('{0}')</id>
   <updated>2008-03-31T13:46:45Z</updated>
 
   <category scheme="http://schemas.sage.com/sdata/categories" term="salesInvoice" label=""/>
@@ -50,7 +50,7 @@
     </syncState>
  
     <payload xmlns="http://schemas.sage.com/sdata/2008/1">
-      <crm:salesInvoice sdata:key="14085" sdata:uuid="949897e0-5d1c-11df-a08a-0800200c9a66" sdata:isDeleted='true' xmlns="http://schemas.sage.com/crmErp">
+      <crm:salesInvoice sdata:key="14085" sdata:uuid="##14085##" sdata:isDeleted='true' xmlns="http://schemas.sage.com/crmErp">
 		<crm:active>true</crm:active>
 		<crm:status>Printed</crm:status>
 		<crm:statusFlag>false</crm:statusFlag>
