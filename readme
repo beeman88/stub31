@@ -14,19 +14,19 @@ bb.com - xml     -> sa
 
 How to install the stub and curl on Windows?
 
-Download Python 2.65 from http://www.python.org/download/
-Install to C:\Python26
-Add C:\Python26 to system path
+Download Python 3.12 from http://www.python.org/download/
+Install to C:\Python31
+Add C:\Python31 to system path
 
-Go to http://github.com/beeman88/stub copy everything but the curl folder the files to C:\Python26
-Make sure to put bottle.py in C:\Python26\Lib
+Go to http://github.com/beeman88/stub copy everything but the curl folder the files to C:\Python31
+Make sure to put bottle.py in C:\Python31\Lib
 
 If you don't have curl, copy the curl folder to C:\
 If you have curl, copy curl_stub.bat to your curl folder
  
 How to run in Windows?
 Open command window
-cd c:\Python26
+cd c:\Python31
 python stub.py
 you will be prompted for a port number (8080) that corresponds to a test folder
 
@@ -43,11 +43,11 @@ What does curl_stub do?
 curl_stub sends a series of requests that simulate a link and sync of resources
 
 What does curl_stub output?
-A log file in C:\Python26\8080\log.txt
+A log file in C:\Python31\8080\log.txt
 Lists requests, debugging and the xml response
 
 How are the test cases organized?
-Each test case has a folder in C:\Python26
+Each test case has a folder in C:\Python31
 the folder is also used for the port number
 eg folder 8080 has xml files and curl_stub will call http://localhost:8080/...
 eg folder 8081 has xml files and curl_stub will call http://localhost:8081/...
