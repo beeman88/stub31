@@ -77,7 +77,7 @@
 		  <crm:salesInvoiceLine sdata:key="97648">
 		    <crm:active>true</crm:active>
 			<crm:status>Printed</crm:status>
-			<crm:type>Standard Line</crm:>
+			<crm:type>Standard Line</crm:type>
 			<crm:number>1</crm:number>
 			<crm:text>Invoice line 1 MODIFIED</crm:text>
 			<crm:unitOfMeasure sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/unitsOfMeasure('each')" />
@@ -95,7 +95,7 @@
 		  <crm:salesInvoiceLine sdata:key="97649">
 			<crm:active>true</crm:active>
 			<crm:status>Printed</crm:status>
-			<crm:type>Standard Line</crm:>
+			<crm:type>Standard Line</crm:type>
 			<crm:number>2</crm:number>
 			<crm:text>Invoice line 2 MODIFIED</crm:text>
 			<crm:unitOfMeasure sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/unitsOfMeasure('each')" />
