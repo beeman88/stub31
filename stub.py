@@ -481,13 +481,17 @@ def authentication():
 
 def write_to_uuids(key, resourceType, uuid):
     global debug
-    write_to_log("write_to_uuids", debug)
-    uuids_filename = os.path.join('data', 'uuids.xml')
-    uuids = open(uuids_filename, 'a')
-    line = key+","+resourceType+","+uuid
-    write_to_log(line, debug)
-    uuids.write(line+"\n")
-    uuids.close()
+    global uuids_dict
+    read_uuids()
+
+    if key not in uuids_dict:
+        write_to_log("write_to_uuids", debug)
+        uuids_filename = os.path.join('data', 'uuids.xml')
+        uuids = open(uuids_filename, 'a')
+        line = key+","+resourceType+","+uuid
+        write_to_log(line, debug)
+        uuids.write(line+"\n")
+        uuids.close()
 
 def read_uuids():
     global debug
