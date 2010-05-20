@@ -46,6 +46,8 @@ def index():
 @route('/sdata/billingboss/crmErp/-/tradingAccounts/$linked', method='GET')
 @route('/sdata/billingboss/crmErp/-/salesInvoices/$linked', method='GET')
 def index():
+    global debug
+
     log_method_start('Count of linked resources')
     if authentication() != "Authenticated":
         return "Access Denied"    
@@ -53,13 +55,11 @@ def index():
     try:
         count = request.GET['count']
     except Exception:
-        if debug == "1":
-            write_to_log('count does not exist')
+        write_to_log('count does not exist')
         return
     else:
-        if debug == "1":
-            write_to_log('count = {0}'.format(count))
-            write_to_log('return count linked resources')
+        write_to_log("count = %s" % count, debug)
+        write_to_log("return count linked resources", debug)
         response.content_type='application/atom+xml'    
         return sdata_link_count_linked()
 
@@ -73,6 +73,7 @@ def index():
 @route('/sdata/billingboss/crmErp/-/tradingAccounts', method='GET')
 @route('/sdata/billingboss/crmErp/-/salesInvoices', method='GET')
 def index():
+    global debug
     log_method_start('GET count of all resources or link feed')
     if authentication() != "Authenticated":
         return "Access Denied"
@@ -83,12 +84,10 @@ def index():
     try:
         count = request.GET['count']
     except Exception:
-        if debug == "1":
-            write_to_log('count does not exist')
+        write_to_log('count does not exist', debug)
     else:
-        if debug == "1":        
-            write_to_log('count = {0}'.format(count))
-            write_to_log('return count of all resources')
+        write_to_log('count = {0}'.format(count), debug)
+        write_to_log('return count of all resources', debug)
         return sdata_link_count_all()
 
     # return feed of resources
@@ -101,6 +100,7 @@ def index():
 @route('/sdata/billingboss/crmErp/-/tradingAccounts/$linked', method='POST')
 @route('/sdata/billingboss/crmErp/-/salesInvoices/$linked', method='POST')
 def index():
+    global debug
     log_method_start('Post new links')
 
     if authentication() != "Authenticated":
@@ -112,7 +112,7 @@ def index():
         return post_link_resource(SALES_INVOICES)
     else:
         response.status = 404
-        write_to_log("Exception")
+        write_to_log("Error Invalid Resource")
         return sdata_link_post_error()
 
 # 6. Create sync request
@@ -120,6 +120,7 @@ def index():
 @route('/sdata/billingboss/crmErp/-/tradingAccounts/$syncSource', method='POST')
 @route('/sdata/billingboss/crmErp/-/salesInvoices/$syncSource', method='POST')
 def index():
+    global debug
     log_method_start('Create sync request')
 
     if authentication() != "Authenticated":
@@ -128,12 +129,10 @@ def index():
     try:
         trackingId = request.GET['trackingId']
     except Exception:
-        if debug == "1":
-            write_to_log('trackingId does not exist')
+        write_to_log('Error trackingId does not exist')
         return
     else:
-        if debug == "1":        
-            write_to_log('trackingId = {0}'.format(trackingId))
+        write_to_log('trackingId = {0}'.format(trackingId), debug)
 
     # TODO don't know why these parameters are not in request
 ##    try:
@@ -167,15 +166,16 @@ def index():
 @route('/sdata/billingboss/crmErp/-/salesInvoices/$syncSource('':tracking_id'')', method='GET')
 def index(tracking_id):
     global in_progress_count 
-    global in_progress_reqs    
+    global in_progress_reqs
+    global debug
+    
     log_method_start('Request status of sync')
 
     if authentication() != "Authenticated":
         return "Access Denied"
     
-    if debug == "1":
-        write_to_log('tracking id = {0}'.format(tracking_id))
-        write_to_log('in_progress_count = {0}'.format(in_progress_count))
+    write_to_log('tracking id = {0}'.format(tracking_id), debug)
+    write_to_log('in_progress_count = {0}'.format(in_progress_count), debug)
 
     if in_progress_count < in_progress_reqs:
         if debug == "1":        
@@ -200,34 +200,40 @@ def index(tracking_id):
 @route('/sdata/billingboss/crmErp/-/tradingAccounts/$syncSource('':tracking_id'')', method='DELETE')
 @route('/sdata/billingboss/crmErp/-/salesInvoices/$syncSource('':tracking_id'')', method='DELETE')
 def index(tracking_id):
+    global debug
     log_method_start('Delete (finish) sync request')
 
     if authentication() != "Authenticated":
         return "Access Denied"
     
-    if debug == "1":
-        write_to_log('tracking id = {0}'.format(tracking_id))
+    write_to_log('tracking id = {0}'.format(tracking_id), debug)
     response.status = 200
     return "DELETED"
 
 ##################################################
 
 def sdata_link_count_linked():
-    return read_file('link_count_linked.xml')
+    return read_and_log('link_count_linked.xml')
+
+def read_and_log(filename):
+    xml = read_file(filename)
+    write_to_log(xml)
+    return xml    
 
 def sdata_link_count_all():
-    return read_file('link_count_all.xml')
+    return read_and_log('link_count_all.xml')
 
 def sdata_link_feed_unlinked():
-    return read_file('link_feed_unlinked.xml')
+    return read_and_log('link_feed_unlinked.xml')
 
 def sdata_link_feed_all():
-	replace_tokens_in_feed('link_feed_all.xml')
+    replace_tokens_in_feed('link_feed_all.xml')
 
 def sdata_link_post_error():
     return read_file('link_post.xml')
 
 def post_link_resource(resource_type):
+    global debug
     import xml.dom.minidom        
     # create an xml document from the request body
 
@@ -238,7 +244,7 @@ def post_link_resource(resource_type):
         # write_to_log("unicode body = %s" % body)
         
         doc = xml.dom.minidom.parse(request.body)
-        write_to_log(doc.toxml())
+        write_to_log(doc.toxml(), debug)
 
         try:
             # set response status and content
@@ -247,7 +253,7 @@ def post_link_resource(resource_type):
 
             # get url, uuid, key, name from xml doc
             payload = doc.getElementsByTagName("payload")[0]
-            write_to_log(payload.toxml())
+            write_to_log(payload.toxml(), debug)
             xml = ''
             if resource_type == TRADING_ACCOUNTS:
                 resource = payload.getElementsByTagName("crm:tradingAccount")[0]
@@ -280,6 +286,8 @@ def post_link_resource(resource_type):
                 
                 xml = sdata_link_post_salesInvoice(url, key, ref, cust_key, cust_uuid)
 
+                write_to_uuids(key, SALES_INVOICES, uuid)
+
             doc.unlink()            
             write_to_log(xml)
             return xml        
@@ -296,13 +304,13 @@ def post_link_resource(resource_type):
         # send back xml file
         write_to_log('Exception error is: %s' % e)
         response.status = 201
-        write_to_log('Exception error is: %s' % e)
         return sdata_link_post_error()        
 
 def get_uuid_from_resource(resource):
-    write_to_log(resource.toxml())        
+    global debug    
+    write_to_log(resource.toxml(), debug)        
     uuid = resource.attributes["sdata:uuid"].value
-    write_to_log(uuid)
+    write_to_log(uuid, debug)
     return uuid
 
 def get_url_from_resource(resource):
@@ -310,25 +318,28 @@ def get_url_from_resource(resource):
     return url
 
 def get_key_from_resource(resource):
+    global debug
     url = resource.attributes["sdata:url"].value
-    write_to_log(url)
+    write_to_log(url, debug)
     # get the key from the url between the ('...') TODO use regex
     key = url[url.index("('") + 2:url.index("')")]
-    write_to_log(key)
+    write_to_log(key, debug)
     return key
 
 def get_name_from_payload(payload):
+    global debug
     elName = payload.getElementsByTagName("crm:name")[0]
-    write_to_log(elName.toxml())
+    write_to_log(elName.toxml(), debug)
     name = elName.firstChild.data
-    write_to_log(name)
+    write_to_log(name, debug)
     return name
 
 def get_ref_from_payload(payload):
+    global debug
     elRef = payload.getElementsByTagName("crm:customerReference")[0]
-    write_to_log(elRef.toxml())
+    write_to_log(elRef.toxml(), debug)
     ref = elRef.firstChild.data
-    write_to_log(ref)
+    write_to_log(ref, debug)
     return ref
 
 def set_response_location(uuid):
@@ -388,16 +399,17 @@ def sdata_link_post_salesInvoice(key, uuid, reference, cust_key, cust_uuid):
     '''.format(key, uuid, reference, cust_key, cust_uuid)    
     
 def sdata_sync_accepted():
-    return read_file('sync_accepted.xml')
+    return read_and_log('sync_accepted.xml')
 
 def sdata_sync_in_progress():
-    return read_file('sync_in_progress.xml')
+    return read_and_log('sync_in_progress.xml')
 
 # TODO What is the simply endpoint?
 def sdata_sync_feed(tracking_id):
 	replace_tokens_in_feed('sync_feed.xml', tracking_id)
 	
 def replace_tokens_in_feed(filename, tracking_id=''):
+    global debug
     global uuids_dict
     import xml.dom.minidom
     feed = read_file(filename)
@@ -419,80 +431,78 @@ def replace_tokens_in_feed(filename, tracking_id=''):
                 url = elId.firstChild.data
                 key = url[url.index("('") + 2:url.index("')")]
                 token = TOKEN_MARKER + key + TOKEN_MARKER
-                write_to_log('token = %s' % token)
+                write_to_log('token = %s' % token, debug)
 
-                write_to_log("Length : %d" % len (uuids_dict))
+                write_to_log("Length : %d" % len (uuids_dict), debug)
                 for k, v in list(uuids_dict.items()):
-                    write_to_log("%s=%s" % (k, v))
+                    write_to_log("%s=%s" % (k, v), debug)
                 feed = feed.replace(token, uuids_dict[key])
         except Exception as e:
             write_to_log('Exception error is: %s' % e)        
 		
-    write_to_log('feed = %s' % feed)		
+    write_to_log(feed)		
     return feed	
 
 def read_file(filename):
+    global debug
     import os.path
 
-    if debug == "1":
-        write_to_log('read file {0}'.format(filename))    
-        write_to_log('port = {0}'.format(port_number))
+    write_to_log('read file {0}'.format(filename), debug)    
+    write_to_log('port = {0}'.format(port_number), debug)
     path_filename = os.path.join(str(port_number), filename)
     if debug == "1":
         write_to_log('path and filename = {0}'.format(path_filename))
     f = open(path_filename, 'r')
     xml = f.read()
-    write_to_log(xml)
+    write_to_log(xml, debug)
     f.close()
     return xml
 
-def debug_write_to_log(line):
-    if debug == "1":
-        write_to_log(line)
+def write_to_log(line, flag="1"):
+    if flag[0] == "1":
+        log.write(line + '\n')
 
-def write_to_log(line):
-    log.write(line + '\n')
-
-def log_method_start(str):
+def log_method_start(line):
     write_to_log('')
-    if debug == "1":
-        write_to_log(str)
+    write_to_log(line)
     write_to_log(request.url)
 
 def authentication():
+    #TODO moving to Python 3 changed request.auth
     # if not request.auth:
         # if debug == "1":
             # write_to_log('401 Not authenticated')
         # response.status = 401
         # return "Access denied."
 
-    if debug == "1":
-        write_to_log('200 OK')
+    write_to_log('200 OK', debug)
     response.status = 200
     return "Authenticated"
 
 def write_to_uuids(key, resourceType, uuid):
-    write_to_log("write_to_uuids")
+    global debug
+    write_to_log("write_to_uuids", debug)
     uuids_filename = os.path.join('data', 'uuids.xml')
     uuids = open(uuids_filename, 'a')
     line = key+","+resourceType+","+uuid
-    write_to_log(line)
+    write_to_log(line, debug)
     uuids.write(line+"\n")
     uuids.close()
 
 def read_uuids():
+    global debug
     global uuids_dict
     uuids_dict = {}
     uuids_filename = os.path.join('data', 'uuids.xml')
     uuids = open(uuids_filename, 'r')
     for line in uuids:
-        write_to_log(line)
+        write_to_log(line, debug)
         fields = line.split(',')
-        write_to_log(fields[0]+" "+fields[1]+" "+fields[2])
+        write_to_log(fields[0]+" "+fields[1]+" "+fields[2], debug)
         uuids_dict[fields[0]] = fields[2]
 
     for k, v in list(uuids_dict.items()):
-        write_to_log("%s=%s" % (k, v))
+        write_to_log("%s=%s" % (k, v), debug)
 
     uuids.close()
 
