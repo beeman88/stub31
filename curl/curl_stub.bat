@@ -19,7 +19,7 @@ GOTO :EOF
 )
 
 
-IF "%5"=="%5" set select="name,customerSupplierFlag"
+IF "%5"=="tradingAccounts" set select="name,customerSupplierFlag"
 IF "%5"=="salesInvoices" set select="tradingAccount,customerReference"
 
 IF "%1"=="8080" GOTO LINK2
