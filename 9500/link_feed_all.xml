@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feed xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+      xmlns:cf="http://www.microsoft.com/schemas/rss/core/2005" 
+      xmlns="http://www.w3.org/2005/Atom" 
+      xmlns:sdata="http://schemas.sage.com/sdata/2008/1" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" 
+      xmlns:sme="http://schemas.sage.com/sdata/sme/2007" 
+      xmlns:http="http://schemas.sage.com/sdata/http/2008/1" 
+      xmlns:sc="http://schemas.sage.com/sc/2009" 
+      xmlns:crm="http://schemas.sage.com/crmErp/2008">
+ 
+  <title>Billing Boss | Receipts</title>
+  <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts</id>
+  <updated>2010-03-31T13:46:45Z</updated>
+  <author>
+    <name>Billing Boss</name>
+  </author>
+ 
+  <link rel="self" type="application/atom+xml" title="Refresh"
+  href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts?select=tradingAccount,originatorDocument,date,netTotal" />
+  <link rel="first" type="application/atom+xml" title="First Page"
+  href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts?  select=tradingAccount,originatorDocument,date,netTotal&amp;startIndex=1&amp;count=10" />
+  <link rel="last" type="application/atom+xml" title="Last Page"
+  href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts?  select=tradingAccount,originatorDocument,date,netTotal&amp;startIndex=1&amp;count=10" />
+  <link rel="next" type="application/atom+xml" title="Next Page"
+  href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts?  select=tradingAccount,originatorDocument,date,netTotal&amp;startIndex=1&amp;count=10" />
+  <link rel="schema" type="application/xml" title="Schema" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts/$schema" />
+  <link rel="template" type="application/atom+xml" title="Template" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts/$template" />
+  <link rel="post" type="application/atom+xml" title="Post" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts" />
+  <link rel="service" type="application/atom+xml" title="Service" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts/$service" />
+ 
+  <category scheme="http://schemas.sage.com/sdata/categories" term="receipt" label=""/>
+ 
+  <opensearch:totalResults>2</opensearch:totalResults>
+  <opensearch:startIndex>1</opensearch:startIndex>
+  <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
+ 
+  <entry>
+    <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts('12010')?select=tradingAccount,originatorDocument,date,netTotal</id>
+    <title>Receipt 12010</title>
+    <updated>2010-03-31T13:46:45Z</updated>
+    <link rel="self" type="application/atom+xml" title="self"   href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts('12010')?select=tradingAccount,originatorDocument,date,netTotal" />
+    <category scheme="http://schemas.sage.com/sdata/categories" term="receipt" label=""/>
+    <content>Receipt 12010 select tradingAccount,originatorDocument,date,netTotal</content>
+ 
+    <sdata:payload>
+      <crm:receipt sdata:key="12010">
+        <crm:tradingAccount sdata:uuid="##43660##"
+          sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('43660')"
+          sdata:key="43660" >
+        </crm:tradingAccount>
+        <crm:originatorDocument>
+         <salesInvoice sdata:uuid="##14081##"
+             sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoice('14081')"
+             sdata:key="14081" />
+        </crm:originatorDocument>
+        <crm:date>2010-03-31Z</crm:date>
+	    <crm:netTotal>42.00</crm:netTotal>
+      </crm:receipt>
+    </sdata:payload>
+  </entry>
+ 
+  <entry>
+    <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts('12011')</id>
+    <title>Receipt 12011</title>
+    <updated>2010-03-31T13:46:45Z</updated>
+    <link rel="self" type="application/atom+xml" title="self"
+    href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts('12011')?select=tradingAccount,originatorDocument,date,netTotal" />
+    <category scheme="http://schemas.sage.com/sdata/categories" term="receipt" label=""/>
+    <content>Receipt 12011 select name</content>
+ 
+    <sdata:payload>
+      <crm:receipt sdata:key="12010">
+        <crm:tradingAccount sdata:uuid="##43660##"
+          sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('43660')"
+          sdata:key="43660" >
+        </crm:tradingAccount>
+        <crm:originatorDocument>
+          <salesInvoice sdata:uuid="##14082##"
+             sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoice('14082')"
+             sdata:key="14082" />
+        </crm:originatorDocument>
+        <crm:date>2010-03-31Z</crm:date>
+	    <crm:netTotal>46.99</crm:netTotal>
+      </crm:receipt>
+    </sdata:payload>
+  </entry>
+</feed>
