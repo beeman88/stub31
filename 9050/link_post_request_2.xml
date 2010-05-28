@@ -11,12 +11,10 @@
   <id/>
   <title/>
   <updated>2008-05-25T13:27:19.207Z</updated>
-  <payload xmlns="http://schemas.sage.com/sdata/2008/1">
+  <sdata:payload>
     <crm:salesInvoice sdata:uuid="8104d810-5d1c-11df-a08a-0800200c9a66"
       sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14083')"
-      xmlns="http://schemas.sage.com/crmErp">
-	  <crm:tradingAccount sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('43660')" sdata:uuid="88815929-A503-4fcb-B5CC-F1BB8ECFC874" />
-		<crm:customerReference>I1249</crm:customerReference>
+	  sdata:key="14083" >
     </crm:salesInvoice>
-  </payload>
+  </sdata:payload>
 </entry>

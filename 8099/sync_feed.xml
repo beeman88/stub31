@@ -8,7 +8,8 @@
 		   xmlns:sme="http://schemas.sage.com/sdata/sme/2007" 
 		   xmlns:http="http://schemas.sage.com/sdata/http/2008/1" 
 		   xmlns:sc="http://schemas.sage.com/sc/2009" 
-		   xmlns:crm="http://schemas.sage.com/crmErp/2008">
+		   xmlns:crm="http://schemas.sage.com/crmErp/2008"
+		   xmlns:sync="http://schemas.sage.com/sdata/sync/2008/1">
   <sdata:severity>error</sdata:severity>
   <sdata:sdataCode>ResourceKindNotFound</sdata:sdataCode>
   <sdata:applicationCode />

@@ -11,11 +11,10 @@
   <id/>
   <title/>
   <updated>2008-05-25T13:27:19.207Z</updated>
-  <payload xmlns="http://schemas.sage.com/sdata/2008/1">
+  <sdata:payload xmlns="http://schemas.sage.com/sdata/2008/1">
     <crm:tradingAccount sdata:uuid="138BB530-18CB-410d-8969-753F9EB8BC08"
       sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('43661')"
-      xmlns="http://schemas.sage.com/crmErp">
-	  <crm:name>Customer Name 43661</crm:name>
+	  sdata:key="43661" >
     </crm:tradingAccount>
-  </payload>
+  </sdata:payload>
 </entry>

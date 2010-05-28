@@ -7,7 +7,8 @@
       xmlns:sme="http://schemas.sage.com/sdata/sme/2007" 
       xmlns:http="http://schemas.sage.com/sdata/http/2008/1" 
       xmlns:sc="http://schemas.sage.com/sc/2009" 
-      xmlns:crm="http://schemas.sage.com/crmErp/2008">
+      xmlns:crm="http://schemas.sage.com/crmErp/2008"
+	  xmlns:sync="http://schemas.sage.com/sdata/sync/2008/1">
  
   <title>tradingAccount synchronization feed {0}</title>
   <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts/$syncSource('{0}')</id>
@@ -19,23 +20,23 @@
   <opensearch:startIndex>1</opensearch:startIndex>
   <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
  
-  <syncMode xmlns="http://schemas.sage.com/sdata/sync/2008/1">catchUp</syncMode>
+  <sync:syncMode>catchUp</sync:syncMode>
  
-  <digest xmlns="http://schemas.sage.com/sdata/sync/2008/1">
-    <origin>http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts</origin>
-    <digestEntry>
-      <endpoint>http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts</endpoint>
-      <tick>10</tick>
-      <stamp>2010-10-30T17:23:08Z</stamp>
-      <conflictPriority>1</conflictPriority>
-    </digestEntry>
-    <digestEntry>
-      <endpoint>http://www.simply.com/sdata/simply/crmErp/-/tradingAccounts</endpoint>
-      <tick>7</tick>
-      <stamp>2010-10-30T12:16:51Z</stamp>
-      <conflictPriority>2</conflictPriority>
-    </digestEntry>
-  </digest>
+  <sync:digest>
+    <sync:origin>http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts</sync:origin>
+    <sync:digestEntry>
+      <sync:endpoint>http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts</sync:endpoint>
+      <sync:tick>10</sync:tick>
+      <sync:stamp>2010-10-30T17:23:08Z</sync:stamp>
+      <sync:conflictPriority>1</sync:conflictPriority>
+    </sync:digestEntry>
+    <sync:digestEntry>
+      <sync:endpoint>http://www.simply.com/sdata/simply/crmErp/-/tradingAccounts</sync:endpoint>
+      <sync:tick>7</sync:tick>
+      <sync:stamp>2010-10-30T12:16:51Z</sync:stamp>
+      <sync:conflictPriority>2</sync:conflictPriority>
+    </sync:digestEntry>
+  </sync:digest>
  
   <entry>
     <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('8105')</id>
@@ -43,17 +44,17 @@
     <updated>2008-10-30T14:55:43.281Z</updated>
     <content>Ashburton Reinforcing</content>
  
-    <syncState xmlns="http://schemas.sage.com/sdata/sync/2008/1">
-      <endpoint>http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts</endpoint>
-      <tick>9</tick>
-      <stamp>2010-10-31T14:55:43.281Z</stamp>
-    </syncState>
+    <sync:syncState>
+      <sync:endpoint>http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts</sync:endpoint>
+      <sync:tick>9</sync:tick>
+      <sync:stamp>2010-10-31T14:55:43.281Z</sync:stamp>
+    </sync:syncState>
  
-    <payload xmlns="http://schemas.sage.com/sdata/2008/1">
-      <crm:tradingAccount sdata:uuid="##8105##" xmlns="http://schemas.sage.com/crmErp">
+    <sdata:payload>
+      <crm:tradingAccount sdata:uuid="##8105##">
         <crm:name>Ashburton Reinforcing</crm:name>
       </crm:tradingAccount>
-    </payload>
+    </sdata:payload>
   </entry>
   
   <entry>
@@ -62,17 +63,17 @@
     <updated>2008-10-30T14:55:43.281Z</updated>
     <content>Askew Shopping Centre</content>
  
-    <syncState xmlns="http://schemas.sage.com/sdata/sync/2008/1">
-      <endpoint>http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts</endpoint>
-      <tick>9</tick>
-      <stamp>2010-10-31T14:55:43.281Z</stamp>
-    </syncState>
+    <sync:syncState>
+      <sync:endpoint>http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts</sync:endpoint>
+      <sync:tick>9</sync:tick>
+      <sync:stamp>2010-10-31T14:55:43.281Z</sync:stamp>
+    </sync:syncState>
  
-    <payload xmlns="http://schemas.sage.com/sdata/2008/1">
-      <crm:tradingAccount sdata:uuid="49bf79c0-5f72-11df-a08a-0800200c9a66" xmlns="http://schemas.sage.com/crmErp">
+    <sdata:payload>
+      <crm:tradingAccount sdata:uuid="49bf79c0-5f72-11df-a08a-0800200c9a66">
         <crm:name>Askew Shopping Centre</crm:name>
       </crm:tradingAccount>
-    </payload>
+    </sdata:payload>
   </entry>  
  
 </feed>

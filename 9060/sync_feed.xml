@@ -7,7 +7,8 @@
       xmlns:sme="http://schemas.sage.com/sdata/sme/2007" 
       xmlns:http="http://schemas.sage.com/sdata/http/2008/1" 
       xmlns:sc="http://schemas.sage.com/sc/2009" 
-      xmlns:crm="http://schemas.sage.com/crmErp/2008">
+      xmlns:crm="http://schemas.sage.com/crmErp/2008"
+	  xmlns:sync="http://schemas.sage.com/sdata/sync/2008/1">
  
   <title>salesInvoice synchronization feed {0}</title>
   <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices/$syncSource('{0}')</id>
@@ -19,22 +20,22 @@
   <opensearch:startIndex>1</opensearch:startIndex>
   <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
  
-  <syncMode xmlns="http://schemas.sage.com/sdata/sync/2008/1">catchUp</syncMode>
+  <sync:syncMode>catchUp</sync:syncMode>
  
-  <digest xmlns="http://schemas.sage.com/sdata/sync/2008/1">
-    <origin>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices</origin>
-    <digestEntry>
-      <endpoint>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices</endpoint>
-      <tick>6</tick>
-      <stamp>2010-10-30T17:23:08Z</stamp>
-      <conflictPriority>1</conflictPriority>
-    </digestEntry>
-    <digestEntry>
-      <endpoint>http://www.simply.com/sdata/simply/crmErp/-/salesInvoices</endpoint>
-      <tick>1</tick>
-      <stamp>2010-10-30T12:16:51Z</stamp>
-      <conflictPriority>2</conflictPriority>
-    </digestEntry>
-  </digest>
+  <sync:digest>
+    <sync:origin>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices</sync:origin>
+    <sync:digestEntry>
+      <sync:endpoint>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices</sync:endpoint>
+      <sync:tick>6</sync:tick>
+      <sync:stamp>2010-10-30T17:23:08Z</sync:stamp>
+      <sync:conflictPriority>1</sync:conflictPriority>
+    </sync:digestEntry>
+    <sync:digestEntry>
+      <sync:endpoint>http://www.simply.com/sdata/simply/crmErp/-/salesInvoices</sync:endpoint>
+      <sync:tick>1</sync:tick>
+      <sync:stamp>2010-10-30T12:16:51Z</sync:stamp>
+      <sync:conflictPriority>2</sync:conflictPriority>
+    </sync:digestEntry>
+  </sync:digest>
  
 </feed>

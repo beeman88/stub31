@@ -7,7 +7,8 @@
       xmlns:sme="http://schemas.sage.com/sdata/sme/2007" 
       xmlns:http="http://schemas.sage.com/sdata/http/2008/1" 
       xmlns:sc="http://schemas.sage.com/sc/2009" 
-      xmlns:crm="http://schemas.sage.com/crmErp/2008">
+      xmlns:crm="http://schemas.sage.com/crmErp/2008"
+	  xmlns:sync="http://schemas.sage.com/sdata/sync/2008/1">
  
   <title>salesInvoice synchronization feed {0}</title>
   <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices/$syncSource('{0}')</id>
@@ -19,23 +20,23 @@
   <opensearch:startIndex>1</opensearch:startIndex>
   <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
  
-  <syncMode xmlns="http://schemas.sage.com/sdata/sync/2008/1">catchUp</syncMode>
+  <sync:syncMode>catchUp</sync:syncMode>
  
-  <digest xmlns="http://schemas.sage.com/sdata/sync/2008/1">
-    <origin>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices</origin>
-    <digestEntry>
-      <endpoint>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices</endpoint>
-      <tick>10</tick>
-      <stamp>2010-10-30T17:23:08Z</stamp>
-      <conflictPriority>1</conflictPriority>
-    </digestEntry>
-    <digestEntry>
-      <endpoint>http://www.simply.com/sdata/simply/crmErp/-/salesInvoices</endpoint>
-      <tick>1</tick>
-      <stamp>2010-10-30T12:16:51Z</stamp>
-      <conflictPriority>2</conflictPriority>
-    </digestEntry>
-  </digest>
+  <sync:digest>
+    <sync:origin>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices</sync:origin>
+    <sync:digestEntry>
+      <sync:endpoint>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices</sync:endpoint>
+      <sync:tick>10</sync:tick>
+      <sync:stamp>2010-10-30T17:23:08Z</sync:stamp>
+      <sync:conflictPriority>1</sync:conflictPriority>
+    </sync:digestEntry>
+    <sync:digestEntry>
+      <sync:endpoint>http://www.simply.com/sdata/simply/crmErp/-/salesInvoices</sync:endpoint>
+      <sync:tick>1</sync:tick>
+      <sync:stamp>2010-10-30T12:16:51Z</sync:stamp>
+      <sync:conflictPriority>2</sync:conflictPriority>
+    </sync:digestEntry>
+  </sync:digest>
  
   <entry>
     <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14084')</id>
@@ -43,22 +44,21 @@
     <updated>2008-10-30T14:55:43.281Z</updated>
     <content>BB Invoice 14084</content>
  
-    <syncState xmlns="http://schemas.sage.com/sdata/sync/2008/1">
-      <endpoint>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices</endpoint>
-      <tick>10</tick>
-      <stamp>2010-10-31T14:55:43.281Z</stamp>
-    </syncState>
+    <sync:syncState>
+      <sync:endpoint>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices</sync:endpoint>
+      <sync:tick>10</sync:tick>
+      <sync:stamp>2010-10-31T14:55:43.281Z</sync:stamp>
+    </sync:syncState>
  
-    <payload xmlns="http://schemas.sage.com/sdata/2008/1">
-      <crm:salesInvoice sdata:key="14084" sdata:uuid="##14084##" xmlns="http://schemas.sage.com/crmErp">
+    <sdata:payload>
+      <crm:salesInvoice sdata:key="14084" sdata:uuid="##14084##">
 		<crm:active>true</crm:active>
 		<crm:status>Printed</crm:status>
 		<crm:statusFlag>false</crm:statusFlag>
 		<crm:type>Normal</crm:type>
 		<crm:tradingAccount sdata:uuid="88815929-A503-4fcb-B5CC-F1BB8ECFC874" 
 			sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('43660')"
-			sdata:key="43660" 
-			xmlns="http://schemas.sage.com/crmErp">
+			sdata:key="43660">
 		</crm:tradingAccount>
 		<crm:customerReference>I1250</crm:customerReference>
 		<crm:copyFlag>false</crm:copyFlag>
@@ -141,7 +141,7 @@
 		<crm:text2>Add a detail line</crm:text2>
 		<crm:user>Ryan</crm:user>
       </crm:salesInvoice>
-    </payload>
+    </sdata:payload>
   </entry>
     
  </feed>

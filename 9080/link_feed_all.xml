@@ -17,14 +17,10 @@
     <name>Billing Boss</name>
   </author>
  
-  <link rel="self" type="application/atom+xml" title="Refresh"
-  href="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices?select=tradingAccount,customerReference" />
-  <link rel="first" type="application/atom+xml" title="First Page"
-  href="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices?select=tradingAccount,customerReference&amp;startIndex=1&amp;count=10" />
-  <link rel="last" type="application/atom+xml" title="Last Page"
-  href="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices?select=tradingAccount,customerReference&amp;startIndex=1&amp;count=10" />
-  <link rel="next" type="application/atom+xml" title="Next Page"
-  href="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices?select=tradingAccount,customerReference&amp;startIndex=1&amp;count=10" />
+  <link rel="self" type="application/atom+xml" title="Refresh" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices?select=tradingAccount,customerReference" />
+  <link rel="first" type="application/atom+xml" title="First Page" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices?select=tradingAccount,customerReference&amp;startIndex=1&amp;count=10" />
+  <link rel="last" type="application/atom+xml" title="Last Page" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices?select=tradingAccount,customerReference&amp;startIndex=1&amp;count=10" />
+  <link rel="next" type="application/atom+xml" title="Next Page" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices?select=tradingAccount,customerReference&amp;startIndex=1&amp;count=10" />
   <link rel="schema" type="application/xml" title="Schema" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices/$schema" />
   <link rel="template" type="application/atom+xml" title="Template" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices/$template" />
   <link rel="post" type="application/atom+xml" title="Post" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices" />
@@ -38,10 +34,10 @@
   
   
   <entry>
-    <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14081')?select=tradingAccount,customerReference</id>
+    <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14081')</id>
     <title>Invoice 14081</title>
     <updated>2010-03-31T13:46:45Z</updated>
-    <link rel="self" type="application/atom+xml" title="self"   href="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14081')" />
+    <link rel="self" type="application/atom+xml" title="self"  href="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14081')" />
     <category scheme="http://schemas.sage.com/sdata/categories" term="salesInvoice" label=""/>
     <content>Invoice 14081</content>
  
@@ -54,10 +50,10 @@
   </entry>
   
   <entry>
-    <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14082')?select=tradingAccount,customerReference</id>
+    <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14082')</id>
     <title>Invoice 14082</title>
     <updated>2010-03-31T13:46:45Z</updated>
-    <link rel="self" type="application/atom+xml" title="self"   href="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14082')" />
+    <link rel="self" type="application/atom+xml" title="self"   href="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14082')?select=tradingAccount,customerReference" />
     <category scheme="http://schemas.sage.com/sdata/categories" term="salesInvoice" label=""/>
     <content>Invoice 14082</content>
  
@@ -70,10 +66,10 @@
   </entry>
   
   <entry>
-    <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14083')?select=tradingAccount,customerReference</id>
+    <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14083')</id>
     <title>Invoice 14083</title>
     <updated>2010-03-31T13:46:45Z</updated>
-    <link rel="self" type="application/atom+xml" title="self"   href="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14083')" />
+    <link rel="self" type="application/atom+xml" title="self"   href="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14083')?select=tradingAccount,customerReference" />
     <category scheme="http://schemas.sage.com/sdata/categories" term="salesInvoice" label=""/>
     <content>Invoice 14083</content>
  
@@ -86,10 +82,10 @@
   </entry>
   
   <entry>
-    <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14084')?select=tradingAccount,customerReference</id>
+    <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14084')</id>
     <title>Invoice 14084</title>
     <updated>2010-03-31T13:46:45Z</updated>
-    <link rel="self" type="application/atom+xml" title="self"   href="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14084')" />
+    <link rel="self" type="application/atom+xml" title="self"   href="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14084')?select=tradingAccount,customerReference" />
     <category scheme="http://schemas.sage.com/sdata/categories" term="salesInvoice" label=""/>
     <content>Invoice 14084</content>
  
@@ -102,10 +98,10 @@
   </entry>
   
   <entry>
-    <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14085')?select=tradingAccount,customerReference</id>
+    <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14085')</id>
     <title>Invoice 14085</title>
     <updated>2010-03-31T13:46:45Z</updated>
-    <link rel="self" type="application/atom+xml" title="self"   href="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14085')" />
+    <link rel="self" type="application/atom+xml" title="self"   href="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14085')?select=tradingAccount,customerReference" />
     <category scheme="http://schemas.sage.com/sdata/categories" term="salesInvoice" label=""/>
     <content>Invoice 14085</content>
  
