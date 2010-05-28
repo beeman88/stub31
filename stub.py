@@ -252,7 +252,7 @@ def post_link_resource(resource_type):
             response.content_type='application/atom+xml'
 
             # get url, uuid, key, name from xml doc
-            payload = doc.getElementsByTagName("payload")[0]
+            payload = doc.getElementsByTagName("sdata:payload")[0]
             write_to_log(payload.toxml(), debug)
             xml = ''
             if resource_type == TRADING_ACCOUNTS:
@@ -262,10 +262,8 @@ def post_link_resource(resource_type):
                 set_response_location(uuid)
                 url = get_url_from_resource(resource)
                 key = get_key_from_resource(resource)
-                # customer name
-                name = get_name_from_payload(payload)
 
-                xml = sdata_link_post_tradingAccount(url, key, uuid, name)
+                xml = sdata_link_post_tradingAccount(url, key, uuid)
 
                 write_to_uuids(key, TRADING_ACCOUNTS, uuid)
                 
@@ -277,14 +275,8 @@ def post_link_resource(resource_type):
 
                 url = get_url_from_resource(resource)             
                 key = get_key_from_resource(resource)
-                # customer reference - invoice number           
-                ref = get_ref_from_payload(payload)            
-
-                elCust = payload.getElementsByTagName("crm:tradingAccount")[0]
-                cust_uuid = get_uuid_from_resource(elCust)
-                cust_key = get_key_from_resource(elCust)
                 
-                xml = sdata_link_post_salesInvoice(url, key, ref, cust_key, cust_uuid)
+                xml = sdata_link_post_salesInvoice(url, key, uuid)
 
                 write_to_uuids(key, SALES_INVOICES, uuid)
 
@@ -326,26 +318,10 @@ def get_key_from_resource(resource):
     write_to_log(key, debug)
     return key
 
-def get_name_from_payload(payload):
-    global debug
-    elName = payload.getElementsByTagName("crm:name")[0]
-    write_to_log(elName.toxml(), debug)
-    name = elName.firstChild.data
-    write_to_log(name, debug)
-    return name
-
-def get_ref_from_payload(payload):
-    global debug
-    elRef = payload.getElementsByTagName("crm:customerReference")[0]
-    write_to_log(elRef.toxml(), debug)
-    ref = elRef.firstChild.data
-    write_to_log(ref, debug)
-    return ref
-
 def set_response_location(uuid):
     response.headers['Location'] = 'http://localhost:{0}'.format(port_number) + request.path + "('" + uuid + "')"                
 
-def sdata_link_post_tradingAccount(url, key, uuid, name):
+def sdata_link_post_tradingAccount(url, key, uuid):
     return '''
     <entry xmlns:xs="http://www.w3.org/2001/XMLSchema" 
            xmlns:cf="http://www.microsoft.com/schemas/rss/core/2005" 
@@ -356,22 +332,20 @@ def sdata_link_post_tradingAccount(url, key, uuid, name):
            xmlns:sme="http://schemas.sage.com/sdata/sme/2007" 
            xmlns:http="http://schemas.sage.com/sdata/http/2008/1" 
            xmlns:sc="http://schemas.sage.com/sc/2009" 
-           xmlns:crm="http://schemas.sage.com/crmErp/2008" >
+           xmlns:crm="http://schemas.sage.com/crmErp/2008">
       <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts/$linked('{2}')</id>
       <title>Linked account {2}</title>
       <updated>2010-05-25T13:27:19.207Z</updated>
-      <payload xmlns="http://schemas.sage.com/sdata/2008/1">
+      <sdata:payload>
         <crm:tradingAccount sdata:uuid="{2}"
           sdata:url="{0}"
-          sdata:key="{1}" 
-          xmlns="http://schemas.sage.com/crmErp">
-          <crm:name>{3}</crm:name>
+          sdata:key="{1}">
         </crm:tradingAccount>
-      </payload>
+      </sdata:payload>
     </entry>
-    '''.format(url, key, uuid, name)
+    '''.format(url, key, uuid)
 
-def sdata_link_post_salesInvoice(key, uuid, reference, cust_key, cust_uuid):
+def sdata_link_post_salesInvoice(url, key, uuid):
     return '''
     <entry xmlns:xs="http://www.w3.org/2001/XMLSchema" 
            xmlns:cf="http://www.microsoft.com/schemas/rss/core/2005" 
@@ -382,21 +356,18 @@ def sdata_link_post_salesInvoice(key, uuid, reference, cust_key, cust_uuid):
            xmlns:sme="http://schemas.sage.com/sdata/sme/2007" 
            xmlns:http="http://schemas.sage.com/sdata/http/2008/1" 
            xmlns:sc="http://schemas.sage.com/sc/2009" 
-           xmlns:crm="http://schemas.sage.com/crmErp/2008" >
-      <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices/$linked('{1}')</id>
-      <title>Linked invoice {1}</title>
+           xmlns:crm="http://schemas.sage.com/crmErp/2008">
+      <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices/$linked('{2}')</id>
+      <title>Linked invoice {2}</title>
       <updated>2010-05-25T13:27:19.207Z</updated>
-      <payload xmlns="http://schemas.sage.com/sdata/2008/1">
-        <crm:salesInvoice sdata:uuid="{1}"
-          sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('{0}')"
-          sdata:key="{0}" 
-          xmlns="http://schemas.sage.com/crmErp">
-                    <crm:tradingAccount sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('{3}')" sdata:uuid="{4}" />
-                    <crm:customerReference>{2}</crm:customerReference>
+      <sdata:payload>
+        <crm:salesInvoice sdata:uuid="{2}"
+          sdata:url="{0}"
+          sdata:key="{1}" >
         </crm:salesInvoice>
-      </payload>
+      </sdata:payload>
     </entry>
-    '''.format(key, uuid, reference, cust_key, cust_uuid)    
+    '''.format(url, key, uuid)    
     
 def sdata_sync_accepted():
     return read_and_log('sync_accepted.xml')
