@@ -13,6 +13,7 @@ global TRADING_ACCOUNTS
 global SALES_INVOICES
 global TOKEN_MARKER
 global uuids_dict
+global TAGS_DICT
 
 @route('/')
 def index():
@@ -178,16 +179,14 @@ def index(tracking_id):
     write_to_log('in_progress_count = {0}'.format(in_progress_count), debug)
 
     if in_progress_count < in_progress_reqs:
-        if debug == "1":        
-            write_to_log('sync feed in progress')
+        write_to_log('sync feed in progress', debug)
         in_progress_count = in_progress_count + 1
         response.status = 202
         response.content_type='application/xml'
         response.headers['Location'] = request.url
         return sdata_sync_in_progress()
     else:
-        if debug == "1":        
-            write_to_log('sync feed complete')        
+        write_to_log('sync feed complete', debug)        
         in_progress_count = 0
         response.status = 200
         response.content_type='application/atom+xml'
@@ -232,17 +231,21 @@ def sdata_link_feed_all():
 def sdata_link_post_error():
     return read_file('link_post.xml')
 
-def post_link_resource(resource_type):
+def post_link_resource(resourceKind):
     global debug
+    global TAGS_DICT
     import xml.dom.minidom        
-    # create an xml document from the request body
+
+    resourceName = resourceKind[:len(resourceKind) - 1]
+    write_to_log(resourceName, debug)
 
     try:
         # body = request.body.read()
         # write_to_log("body = %s" % body)
         # body = to_unicode(body)
         # write_to_log("unicode body = %s" % body)
-        
+
+        # create an xml document from the request body        
         doc = xml.dom.minidom.parse(request.body)
         write_to_log(doc.toxml(), debug)
 
@@ -252,33 +255,23 @@ def post_link_resource(resource_type):
             response.content_type='application/atom+xml'
 
             # get url, uuid, key, name from xml doc
-            payload = doc.getElementsByTagName("sdata:payload")[0]
+            payload = doc.getElementsByTagName(TAGS_DICT['payload'])[0]
             write_to_log(payload.toxml(), debug)
             xml = ''
-            if resource_type == TRADING_ACCOUNTS:
-                resource = payload.getElementsByTagName("crm:tradingAccount")[0]
-                
-                uuid = get_uuid_from_resource(resource)
-                set_response_location(uuid)
-                url = get_url_from_resource(resource)
-                key = get_key_from_resource(resource)
+            
+            resource = payload.getElementsByTagName(TAGS_DICT[resourceName])[0]
+            uuid = get_uuid_from_resource(resource)
+            set_response_location(uuid)
+            url = get_url_from_resource(resource)
+            key = get_key_from_resource(resource)
 
+            # decide what kind of xml to send back
+            if resourceKind == TRADING_ACCOUNTS:
                 xml = sdata_link_post_tradingAccount(url, key, uuid)
-
-                write_to_uuids(key, TRADING_ACCOUNTS, uuid)
-                
-            elif resource_type == SALES_INVOICES:
-                resource = payload.getElementsByTagName("crm:salesInvoice")[0]
-                
-                uuid = get_uuid_from_resource(resource)
-                set_response_location(uuid)            
-
-                url = get_url_from_resource(resource)             
-                key = get_key_from_resource(resource)
-                
+            elif resourceKind == SALES_INVOICES:
                 xml = sdata_link_post_salesInvoice(url, key, uuid)
-
-                write_to_uuids(key, SALES_INVOICES, uuid)
+                
+            write_to_uuids(key, resourceKind, uuid)
 
             doc.unlink()            
             write_to_log(xml)
@@ -299,19 +292,26 @@ def post_link_resource(resource_type):
         return sdata_link_post_error()        
 
 def get_uuid_from_resource(resource):
-    global debug    
+    global debug
+    global TAGS_DICT
     write_to_log(resource.toxml(), debug)        
-    uuid = resource.attributes["sdata:uuid"].value
+    uuid = resource.attributes[TAGS_DICT['uuid']].value
     write_to_log(uuid, debug)
     return uuid
 
 def get_url_from_resource(resource):
-    url = resource.attributes["sdata:url"].value
+    url = resource.attributes[TAGS_DICT['url']].value
+    write_to_log(url, debug)
     return url
+
+def get_key_from_resource_new(resource):
+    key = resource.attributes[TAGS_DICT['key']].value
+    write_to_log(key, debug)    
+    return key
 
 def get_key_from_resource(resource):
     global debug
-    url = resource.attributes["sdata:url"].value
+    url = resource.attributes[TAGS_DICT['url']].value
     write_to_log(url, debug)
     # get the key from the url between the ('...') TODO use regex
     key = url[url.index("('") + 2:url.index("')")]
@@ -515,6 +515,12 @@ TRADING_ACCOUNTS = "tradingAccounts"
 SALES_INVOICES = "salesInvoices"
 TOKEN_MARKER = '##'
 uuids_dict = {}
+TAGS_DICT = {'payload':        'sdata:payload',
+             'tradingAccount': 'crm:tradingAccount',
+             'salesInvoice':   'crm:salesInvoice',
+             'uuid':           'sdata:uuid',
+             'url':            'sdata:url',
+             'key':            'sdata:key'}
 
 # initialize uuid file for the file test
 # TODO get rid of hard coded port number
