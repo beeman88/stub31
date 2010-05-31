@@ -11,6 +11,7 @@ global log
 global port_number
 global TRADING_ACCOUNTS
 global SALES_INVOICES
+global RECEIPTS
 global TOKEN_MARKER
 global uuids_dict
 global TAGS_DICT
@@ -111,6 +112,8 @@ def index():
         return post_link_resource(TRADING_ACCOUNTS)
     elif request.url.find(SALES_INVOICES) > 0: 
         return post_link_resource(SALES_INVOICES)
+    elif request.url.find(RECEIPTS) > 0:
+        return post_link_resource(RECEIPTS)
     else:
         response.status = 404
         write_to_log("Error Invalid Resource")
@@ -480,11 +483,13 @@ in_progress_count = 0
 in_progress_reqs = 1
 TRADING_ACCOUNTS = "tradingAccounts"
 SALES_INVOICES = "salesInvoices"
+RECEIPTS = "receipts"
 TOKEN_MARKER = '##'
 uuids_dict = {}
 TAGS_DICT = {'payload':        'sdata:payload',
              'tradingAccount': 'crm:tradingAccount',
              'salesInvoice':   'crm:salesInvoice',
+             'receipt':        'crm:receipt',
              'uuid':           'sdata:uuid',
              'url':            'sdata:url',
              'key':            'sdata:key',
