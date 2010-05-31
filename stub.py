@@ -47,6 +47,7 @@ def index():
 # compare with Sage 50 - Act! implementation
 @route('/sdata/billingboss/crmErp/-/tradingAccounts/$linked', method='GET')
 @route('/sdata/billingboss/crmErp/-/salesInvoices/$linked', method='GET')
+@route('/sdata/billingboss/crmErp/-/receipts/$linked', method='GET')
 def index():
     global debug
 
@@ -74,6 +75,7 @@ def index():
 # all customers, invoices
 @route('/sdata/billingboss/crmErp/-/tradingAccounts', method='GET')
 @route('/sdata/billingboss/crmErp/-/salesInvoices', method='GET')
+@route('/sdata/billingboss/crmErp/-/receipts', method='GET')
 def index():
     global debug
     log_method_start('GET count of all resources or link feed')
@@ -101,6 +103,7 @@ def index():
 # response is one entry for Ashburton Reinforcing
 @route('/sdata/billingboss/crmErp/-/tradingAccounts/$linked', method='POST')
 @route('/sdata/billingboss/crmErp/-/salesInvoices/$linked', method='POST')
+@route('/sdata/billingboss/crmErp/-/receipts/$linked', method='POST')
 def index():
     global debug
     log_method_start('Post new links')
@@ -123,6 +126,7 @@ def index():
 # POST
 @route('/sdata/billingboss/crmErp/-/tradingAccounts/$syncSource', method='POST')
 @route('/sdata/billingboss/crmErp/-/salesInvoices/$syncSource', method='POST')
+@route('/sdata/billingboss/crmErp/-/receipts/$syncSource', method='POST')
 def index():
     global debug
     log_method_start('Create sync request')
@@ -168,6 +172,7 @@ def index():
 # /sdata/billingboss/crmErp/-/tradingAccounts/$syncSource('abc42b0d-d110-4f5c-ac79-d3aa11bd20cb')
 @route('/sdata/billingboss/crmErp/-/tradingAccounts/$syncSource('':tracking_id'')', method='GET')
 @route('/sdata/billingboss/crmErp/-/salesInvoices/$syncSource('':tracking_id'')', method='GET')
+@route('/sdata/billingboss/crmErp/-/receipts/$syncSource('':tracking_id'')', method='GET')
 def index(tracking_id):
     global in_progress_count 
     global in_progress_reqs
@@ -201,6 +206,7 @@ def index(tracking_id):
 # /sdata/billingboss/crmErp/-/tradingAccounts/$syncSource('abc42b0d-d110-4f5c-ac79-d3aa11bd20cb')
 @route('/sdata/billingboss/crmErp/-/tradingAccounts/$syncSource('':tracking_id'')', method='DELETE')
 @route('/sdata/billingboss/crmErp/-/salesInvoices/$syncSource('':tracking_id'')', method='DELETE')
+@route('/sdata/billingboss/crmErp/-/receipts/$syncSource('':tracking_id'')', method='DELETE')
 def index(tracking_id):
     global debug
     log_method_start('Delete (finish) sync request')
