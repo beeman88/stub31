@@ -258,8 +258,14 @@ def post_link_resource(resourceKind):
             payload = doc.getElementsByTagName(TAGS_DICT['payload'])[0]
             write_to_log(payload.toxml(), debug)
             xml = ''
+
+            # add exception because framework sends entry tag instead of resourceName tag
+            try:
+                resource = payload.getElementsByTagName(TAGS_DICT[resourceName])[0]
+            except Exception as e:
+                write_to_log('Exception error is: %s' % e)
+                resource = payload.getElementsByTagName(TAGS_DICT['entry'])[0]
             
-            resource = payload.getElementsByTagName(TAGS_DICT[resourceName])[0]
             uuid = get_uuid_from_resource(resource)
             set_response_location(uuid)
             url = get_url_from_resource(resource)
@@ -507,7 +513,8 @@ TAGS_DICT = {'payload':        'sdata:payload',
              'salesInvoice':   'crm:salesInvoice',
              'uuid':           'sdata:uuid',
              'url':            'sdata:url',
-             'key':            'sdata:key'}
+             'key':            'sdata:key',
+             'entry':          'entry'}
 
 # initialize uuid file for the file test
 # TODO get rid of hard coded port number
