@@ -226,7 +226,7 @@ def sdata_link_feed_unlinked():
     return read_and_log('link_feed_unlinked.xml')
 
 def sdata_link_feed_all():
-    replace_tokens_in_feed('link_feed_all.xml')
+    return replace_tokens_in_feed('link_feed_all.xml')
 
 def sdata_link_post_error():
     return read_file('link_post.xml')
@@ -370,6 +370,9 @@ def sdata_link_post_salesInvoice(url, key, uuid):
     '''.format(url, key, uuid)    
     
 def sdata_sync_accepted():
+    write_to_log("")    
+    write_to_log("request body = %s" % request.body.read())
+    write_to_log("")
     return read_and_log('sync_accepted.xml')
 
 def sdata_sync_in_progress():
@@ -377,7 +380,7 @@ def sdata_sync_in_progress():
 
 # TODO What is the simply endpoint?
 def sdata_sync_feed(tracking_id):
-	replace_tokens_in_feed('sync_feed.xml', tracking_id)
+    return replace_tokens_in_feed('sync_feed.xml', tracking_id)
 	
 def replace_tokens_in_feed(filename, tracking_id=''):
     global debug
@@ -410,7 +413,7 @@ def replace_tokens_in_feed(filename, tracking_id=''):
                 feed = feed.replace(token, uuids_dict[key].strip())
         except Exception as e:
             write_to_log('Exception error is: %s' % e)        
-		
+
     write_to_log(feed)		
     return feed	
 
@@ -533,4 +536,5 @@ write_to_log('debug = {0}'.format(debug))
 config.close()
 
 run(host='localhost', port=port_number)
+
 
