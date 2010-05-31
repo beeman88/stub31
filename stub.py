@@ -271,11 +271,8 @@ def post_link_resource(resourceKind):
             url = get_url_from_resource(resource)
             key = get_key_from_resource(resource)
 
-            # decide what kind of xml to send back
-            if resourceKind == TRADING_ACCOUNTS:
-                xml = sdata_link_post_tradingAccount(url, key, uuid)
-            elif resourceKind == SALES_INVOICES:
-                xml = sdata_link_post_salesInvoice(url, key, uuid)
+            # create response body
+            xml = sdata_link_post(resourceKind, resourceName, url, key, uuid)
                 
             write_to_uuids(key, resourceKind, uuid)
 
@@ -318,7 +315,8 @@ def get_key_from_resource(resource):
 def set_response_location(uuid):
     response.headers['Location'] = 'http://localhost:{0}'.format(port_number) + request.path + "('" + uuid + "')"                
 
-def sdata_link_post_tradingAccount(url, key, uuid):
+# generic response to link request
+def sdata_link_post(resourceKind, resourceName, url, key, uuid):
     return '''
     <entry xmlns:xs="http://www.w3.org/2001/XMLSchema" 
            xmlns:cf="http://www.microsoft.com/schemas/rss/core/2005" 
@@ -330,41 +328,17 @@ def sdata_link_post_tradingAccount(url, key, uuid):
            xmlns:http="http://schemas.sage.com/sdata/http/2008/1" 
            xmlns:sc="http://schemas.sage.com/sc/2009" 
            xmlns:crm="http://schemas.sage.com/crmErp/2008">
-      <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts/$linked('{2}')</id>
-      <title>Linked account {2}</title>
+      <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/{0}/$linked('{4}')</id>
+      <title>Linked {1} {4}</title>
       <updated>2010-05-25T13:27:19.207Z</updated>
       <sdata:payload>
-        <crm:tradingAccount sdata:uuid="{2}"
-          sdata:url="{0}"
-          sdata:key="{1}">
-        </crm:tradingAccount>
+        <crm:{1} sdata:uuid="{4}"
+          sdata:url="{2}"
+          sdata:key="{3}">
+        </crm:{1}>
       </sdata:payload>
     </entry>
-    '''.format(url, key, uuid)
-
-def sdata_link_post_salesInvoice(url, key, uuid):
-    return '''
-    <entry xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-           xmlns:cf="http://www.microsoft.com/schemas/rss/core/2005" 
-           xmlns="http://www.w3.org/2005/Atom" 
-           xmlns:sdata="http://schemas.sage.com/sdata/2008/1" 
-           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-           xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" 
-           xmlns:sme="http://schemas.sage.com/sdata/sme/2007" 
-           xmlns:http="http://schemas.sage.com/sdata/http/2008/1" 
-           xmlns:sc="http://schemas.sage.com/sc/2009" 
-           xmlns:crm="http://schemas.sage.com/crmErp/2008">
-      <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices/$linked('{2}')</id>
-      <title>Linked invoice {2}</title>
-      <updated>2010-05-25T13:27:19.207Z</updated>
-      <sdata:payload>
-        <crm:salesInvoice sdata:uuid="{2}"
-          sdata:url="{0}"
-          sdata:key="{1}" >
-        </crm:salesInvoice>
-      </sdata:payload>
-    </entry>
-    '''.format(url, key, uuid)    
+    '''.format(resourceKind, resourceName, url, key, uuid)
     
 def sdata_sync_accepted():
     write_to_log("")    
