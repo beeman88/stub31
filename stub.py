@@ -304,18 +304,9 @@ def get_url_from_resource(resource):
     write_to_log(url, debug)
     return url
 
-def get_key_from_resource_new(resource):
+def get_key_from_resource(resource):
     key = resource.attributes[TAGS_DICT['key']].value
     write_to_log(key, debug)    
-    return key
-
-def get_key_from_resource(resource):
-    global debug
-    url = resource.attributes[TAGS_DICT['url']].value
-    write_to_log(url, debug)
-    # get the key from the url between the ('...') TODO use regex
-    key = url[url.index("('") + 2:url.index("')")]
-    write_to_log(key, debug)
     return key
 
 def set_response_location(uuid):
@@ -385,9 +376,11 @@ def sdata_sync_feed(tracking_id):
 def replace_tokens_in_feed(filename, tracking_id=''):
     global debug
     global uuids_dict
-    import xml.dom.minidom
+    import re
+    
     feed = read_file(filename)
 
+    # strip quotes off of tracking id parameter
     if len(tracking_id) > 0:
         feed = feed.format(tracking_id.strip("'"))
 	
@@ -395,27 +388,18 @@ def replace_tokens_in_feed(filename, tracking_id=''):
     if feed.count(TOKEN_MARKER) > 0:
         read_uuids()
         try:
-            doc = xml.dom.minidom.parseString(feed)
-            entries = doc.getElementsByTagName("entry")
-            for entry in entries:
+            for k, v in list(uuids_dict.items()):
+                write_to_log("%s=%s" % (k, v), debug)            
+                p = re.compile(r'##'+k.strip()+'##')
+                feed = p.sub(v.strip(), feed)
+                write_to_log(feed, debug)
                 if feed.count(TOKEN_MARKER) < 1:
                     break
-                
-                elId = entry.getElementsByTagName("id")[0]
-                url = elId.firstChild.data
-                key = url[url.index("('") + 2:url.index("')")]
-                token = TOKEN_MARKER + key + TOKEN_MARKER
-                write_to_log('token = %s' % token, debug)
-
-                write_to_log("Length : %d" % len (uuids_dict), debug)
-                for k, v in list(uuids_dict.items()):
-                    write_to_log("%s=%s" % (k, v), debug)
-                feed = feed.replace(token, uuids_dict[key].strip())
         except Exception as e:
             write_to_log('Exception error is: %s' % e)        
 
     write_to_log(feed)		
-    return feed	
+    return feed
 
 def read_file(filename):
     global debug
