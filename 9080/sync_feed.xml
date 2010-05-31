@@ -56,7 +56,7 @@
 		<crm:status>Printed</crm:status>
 		<crm:statusFlag>false</crm:statusFlag>
 		<crm:type>Normal</crm:type>
-		<crm:tradingAccount sdata:uuid="88815929-A503-4fcb-B5CC-F1BB8ECFC874" 
+		<crm:tradingAccount sdata:uuid="##43660##" 
 			sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('43660')"
 			sdata:key="43660" >
 		</crm:tradingAccount>
