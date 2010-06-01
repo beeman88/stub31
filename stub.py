@@ -135,12 +135,12 @@ def index():
         return "Access Denied"    
 
     try:
-        trackingId = request.GET['trackingId']
+        trackingID = request.GET['trackingID']
     except Exception:
-        write_to_log('Error trackingId does not exist')
+        write_to_log('Error trackingID does not exist')
         return
     else:
-        write_to_log('trackingId = {0}'.format(trackingId), debug)
+        write_to_log('trackingID = {0}'.format(trackingID), debug)
 
     # TODO don't know why these parameters are not in request
 ##    try:
@@ -162,7 +162,7 @@ def index():
     write_to_log('202 Accepted')
     response.status = 202
     response.content_type='application/xml'
-    response.headers['Location'] = 'http://localhost:{0}'.format(port_number) + request.path + "('" + trackingId + "')"
+    response.headers['Location'] = 'http://localhost:{0}'.format(port_number) + request.path + "('" + trackingID + "')"
     return sdata_sync_accepted()
 
 # First request return sync in progress, second request returns feed
@@ -170,10 +170,10 @@ def index():
 # 7b. Request status of sync request (Complete)
 # GET on location of previous request
 # /sdata/billingboss/crmErp/-/tradingAccounts/$syncSource('abc42b0d-d110-4f5c-ac79-d3aa11bd20cb')
-@route('/sdata/billingboss/crmErp/-/tradingAccounts/$syncSource('':tracking_id'')', method='GET')
-@route('/sdata/billingboss/crmErp/-/salesInvoices/$syncSource('':tracking_id'')', method='GET')
-@route('/sdata/billingboss/crmErp/-/receipts/$syncSource('':tracking_id'')', method='GET')
-def index(tracking_id):
+@route('/sdata/billingboss/crmErp/-/tradingAccounts/$syncSource('':trackingID'')', method='GET')
+@route('/sdata/billingboss/crmErp/-/salesInvoices/$syncSource('':trackingID'')', method='GET')
+@route('/sdata/billingboss/crmErp/-/receipts/$syncSource('':trackingID'')', method='GET')
+def index(trackingID):
     global in_progress_count 
     global in_progress_reqs
     global debug
@@ -183,7 +183,7 @@ def index(tracking_id):
     if authentication() != "Authenticated":
         return "Access Denied"
     
-    write_to_log('tracking id = {0}'.format(tracking_id), debug)
+    write_to_log('tracking id = {0}'.format(trackingID), debug)
     write_to_log('in_progress_count = {0}'.format(in_progress_count), debug)
 
     if in_progress_count < in_progress_reqs:
@@ -199,22 +199,22 @@ def index(tracking_id):
         response.status = 200
         response.content_type='application/atom+xml'
         response.headers['Location'] = request.url
-        return sdata_sync_feed(tracking_id)
+        return sdata_sync_feed(trackingID)
 
 # 8. Delete (finish) sync request
 # DELETE request
 # /sdata/billingboss/crmErp/-/tradingAccounts/$syncSource('abc42b0d-d110-4f5c-ac79-d3aa11bd20cb')
-@route('/sdata/billingboss/crmErp/-/tradingAccounts/$syncSource('':tracking_id'')', method='DELETE')
-@route('/sdata/billingboss/crmErp/-/salesInvoices/$syncSource('':tracking_id'')', method='DELETE')
-@route('/sdata/billingboss/crmErp/-/receipts/$syncSource('':tracking_id'')', method='DELETE')
-def index(tracking_id):
+@route('/sdata/billingboss/crmErp/-/tradingAccounts/$syncSource('':trackingID'')', method='DELETE')
+@route('/sdata/billingboss/crmErp/-/salesInvoices/$syncSource('':trackingID'')', method='DELETE')
+@route('/sdata/billingboss/crmErp/-/receipts/$syncSource('':trackingID'')', method='DELETE')
+def index(trackingID):
     global debug
     log_method_start('Delete (finish) sync request')
 
     if authentication() != "Authenticated":
         return "Access Denied"
     
-    write_to_log('tracking id = {0}'.format(tracking_id), debug)
+    write_to_log('tracking id = {0}'.format(trackingID), debug)
     response.status = 200
     return "DELETED"
 
@@ -359,10 +359,10 @@ def sdata_sync_in_progress():
     return read_and_log('sync_in_progress.xml')
 
 # TODO What is the simply endpoint?
-def sdata_sync_feed(tracking_id):
-    return replace_tokens_in_feed('sync_feed.xml', tracking_id)
+def sdata_sync_feed(trackingID):
+    return replace_tokens_in_feed('sync_feed.xml', trackingID)
 	
-def replace_tokens_in_feed(filename, tracking_id=''):
+def replace_tokens_in_feed(filename, trackingID=''):
     global debug
     global uuids_dict
     import re
@@ -370,8 +370,8 @@ def replace_tokens_in_feed(filename, tracking_id=''):
     feed = read_file(filename)
 
     # strip quotes off of tracking id parameter
-    if len(tracking_id) > 0:
-        feed = feed.format(tracking_id.strip("'"))
+    if len(trackingID) > 0:
+        feed = feed.format(trackingID.strip("'"))
 	
     # look for token marker 
     if feed.count(TOKEN_MARKER) > 0:
