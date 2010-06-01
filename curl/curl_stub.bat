@@ -21,6 +21,7 @@ GOTO :EOF
 
 IF "%5"=="tradingAccounts" set select="name,customerSupplierFlag"
 IF "%5"=="salesInvoices" set select="tradingAccount,customerReference"
+IF "%5"=="receipts" set select="tradingAccount,originatorDocument,date,netTotal"
 
 IF "%1"=="8080" GOTO LINK2
 IF "%1"=="8081" GOTO NOLINK
@@ -39,6 +40,7 @@ IF "%1"=="9080" GOTO NOLINK
 IF "%1"=="9085" GOTO NOLINK
 IF "%1"=="9090" GOTO NOLINK
 IF "%1"=="9097" GOTO NOLINK
+IF "%1"=="9500" GOTO LINK2
 
 
 REM authorization fail 401
@@ -117,7 +119,7 @@ REM get count all customers
 curl -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/-/%5?count=0
 
 REM get all customers
-curl -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/-/%5?select=name,customerSupplierFlag
+curl -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/-/%5?select=%select%
 
 REM post 2 customer new links
 curl -v -u%3:%4 -X POST -d @C:\Python31\%1\link_post_request.xml -H "Content-Type: application/atom+xml; charset=utf-8" http://localhost:%1/sdata/billingboss/crmErp/-/%5/$linked
