@@ -19,7 +19,7 @@
 
   <category scheme="http://schemas.sage.com/sdata/categories" term="receipt" label=""/>
  
-  <opensearch:totalResults>2</opensearch:totalResults>
+  <opensearch:totalResults>1</opensearch:totalResults>
   <opensearch:startIndex>1</opensearch:startIndex>
   <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
  
@@ -29,7 +29,7 @@
     <sync:origin>http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts</sync:origin>
     <sync:digestEntry>
       <sync:endpoint>http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts</sync:endpoint>
-      <sync:tick>2</sync:tick>
+      <sync:tick>5</sync:tick>
       <sync:stamp>2010-10-30T17:23:08Z</sync:stamp>
       <sync:conflictPriority>1</sync:conflictPriority>
     </sync:digestEntry>
@@ -45,17 +45,17 @@
     <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts('43660')</id>
     <title>BB Customer 43660</title>
     <updated>2008-10-30T14:55:43.281Z</updated>
-    <content>BB Receipt 12010</content>
+    <content>BB Receipt 12014</content>
  
     <sync:syncState>
       <sync:endpoint>http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts</sync:endpoint>
-      <sync:tick>1</sync:tick>
+      <sync:tick>5</sync:tick>
       <sync:stamp>2010-10-31T14:55:43.281Z</sync:stamp>
     </sync:syncState>
 	
     <sdata:payload>
-	  <crm:receipt sdata:key="12010" sdata:uuid="##12010##"
-			sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts('12010')" >
+	  <crm:receipt sdata:key="12014" sdata:uuid="##12014##"
+			sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts('12014')" >
 	    <crm:active>true</crm:active>
 		<crm:type>payment</crm:type>
 		<crm:bankAccount xsi:nil="true" />
@@ -75,9 +75,9 @@
 		<crm:tradingAccountReference xsi:nil="true" />
 		<crm:priceList xsi:nil="true" />
 		<crm:originatorDocument>
-		  <salesInvoice sdata:uuid="##14081##"
-			  sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoice('14081')"
-			  sdata:key="14081" />
+		  <salesInvoice sdata:uuid="##14084##"
+			  sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoice('14084')"
+			  sdata:key="14084" />
 		</crm:originatorDocument>
 		<crm:taxCode xsi:nil="true" />
 		<crm:salesPerson xsi:nil="true" />
@@ -89,88 +89,15 @@
 		<crm:bankAccountCurrencyExchangeRate xsi:nil="true" />
 		<crm:bankAccountCurrencyExchangeRateOperator xsi:nil="true" />
 		<crm:bankAccountCurrencyExchangeRateDate>2010-04-01Z</crm:bankAccountCurrencyExchangeRateDate>
-		<crm:netTotal>42.00</crm:netTotal>
-		<crm:balanceBefore>42.00</crm:balanceBefore>
+		<crm:netTotal>65.00</crm:netTotal>
+		<crm:balanceBefore>65.00</crm:balanceBefore>
 		<crm:balanceAfter>0</crm:balanceAfter>
 		<crm:discountTotal>0</crm:discountTotal>
 		<crm:chargesTotal xsi:nil="true" />
 		<crm:taxTotal xsi:nil="true" />
-		<crm:grossTotal>42.00</crm:grossTotal>
+		<crm:grossTotal>65.00</crm:grossTotal>
 		<crm:name xsi:nil="true" />
-		<crm:description>payment for invoice 14081</crm:description>
-		<crm:text1 xsi:nil="true" />
-		<crm:text2 xsi:nil="true" />
-		<crm:receiptLines xsi:nil="true" />
-		<crm:lineCount xsi:nil="true" />
-		<crm:user>myusername</crm:user>
-		<crm:financialAccounts xsi:nil="true" />
-		<crm:costCentres xsi:nil="true" />
-		<crm:departments xsi:nil="true" />
-		<crm:projects xsi:nil="true" />
-		<crm:projectLines xsi:nil="true" />
-		<crm:interactions xsi:nil="true" />
-		<crm:notes xsi:nil="true" />
-	  </crm:receipt>
-    </sdata:payload>	
-  </entry>
-
-  <entry>
-    <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts('43660')</id>
-    <title>BB Customer 43660</title>
-    <updated>2008-10-30T14:55:43.281Z</updated>
-    <content>BB Receipt 12010</content>
- 
-    <sync:syncState>
-      <sync:endpoint>http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts</sync:endpoint>
-      <sync:tick>2</sync:tick>
-      <sync:stamp>2010-10-31T14:55:43.281Z</sync:stamp>
-    </sync:syncState>
-	
-    <sdata:payload>
-	  <crm:receipt sdata:key="12011" sdata:uuid="##12011##"
-			sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts('12011')" >
-	    <crm:active>true</crm:active>
-		<crm:type>payment</crm:type>
-		<crm:bankAccount xsi:nil="true" />
-		<crm:source>cheque</crm:source>
-		<crm:status>cleared</crm:status>
-		<crm:tenderType>cheque</crm:tenderType>
-		<crm:tenderReference nil="true" />
-		<crm:externalReference nil="true" />
-		<crm:reference xsi:nil="true" />
-		<crm:reference2 xsi:nil="true" />
-		<crm:date>2010-03-31Z</crm:date>
-		<crm:processDate>2010-04-01Z</crm:processDate>
-		<crm:tradingAccount sdata:uuid="##43660##"
-			sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('43660')"
-			sdata:key="43660" >
-		</crm:tradingAccount>
-		<crm:tradingAccountReference xsi:nil="true" />
-		<crm:priceList xsi:nil="true" />
-		<crm:originatorDocument>
-		  <salesInvoice sdata:uuid="##14082##"
-			  sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoice('14082')"
-			  sdata:key="14082" />
-		</crm:originatorDocument>
-		<crm:taxCode xsi:nil="true" />
-		<crm:salesPerson xsi:nil="true" />
-		<crm:currency>CAD</crm:currency>
-		<crm:operatingCompanyCurrency>CAD</crm:operatingCompanyCurrency>
-		<crm:operatingCompanyCurrencyExchangeRate>1</crm:operatingCompanyCurrencyExchangeRate>
-		<crm:operatingCompanyCurrencyExchangeRateOperator>*</crm:operatingCompanyCurrencyExchangeRateOperator>
-		<crm:bankAccountCurrency>CAD</crm:bankAccountCurrency>
-		<crm:bankAccountCurrencyExchangeRate xsi:nil="true" />
-		<crm:bankAccountCurrencyExchangeRateOperator xsi:nil="true" />
-		<crm:bankAccountCurrencyExchangeRateDate>2010-04-01Z</crm:bankAccountCurrencyExchangeRateDate>
-		<crm:netTotal>46.99</crm:netTotal>
-		<crm:balanceBefore>46.99</crm:balanceBefore>
-		<crm:balanceAfter>0</crm:balanceAfter>
-		<crm:discountTotal>0</crm:discountTotal>
-		<crm:chargesTotal xsi:nil="true" />
-		<crm:taxTotal xsi:nil="true" />
-		<crm:grossTotal>46.99</crm:grossTotal>
-		<crm:name xsi:nil="true" />
-		<crm:description>payment for invoice 14082</crm:description>
+		<crm:description>overpayment for invoice 14084</crm:description>
 		<crm:text1 xsi:nil="true" />
 		<crm:text2 xsi:nil="true" />
 		<crm:receiptLines xsi:nil="true" />
