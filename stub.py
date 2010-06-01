@@ -142,22 +142,21 @@ def index():
     else:
         write_to_log('trackingID = {0}'.format(trackingID), debug)
 
-    # TODO don't know why these parameters are not in request
-##    try:
-##        runName = request.GET['runName']
-##    except Exception:
-##        write_to_log('runName does not exist')
-##        return
-##    else:
-##        write_to_log('runName = {0}'.format(runName))
-##
-##    try:
-##        runStamp = request.GET['runStamp']
-##    except Exception:
-##        write_to_log('runStamp does not exist')
-##        return
-##    else:
-##        write_to_log('runStamp = {0}'.format(runStamp))
+    try:
+        runName = request.GET['runName']
+    except Exception:
+        write_to_log('runName does not exist')
+        return
+    else:
+        write_to_log('runName = {0}'.format(runName))
+
+    try:
+        runStamp = request.GET['runStamp']
+    except Exception:
+        write_to_log('runStamp does not exist')
+        return
+    else:
+        write_to_log('runStamp = {0}'.format(runStamp))
 
     write_to_log('202 Accepted')
     response.status = 202
