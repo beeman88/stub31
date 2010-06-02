@@ -53,6 +53,7 @@
     <sdata:payload>
       <crm:tradingAccount sdata:uuid="##8105##">
         <crm:name>Ashburton Reinforcing</crm:name>
+        <crm:customerSupplierFlag>Customer</crm:customerSupplierFlag>		
       </crm:tradingAccount>
     </sdata:payload>
   </entry>
@@ -72,6 +73,7 @@
     <sdata:payload>
       <crm:tradingAccount sdata:uuid="49bf79c0-5f72-11df-a08a-0800200c9a66">
         <crm:name>Askew Shopping Centre</crm:name>
+        <crm:customerSupplierFlag>Customer</crm:customerSupplierFlag>		
       </crm:tradingAccount>
     </sdata:payload>
   </entry>  

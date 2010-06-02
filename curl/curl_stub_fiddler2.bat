@@ -19,9 +19,13 @@ GOTO :EOF
 )
 
 
-IF "%5"=="tradingAccounts" set select="name,customerSupplierFlag"
-IF "%5"=="salesInvoices" set select="tradingAccount,customerReference"
-IF "%5"=="receipts" set select="tradingAccount,originatorDocument,date,netTotal"
+IF "%5"=="tradingAccounts" set select="select=name,customerSupplierFlag"
+IF "%5"=="salesInvoices" set select="select=tradingAccount,customerReference"
+IF "%5"=="receipts" set select="select=tradingAccount,originatorDocument,date,netTotal"
+
+IF "%5"=="tradingAccounts" set syncSelect="select=name,customerSupplierFlag"
+IF "%5"=="salesInvoices" set syncSelect=""
+IF "%5"=="receipts" set syncSelect=""
 
 IF "%1"=="8080" GOTO LINK2
 IF "%1"=="8081" GOTO NOLINK
@@ -56,13 +60,13 @@ REM get count all customers
 curl -x 127.0.0.1:8888 -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/-/%5?count=0
 
 REM get all customers
-curl -x 127.0.0.1:8888 -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/-/%5?select=%select%
+curl -x 127.0.0.1:8888 -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/-/%5?%select%
 
 REM post customer new links
 curl -x 127.0.0.1:8888 -v -u%3:%4 -X POST -d @C:\Python31\%1\link_post_request.xml -H "Content-Type: application/atom+xml; charset=utf-8" http://localhost:%1/sdata/billingboss/crmErp/-/%5/$linked
 
 REM create sync request
-curl -x 127.0.0.1:8888 -v -u%3:%4 -X POST -d "<entry><id/><title/><updated/><payload><digest/></payload></entry>" -H "Content-Type: application/atom+xml; charset=utf-8" "http://localhost:%1/sdata/billingboss/crmErp/-/%5/$syncSource?trackingID=%2&runName=%5&runStamp=2010-10-14T08:51:02"
+curl -x 127.0.0.1:8888 -v -u%3:%4 -X POST -d "<entry><id/><title/><updated/><payload><digest/></payload></entry>" -H "Content-Type: application/atom+xml; charset=utf-8" "http://localhost:%1/sdata/billingboss/crmErp/-/%5/$syncSource?trackingID=%2&runName=%5&runStamp=2010-10-14T08:51:02&%syncSelect%"
 
 REM sync request in progress
 curl -x 127.0.0.1:8888 -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/-/%5/$syncSource('%2')
@@ -90,10 +94,10 @@ REM get count all customers
 curl -x 127.0.0.1:8888 -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/-/%5?count=0
 
 REM get all customers
-curl -x 127.0.0.1:8888 -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/-/%5?select=%select%
+curl -x 127.0.0.1:8888 -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/-/%5?%select%
 
 REM create sync request
-curl -x 127.0.0.1:8888 -v -u%3:%4 -X POST -d "<entry><id/><title/><updated/><payload><digest/></payload></entry>" -H "Content-Type: application/atom+xml; charset=utf-8" "http://localhost:%1/sdata/billingboss/crmErp/-/%5/$syncSource?trackingID=%2&runName=%5&runStamp=2010-10-14T08:51:02"
+curl -x 127.0.0.1:8888 -v -u%3:%4 -X POST -d "<entry><id/><title/><updated/><payload><digest/></payload></entry>" -H "Content-Type: application/atom+xml; charset=utf-8" "http://localhost:%1/sdata/billingboss/crmErp/-/%5/$syncSource?trackingID=%2&runName=%5&runStamp=2010-10-14T08:51:02&%syncSelect%"
 
 REM sync request in progress
 curl -x 127.0.0.1:8888 -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/-/%5/$syncSource('%2')
@@ -119,14 +123,14 @@ REM get count all customers
 curl -x 127.0.0.1:8888 -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/-/%5?count=0
 
 REM get all customers
-curl -x 127.0.0.1:8888 -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/-/%5?select=%select%
+curl -x 127.0.0.1:8888 -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/-/%5?%select%
 
 REM post 2 customer new links
 curl -x 127.0.0.1:8888 -v -u%3:%4 -X POST -d @C:\Python31\%1\link_post_request.xml -H "Content-Type: application/atom+xml; charset=utf-8" http://localhost:%1/sdata/billingboss/crmErp/-/%5/$linked
 curl -x 127.0.0.1:8888 -v -u%3:%4 -X POST -d @C:\Python31\%1\link_post_request_1.xml -H "Content-Type: application/atom+xml; charset=utf-8" http://localhost:%1/sdata/billingboss/crmErp/-/%5/$linked
 
 REM create sync request
-curl -x 127.0.0.1:8888 -v -u%3:%4 -X POST -d "<entry><id/><title/><updated/><payload><digest/></payload></entry>" -H "Content-Type: application/atom+xml; charset=utf-8" "http://localhost:%1/sdata/billingboss/crmErp/-/%5/$syncSource?trackingID=%2&runName=customers&runStamp=2010-10-14T08:51:02"
+curl -x 127.0.0.1:8888 -v -u%3:%4 -X POST -d "<entry><id/><title/><updated/><payload><digest/></payload></entry>" -H "Content-Type: application/atom+xml; charset=utf-8" "http://localhost:%1/sdata/billingboss/crmErp/-/%5/$syncSource?trackingID=%2&runName=customers&runStamp=2010-10-14T08:51:02&%syncSelect%"
 
 REM sync request in progress
 curl -x 127.0.0.1:8888 -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/-/%5/$syncSource('%2')
@@ -154,7 +158,7 @@ REM get count all customers
 curl -x 127.0.0.1:8888 -v http://localhost:%1/sdata/billingboss/crmErp/-/%5?count=0
 
 REM get all customers
-curl -x 127.0.0.1:8888 -v http://localhost:%1/sdata/billingboss/crmErp/-/%5?select=%select%
+curl -x 127.0.0.1:8888 -v http://localhost:%1/sdata/billingboss/crmErp/-/%5?%select%
 
 REM post customer new links
 curl -x 127.0.0.1:8888 -v -X POST http://localhost:%1/sdata/billingboss/crmErp/-/%5/$linked
@@ -185,7 +189,7 @@ REM get count all invoices
 curl -x 127.0.0.1:8888 -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/-/%5?count=0
 
 REM get all invoices
-curl -x 127.0.0.1:8888 -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/-/%5?select=%select%
+curl -x 127.0.0.1:8888 -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/-/%5?%select%
 
 REM post 5 invoice new links
 curl -x 127.0.0.1:8888 -v -u%3:%4 -X POST -d @C:\Python31\%1\link_post_request.xml -H "Content-Type: application/atom+xml; charset=utf-8" http://localhost:%1/sdata/billingboss/crmErp/-/%5/$linked
@@ -195,7 +199,7 @@ curl -x 127.0.0.1:8888 -v -u%3:%4 -X POST -d @C:\Python31\%1\link_post_request_3
 curl -x 127.0.0.1:8888 -v -u%3:%4 -X POST -d @C:\Python31\%1\link_post_request_4.xml -H "Content-Type: application/atom+xml; charset=utf-8" http://localhost:%1/sdata/billingboss/crmErp/-/%5/$linked
 
 REM create sync request
-curl -x 127.0.0.1:8888 -v -u%3:%4 -X POST -d "<entry><id/><title/><updated/><payload><digest/></payload></entry>" -H "Content-Type: application/atom+xml; charset=utf-8" "http://localhost:%1/sdata/billingboss/crmErp/-/%5/$syncSource?trackingID=%2&runName=%5&runStamp=2010-10-14T08:51:02"
+curl -x 127.0.0.1:8888 -v -u%3:%4 -X POST -d "<entry><id/><title/><updated/><payload><digest/></payload></entry>" -H "Content-Type: application/atom+xml; charset=utf-8" "http://localhost:%1/sdata/billingboss/crmErp/-/%5/$syncSource?trackingID=%2&runName=%5&runStamp=2010-10-14T08:51:02&%syncSelect%"
 
 REM sync request in progress
 curl -x 127.0.0.1:8888 -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/-/%5/$syncSource('%2')

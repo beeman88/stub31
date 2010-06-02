@@ -53,6 +53,7 @@
     <sdata:payload> 
       <crm:tradingAccount sdata:uuid="##8082##">
         <crm:name>abc</crm:name>
+        <crm:customerSupplierFlag>Customer</crm:customerSupplierFlag>		
       </crm:tradingAccount>
     </sdata:payload>
   </entry>

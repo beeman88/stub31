@@ -59,6 +59,7 @@
     <sdata:payload>
       <crm:tradingAccount sdata:uuid="##43660##">
         <crm:name>BB Customer 43660 MODIFIED2</crm:name>
+        <crm:customerSupplierFlag>Customer</crm:customerSupplierFlag>		
       </crm:tradingAccount>
     </sdata:payload>
   </entry>
@@ -78,6 +79,7 @@
     <sdata:payload>
       <crm:tradingAccount sdata:uuid="##43661##">
         <crm:name>BB Customer 43661 MODIFIED2</crm:name>
+        <crm:customerSupplierFlag>Customer</crm:customerSupplierFlag>		
       </crm:tradingAccount>
     </sdata:payload>
   </entry>

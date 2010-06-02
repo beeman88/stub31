@@ -56,8 +56,29 @@
     <sdata:payload>
       <crm:tradingAccount sdata:uuid="##43660##">
         <crm:name>BB Customer 43660</crm:name>
+        <crm:customerSupplierFlag>Customer</crm:customerSupplierFlag>		
       </crm:tradingAccount>
     </sdata:payload>
   </entry>
+  
+<entry>
+    <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('43661')</id>
+    <title>BB Customer 43661</title>
+    <updated>2008-10-30T14:55:43.281Z</updated>
+    <content>BB Customer 43660</content>
+ 
+    <sync:syncState>
+      <sync:endpoint>http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts</sync:endpoint>
+      <sync:tick>1</sync:tick>
+      <sync:stamp>2010-10-31T14:55:43.281Z</sync:stamp>
+    </sync:syncState>
+ 
+    <sdata:payload>
+      <crm:tradingAccount sdata:uuid="##43661##">
+        <crm:name>BB Customer 43661</crm:name>
+        <crm:customerSupplierFlag>Customer</crm:customerSupplierFlag>		
+      </crm:tradingAccount>
+    </sdata:payload>
+  </entry>  
  
 </feed>
