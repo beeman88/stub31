@@ -13,11 +13,11 @@
   <title>tradingAccount synchronization feed abc42b0d-d110-4f5c-ac79-d3aa11bd20cb</title>
   <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts/$syncSource('abc42b0d-d110-4f5c-ac79-d3aa11bd20cb')</id>
   <updated>2008-03-31T13:46:45Z</updated>
-  <link rel="self" type="application/atom+xml" title="Refresh" 
+  <link rel="self" type="application/atom+xml; type=feed" title="Refresh" 
         href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts/$syncSource('abc42b0d-d110-4f5c-ac79-d3aa11bd20cb')" />
-  <link rel="first" type="application/atom+xml" title="First Page" 
+  <link rel="first" type="application/atom+xml; type=feed" title="First Page" 
         href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts/$syncSource('abc42b0d-d110-4f5c-ac79-d3aa11bd20cb')" />
-  <link rel="next" type="application/atom+xml" title="NextPage" 
+  <link rel="next" type="application/atom+xml; type=feed" title="NextPage" 
         href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts/$syncSource('abc42b0d-d110-4f5c-ac79-d3aa11bd20cb')
 ?startIndex=11&amp;count=10" />
 

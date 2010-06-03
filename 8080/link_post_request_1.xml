@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <entry xmlns:xs="http://www.w3.org/2001/XMLSchema" 
        xmlns:cf="http://www.microsoft.com/schemas/rss/core/2005" 
        xmlns="http://www.w3.org/2005/Atom" 
@@ -11,10 +12,10 @@
   <id/>
   <title/>
   <updated>2008-05-25T13:27:19.207Z</updated>
-  <sdata:payload xmlns="http://schemas.sage.com/sdata/2008/1">
-    <crm:tradingAccount sdata:uuid="138BB530-18CB-410d-8969-753F9EB8BC08"
+  <sdata:payload>
+    <entry sdata:uuid="138BB530-18CB-410d-8969-753F9EB8BC08"
       sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('43661')"
 	  sdata:key="43661" >
-    </crm:tradingAccount>
+    </entry>
   </sdata:payload>
 </entry>

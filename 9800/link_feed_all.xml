@@ -17,14 +17,14 @@
     <name>Billing Boss</name>
   </author>
  
-  <link rel="self" type="application/atom+xml" title="Refresh" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts?select=tradingAccount,originatorDocument,date,netTotal" />
-  <link rel="first" type="application/atom+xml" title="First Page" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts?select=tradingAccount,originatorDocument,date,netTotal&amp;startIndex=1&amp;count=10" />
-  <link rel="last" type="application/atom+xml" title="Last Page" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts?select=tradingAccount,originatorDocument,date,netTotal&amp;startIndex=1&amp;count=10" />
-  <link rel="next" type="application/atom+xml" title="Next Page" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts?select=tradingAccount,originatorDocument,date,netTotal&amp;startIndex=1&amp;count=10" />
+  <link rel="self" type="application/atom+xml; type=feed" title="Refresh" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts?select=tradingAccount,originatorDocument,date,netTotal" />
+  <link rel="first" type="application/atom+xml; type=feed" title="First Page" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts?select=tradingAccount,originatorDocument,date,netTotal&amp;startIndex=1&amp;count=10" />
+  <link rel="last" type="application/atom+xml; type=feed" title="Last Page" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts?select=tradingAccount,originatorDocument,date,netTotal&amp;startIndex=1&amp;count=10" />
+  <link rel="next" type="application/atom+xml; type=feed" title="Next Page" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts?select=tradingAccount,originatorDocument,date,netTotal&amp;startIndex=1&amp;count=10" />
   <link rel="schema" type="application/xml" title="Schema" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts/$schema" />
-  <link rel="template" type="application/atom+xml" title="Template" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts/$template" />
-  <link rel="post" type="application/atom+xml" title="Post" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts" />
-  <link rel="service" type="application/atom+xml" title="Service" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts/$service" />
+  <link rel="template" type="application/atom+xml; type=entry" title="Template" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts/$template" />
+  <link rel="post" type="application/atom+xml; type=entry" title="Post" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts" />
+  <link rel="service" type="application/atom+xml; type=feed" title="Service" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts/$service" />
  
   <category scheme="http://schemas.sage.com/sdata/categories" term="receipt" label=""/>
  
@@ -36,7 +36,7 @@
     <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts('12010')</id>
     <title>Receipt 12010</title>
     <updated>2010-03-31T13:46:45Z</updated>
-    <link rel="self" type="application/atom+xml" title="self" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts('12010')?select=tradingAccount,originatorDocument,date,netTotal" />
+    <link rel="self" type="application/atom+xml; type=entry" title="self" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts('12010')?select=tradingAccount,originatorDocument,date,netTotal" />
     <category scheme="http://schemas.sage.com/sdata/categories" term="receipt" label=""/>
     <content>Receipt 12010 select tradingAccount,originatorDocument,date,netTotal</content>
  
@@ -61,7 +61,7 @@
     <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts('12011')</id>
     <title>Receipt 12011</title>
     <updated>2010-03-31T13:46:45Z</updated>
-    <link rel="self" type="application/atom+xml" title="self" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts('12011')?select=tradingAccount,originatorDocument,date,netTotal" />
+    <link rel="self" type="application/atom+xml; type=entry" title="self" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts('12011')?select=tradingAccount,originatorDocument,date,netTotal" />
     <category scheme="http://schemas.sage.com/sdata/categories" term="receipt" label=""/>
     <content>Receipt 12011 select name</content>
  
@@ -86,7 +86,7 @@
     <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts('12012')</id>
     <title>Receipt 12012</title>
     <updated>2010-03-31T13:46:45Z</updated>
-    <link rel="self" type="application/atom+xml" title="self" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts('12012')?select=tradingAccount,originatorDocument,date,netTotal" />
+    <link rel="self" type="application/atom+xml; type=entry" title="self" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts('12012')?select=tradingAccount,originatorDocument,date,netTotal" />
     <category scheme="http://schemas.sage.com/sdata/categories" term="receipt" label=""/>
     <content>Receipt 12012 select tradingAccount,originatorDocument,date,netTotal</content>
  
@@ -111,7 +111,7 @@
     <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts('12013')</id>
     <title>Receipt 12013</title>
     <updated>2010-03-31T13:46:45Z</updated>
-    <link rel="self" type="application/atom+xml" title="self" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts('12013')?select=tradingAccount,originatorDocument,date,netTotal" />
+    <link rel="self" type="application/atom+xml; type=entry" title="self" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts('12013')?select=tradingAccount,originatorDocument,date,netTotal" />
     <category scheme="http://schemas.sage.com/sdata/categories" term="receipt" label=""/>
     <content>Receipt 12013 select name</content>
  
@@ -136,7 +136,7 @@
     <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts('12014')</id>
     <title>Receipt 12014</title>
     <updated>2010-03-31T13:46:45Z</updated>
-    <link rel="self" type="application/atom+xml" title="self" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts('12014')?select=tradingAccount,originatorDocument,date,netTotal" />
+    <link rel="self" type="application/atom+xml; type=entry" title="self" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts('12014')?select=tradingAccount,originatorDocument,date,netTotal" />
     <category scheme="http://schemas.sage.com/sdata/categories" term="receipt" label=""/>
     <content>Receipt 12014 select tradingAccount,originatorDocument,date,netTotal</content>
  
@@ -161,13 +161,13 @@
     <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts('12015')</id>
     <title>Receipt 12015</title>
     <updated>2010-03-31T13:46:45Z</updated>
-    <link rel="self" type="application/atom+xml" title="self" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts('12015')?select=tradingAccount,originatorDocument,date,netTotal" />
+    <link rel="self" type="application/atom+xml; type=entry" title="self" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts('12015')?select=tradingAccount,originatorDocument,date,netTotal" />
     <category scheme="http://schemas.sage.com/sdata/categories" term="receipt" label=""/>
     <content>Receipt 12015 select tradingAccount,originatorDocument,date,netTotal</content>
  
     <sdata:payload>
       <crm:receipt sdata:key="12015">
-        <crm:tradingAccount sdata:uuid="##43661##"
+        <crm:tradingAccount sdata:uuid="138BB530-18CB-410d-8969-753F9EB8BC08"
           sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('43661')"
           sdata:key="43661" >
         </crm:tradingAccount>
