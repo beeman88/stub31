@@ -1,5 +1,5 @@
 uuid generator http://www.famkruithof.net/uuid/uuidgen
-curl_stub 8080 abc42b0d-d110-4f5c-ac79-d3aa11bd20cb user password tradingAccounts
+curl_stub 8080 abc42b0d-d110-4f5c-ac79-d3aa11bd20cb user@test.com password username tradingAccounts
 
 
 8080

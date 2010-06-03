@@ -34,10 +34,50 @@ def index():
 # - GET request
 # - On success return 200 OK
 # - On failure return 401 Not Authorized
-@route('/sdata/billingboss/crmErp/-')
-def index():
+@route('/sdata/billingboss/bb/-/users('':emailEQ'')', method='GET')
+def index(emailEQ):
+    import base64
     log_method_start('Authentication')
-    return authentication()
+
+    try:
+        header = request.environ.get('HTTP_AUTHORIZATION','')
+        method, data = header.split(None, 1)
+        if method.lower() == 'basic':
+            by = data.encode('ascii')
+            write_to_log("encoded basic auth = %s" % by.decode('ascii'), debug)
+            str2 = base64.b64decode(by)
+            write_to_log("decoded basic auth = %s" % str2)
+            str3 = str2.decode('ascii')
+            name, pwd = str3.split(':', 1)
+            write_to_log("username = %s" % name, debug)
+            write_to_log("pwd = %s" % pwd, debug)
+
+            # a user named unauthenticated would return 401, unauthorized would return 403, unsubscribed would return 402
+            if name == 'unauthenticated':
+                response.status = 401
+                return
+            elif name == 'unauthorized':
+                response.status = 403
+                return
+            elif name == 'unsubscribed':
+                response.status = 402
+                return
+            
+    except Exception as e:
+        write_to_log('Exception error is: %s' % e)
+    
+    response.status = 200
+    response.content_type='application/atom+xml'    
+
+    try:
+        include = request.GET['include']
+    except Exception:
+        write_to_log('include does not exist')
+    else:
+        write_to_log("include = %s" % include, debug)
+        write_to_log("returning bookkeeping clients", debug)
+
+    return login_feed()
 
 # 2. Get Count of linked customers, invoices
 #    Return 0 linked resources
@@ -45,10 +85,10 @@ def index():
 # /sdata/billingboss/crmErp/TradingAccounts/$linked?count=0
 # TODO because no tradingAccount entries are returned, the link for first, last, next page have count = 0
 # compare with Sage 50 - Act! implementation
-@route('/sdata/billingboss/crmErp/-/tradingAccounts/$linked', method='GET')
-@route('/sdata/billingboss/crmErp/-/salesInvoices/$linked', method='GET')
-@route('/sdata/billingboss/crmErp/-/receipts/$linked', method='GET')
-def index():
+@route('/sdata/billingboss/crmErp/:dataset/tradingAccounts/$linked', method='GET')
+@route('/sdata/billingboss/crmErp/:dataset/salesInvoices/$linked', method='GET')
+@route('/sdata/billingboss/crmErp/:dataset/receipts/$linked', method='GET')
+def index(dataset):
     global debug
 
     log_method_start('Count of linked resources')
@@ -68,15 +108,15 @@ def index():
 
 # GET requests  
 # 3a. Get count of all customers, invoices
-# /sdata/billingboss/crmErp/-/tradingAccounts?count=0
+# /sdata/billingboss/crmErp/dataset/tradingAccounts?count=0
 
-# TODO /sdata/billingboss/crmErp/-/tradingAccounts?select=name,customerSupplierFlag the real request?
-# /sdata/billingboss/crmErp/-/tradingAccounts
+# TODO /sdata/billingboss/crmErp/dataset/tradingAccounts?select=name,customerSupplierFlag the real request?
+# /sdata/billingboss/crmErp/dataset/tradingAccounts
 # all customers, invoices
-@route('/sdata/billingboss/crmErp/-/tradingAccounts', method='GET')
-@route('/sdata/billingboss/crmErp/-/salesInvoices', method='GET')
-@route('/sdata/billingboss/crmErp/-/receipts', method='GET')
-def index():
+@route('/sdata/billingboss/crmErp/:dataset/tradingAccounts', method='GET')
+@route('/sdata/billingboss/crmErp/:dataset/salesInvoices', method='GET')
+@route('/sdata/billingboss/crmErp/:dataset/receipts', method='GET')
+def index(dataset):
     global debug
     log_method_start('GET count of all resources or link feed')
     if authentication() != "Authenticated":
@@ -101,10 +141,10 @@ def index():
 # 5. Post new links
 # POST request
 # response is one entry for Ashburton Reinforcing
-@route('/sdata/billingboss/crmErp/-/tradingAccounts/$linked', method='POST')
-@route('/sdata/billingboss/crmErp/-/salesInvoices/$linked', method='POST')
-@route('/sdata/billingboss/crmErp/-/receipts/$linked', method='POST')
-def index():
+@route('/sdata/billingboss/crmErp/:dataset/tradingAccounts/$linked', method='POST')
+@route('/sdata/billingboss/crmErp/:dataset/salesInvoices/$linked', method='POST')
+@route('/sdata/billingboss/crmErp/:dataset/receipts/$linked', method='POST')
+def index(dataset):
     global debug
     log_method_start('Post new links')
 
@@ -124,10 +164,10 @@ def index():
 
 # 6. Create sync request
 # POST
-@route('/sdata/billingboss/crmErp/-/tradingAccounts/$syncSource', method='POST')
-@route('/sdata/billingboss/crmErp/-/salesInvoices/$syncSource', method='POST')
-@route('/sdata/billingboss/crmErp/-/receipts/$syncSource', method='POST')
-def index():
+@route('/sdata/billingboss/crmErp/:dataset/tradingAccounts/$syncSource', method='POST')
+@route('/sdata/billingboss/crmErp/:dataset/salesInvoices/$syncSource', method='POST')
+@route('/sdata/billingboss/crmErp/:dataset/receipts/$syncSource', method='POST')
+def index(dataset):
     global debug
     log_method_start('Create sync request')
 
@@ -168,11 +208,11 @@ def index():
 # 7a. Request status of sync request (In progress)
 # 7b. Request status of sync request (Complete)
 # GET on location of previous request
-# /sdata/billingboss/crmErp/-/tradingAccounts/$syncSource('abc42b0d-d110-4f5c-ac79-d3aa11bd20cb')
-@route('/sdata/billingboss/crmErp/-/tradingAccounts/$syncSource('':trackingID'')', method='GET')
-@route('/sdata/billingboss/crmErp/-/salesInvoices/$syncSource('':trackingID'')', method='GET')
-@route('/sdata/billingboss/crmErp/-/receipts/$syncSource('':trackingID'')', method='GET')
-def index(trackingID):
+# /sdata/billingboss/crmErp/dataset/tradingAccounts/$syncSource('abc42b0d-d110-4f5c-ac79-d3aa11bd20cb')
+@route('/sdata/billingboss/crmErp/:dataset/tradingAccounts/$syncSource('':trackingID'')', method='GET')
+@route('/sdata/billingboss/crmErp/:dataset/salesInvoices/$syncSource('':trackingID'')', method='GET')
+@route('/sdata/billingboss/crmErp/:dataset/receipts/$syncSource('':trackingID'')', method='GET')
+def index(dataset, trackingID):
     global in_progress_count 
     global in_progress_reqs
     global debug
@@ -202,11 +242,11 @@ def index(trackingID):
 
 # 8. Delete (finish) sync request
 # DELETE request
-# /sdata/billingboss/crmErp/-/tradingAccounts/$syncSource('abc42b0d-d110-4f5c-ac79-d3aa11bd20cb')
-@route('/sdata/billingboss/crmErp/-/tradingAccounts/$syncSource('':trackingID'')', method='DELETE')
-@route('/sdata/billingboss/crmErp/-/salesInvoices/$syncSource('':trackingID'')', method='DELETE')
-@route('/sdata/billingboss/crmErp/-/receipts/$syncSource('':trackingID'')', method='DELETE')
-def index(trackingID):
+# /sdata/billingboss/crmErp/dataset/tradingAccounts/$syncSource('abc42b0d-d110-4f5c-ac79-d3aa11bd20cb')
+@route('/sdata/billingboss/crmErp/:dataset/tradingAccounts/$syncSource('':trackingID'')', method='DELETE')
+@route('/sdata/billingboss/crmErp/:dataset/salesInvoices/$syncSource('':trackingID'')', method='DELETE')
+@route('/sdata/billingboss/crmErp/:dataset/receipts/$syncSource('':trackingID'')', method='DELETE')
+def index(dataset, trackingID):
     global debug
     log_method_start('Delete (finish) sync request')
 
@@ -218,6 +258,9 @@ def index(trackingID):
     return "DELETED"
 
 ##################################################
+
+def login_feed():
+    return read_and_log('login_feed.xml')
 
 def sdata_link_count_linked():
     return read_and_log('link_count_linked.xml')
