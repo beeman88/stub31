@@ -18,6 +18,8 @@ echo "curl_stub 8080 abc42b0d-d110-4f5c-ac79-d3aa11bd20cb email password trading
 GOTO :EOF
 )
 
+set sp="%%20"
+echo %sp%
 
 IF "%6"=="tradingAccounts" set select="select=name,customerSupplierFlag"
 IF "%6"=="salesInvoices" set select="select=tradingAccount,customerReference"
@@ -47,7 +49,7 @@ IF "%1"=="9097" GOTO NOLINK
 IF "%1"=="9500" GOTO LINK2
 
 REM authorization request OK
-curl -x 127.0.0.1:8888 -v -u%3:%4 http://localhost:%1/sdata/billingboss/bb/-/users('%3')
+curl -x 127.0.0.1:8888 -v -u%3:%4 http://localhost:%1/sdata/billingboss/bb/-/users('email%sp%eq%sp%%3')
 
 REM get count linked customers
 curl -x 127.0.0.1:8888 -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/%5/%6/$linked?count=0
@@ -78,7 +80,7 @@ GOTO EOF
 :NOLINK
 
 REM authorization request OK
-curl -x 127.0.0.1:8888 -v -u%3:%4 http://localhost:%1/sdata/billingboss/bb/-/users('%3')
+curl -x 127.0.0.1:8888 -v -u%3:%4 http://localhost:%1/sdata/billingboss/bb/-/users('email%sp%eq%sp%%3')
 
 REM authorization request OK
 curl -x 127.0.0.1:8888 -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/-
@@ -110,7 +112,7 @@ GOTO EOF
 :LINK2
 
 REM authorization request OK
-curl -x 127.0.0.1:8888 -v -u%3:%4 http://localhost:%1/sdata/billingboss/bb/-/users('%3')
+curl -x 127.0.0.1:8888 -v -u%3:%4 http://localhost:%1/sdata/billingboss/bb/-/users('email%sp%eq%sp%%3')
 
 REM get count linked customers
 curl -x 127.0.0.1:8888 -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/%5/%6/$linked?count=0
@@ -142,7 +144,7 @@ GOTO EOF
 :8095
 
 REM authorization request OK
-curl -x 127.0.0.1:8888 -v -u%3:%4 http://localhost:%1/sdata/billingboss/bb/-/users('%3')
+curl -x 127.0.0.1:8888 -v -u%3:%4 http://localhost:%1/sdata/billingboss/bb/-/users('email%sp%eq%sp%%3')
 
 REM authorization request OK
 curl -x 127.0.0.1:8888 -v http://localhost:%1/sdata/billingboss/crmErp/-
@@ -176,7 +178,7 @@ GOTO EOF
 :9050
 
 REM authorization request OK
-curl -x 127.0.0.1:8888 -v -u%3:%4 http://localhost:%1/sdata/billingboss/bb/-/users('%3')
+curl -x 127.0.0.1:8888 -v -u%3:%4 http://localhost:%1/sdata/billingboss/bb/-/users('email%sp%eq%sp%%3')
 
 REM get count linked invoices
 curl -x 127.0.0.1:8888 -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/%5/%6/$linked?count=0

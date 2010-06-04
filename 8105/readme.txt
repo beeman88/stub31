@@ -1,5 +1,5 @@
 uuid generator http://www.famkruithof.net/uuid/uuidgen
-curl_stub 8105 248ff990-5f72-11df-a08a-0800200c9a66 user password tradingAccounts
+curl_stub 8105 248ff990-5f72-11df-a08a-0800200c9a66 user@test.com password username tradingAccounts
 
 
 8105

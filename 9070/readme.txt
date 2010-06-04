@@ -1,5 +1,5 @@
 uuid generator http://www.famkruithof.net/uuid/uuidgen
-curl_stub 9070 c9308ed0-5d4a-11df-a08a-0800200c9a66 user password salesInvoices
+curl_stub 9070 c9308ed0-5d4a-11df-a08a-0800200c9a66 user@test.com password username salesInvoices
 
 
 9070

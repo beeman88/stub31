@@ -1,5 +1,5 @@
 uuid generator http://www.famkruithof.net/uuid/uuidgen
-curl_stub 9500 f9a2ba00-6922-11df-a08a-0800200c9a66 user password receipts
+curl_stub 9500 f9a2ba00-6922-11df-a08a-0800200c9a66 user@test.com password username receipts
 
 
 9050
