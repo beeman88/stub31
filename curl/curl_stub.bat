@@ -82,9 +82,6 @@ GOTO EOF
 REM authorization request OK
 curl -v -u%3:%4 http://localhost:%1/sdata/billingboss/bb/-/users('email%sp%eq%sp%%3')
 
-REM authorization request OK
-curl -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/-
-
 REM get count linked customers
 curl -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/%5/%6/$linked?count=0
 
@@ -146,32 +143,29 @@ GOTO EOF
 REM authorization request OK
 curl -v -u%3:%4 http://localhost:%1/sdata/billingboss/bb/-/users('email%sp%eq%sp%%3')
 
-REM authorization request OK
-curl -v http://localhost:%1/sdata/billingboss/crmErp/-
-
 REM get count linked customers
-curl -v http://localhost:%1/sdata/billingboss/crmErp/%5/%6/$linked?count=0
+curl -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/%5/%6/$linked?count=0
 
 REM get count all customers
-curl -v http://localhost:%1/sdata/billingboss/crmErp/%5/%6?count=0
+curl -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/%5/%6?count=0
 
 REM get all customers
-curl -v http://localhost:%1/sdata/billingboss/crmErp/%5/%6?%select%
+curl -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/%5/%6?%select%
 
 REM post customer new links
-curl -v -X POST http://localhost:%1/sdata/billingboss/crmErp/%5/%6/$linked
+curl -v -u%3:%4 -X POST http://localhost:%1/sdata/billingboss/crmErp/%5/%6/$linked
 
 REM create sync request
-curl -v -X POST http://localhost:%1/sdata/billingboss/crmErp/%5/%6/$syncSource?trackingID=%2&runName=%6&runStamp=2010-10-14T08:51:02
+curl -v -u%3:%4 -X POST http://localhost:%1/sdata/billingboss/crmErp/%5/%6/$syncSource?trackingID=%2&runName=%6&runStamp=2010-10-14T08:51:02
 
 REM sync request in progress
-curl -v http://localhost:%1/sdata/billingboss/crmErp/%5/%6/$syncSource('%2')
+curl -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/%5/%6/$syncSource('%2')
 
 REM sync feed
-curl -v http://localhost:%1/sdata/billingboss/crmErp/%5/%6/$syncSource('%2')
+curl -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/%5/%6/$syncSource('%2')
 
 REM delete sync request
-curl -v -X DELETE http://localhost:%1/sdata/billingboss/crmErp/%5/%6/$syncSource('%2')
+curl -v -u%3:%4 -X DELETE http://localhost:%1/sdata/billingboss/crmErp/%5/%6/$syncSource('%2')
 
 GOTO EOF
 

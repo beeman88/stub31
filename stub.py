@@ -36,37 +36,11 @@ def index():
 # - On failure return 401 Not Authorized
 @route('/sdata/billingboss/bb/-/users('':emailEQ'')', method='GET')
 def index(emailEQ):
-    import base64
-    log_method_start('Authentication')
 
-    try:
-        header = request.environ.get('HTTP_AUTHORIZATION','')
-        method, data = header.split(None, 1)
-        if method.lower() == 'basic':
-            by = data.encode('ascii')
-            write_to_log("encoded basic auth = %s" % by.decode('ascii'), debug)
-            str2 = base64.b64decode(by)
-            write_to_log("decoded basic auth = %s" % str2)
-            str3 = str2.decode('ascii')
-            name, pwd = str3.split(':', 1)
-            write_to_log("username = %s" % name, debug)
-            write_to_log("pwd = %s" % pwd, debug)
-
-            # a user named unauthenticated would return 401, unauthorized would return 403, unsubscribed would return 402
-            if name == 'unauthenticated':
-                response.status = 401
-                return
-            elif name == 'unauthorized':
-                response.status = 403
-                return
-            elif name == 'unsubscribed':
-                response.status = 402
-                return
-            
-    except Exception as e:
-        write_to_log('Exception error is: %s' % e)
+    authentication()
+    if response.status != 200:
+        return 
     
-    response.status = 200
     response.content_type='application/atom+xml'    
 
     try:
@@ -92,8 +66,10 @@ def index(dataset):
     global debug
 
     log_method_start('Count of linked resources')
-    if authentication() != "Authenticated":
-        return "Access Denied"    
+    
+    authentication()
+    if response.status != 200:
+        return
                  
     try:
         count = request.GET['count']
@@ -119,8 +95,9 @@ def index(dataset):
 def index(dataset):
     global debug
     log_method_start('GET count of all resources or link feed')
-    if authentication() != "Authenticated":
-        return "Access Denied"
+    authentication()
+    if response.status != 200:
+        return
 
     response.content_type='application/atom+xml'
 
@@ -148,8 +125,9 @@ def index(dataset):
     global debug
     log_method_start('Post new links')
 
-    if authentication() != "Authenticated":
-        return "Access Denied"
+    authentication()
+    if response.status != 200:
+        return
     
     if request.url.find(TRADING_ACCOUNTS) > 0:
         return post_link_resource(TRADING_ACCOUNTS)
@@ -171,8 +149,9 @@ def index(dataset):
     global debug
     log_method_start('Create sync request')
 
-    if authentication() != "Authenticated":
-        return "Access Denied"    
+    authentication()
+    if response.status != 200:
+        return
 
     try:
         trackingID = request.GET['trackingID']
@@ -219,8 +198,9 @@ def index(dataset, trackingID):
     
     log_method_start('Request status of sync')
 
-    if authentication() != "Authenticated":
-        return "Access Denied"
+    authentication()
+    if response.status != 200:
+        return
     
     write_to_log('tracking id = {0}'.format(trackingID), debug)
     write_to_log('in_progress_count = {0}'.format(in_progress_count), debug)
@@ -250,8 +230,9 @@ def index(dataset, trackingID):
     global debug
     log_method_start('Delete (finish) sync request')
 
-    if authentication() != "Authenticated":
-        return "Access Denied"
+    authentication()
+    if response.status != 200:
+        return
     
     write_to_log('tracking id = {0}'.format(trackingID), debug)
     response.status = 200
@@ -457,16 +438,38 @@ def log_method_start(line):
     write_to_log(request.url)
 
 def authentication():
-    #TODO moving to Python 3 changed request.auth
-    # if not request.auth:
-        # if debug == "1":
-            # write_to_log('401 Not authenticated')
-        # response.status = 401
-        # return "Access denied."
+    import base64
+    # the bottle.py auth wasn't doing it 
+    log_method_start('Authentication')    
+    try:
+        header = request.environ.get('HTTP_AUTHORIZATION','')
+        method, data = header.split(None, 1)
+        if method.lower() == 'basic':
+            by = data.encode('ascii')
+            write_to_log("encoded basic auth = %s" % by.decode('ascii'), debug)
+            str2 = base64.b64decode(by)
+            write_to_log("decoded basic auth = %s" % str2)
+            str3 = str2.decode('ascii')
+            name, pwd = str3.split(':', 1)
+            write_to_log("username = %s" % name, debug)
+            write_to_log("pwd = %s" % pwd, debug)
 
-    write_to_log('200 OK', debug)
+            if name == 'unauthenticated': # a user named unauthenticated would return 401
+                response.status = 401
+                return
+            elif name == 'unauthorized': # unauthorized would return 403
+                response.status = 403
+                return
+            elif name == 'unsubscribed': # unsubscribed would return 402
+                response.status = 402
+                return
+            
+    except Exception as e:
+        response.status = 401
+        write_to_log('Exception error is: %s' % e)
+
     response.status = 200
-    return "Authenticated"
+    return
 
 def write_to_uuids(key, resourceType, uuid):
     global debug
