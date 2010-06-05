@@ -10,8 +10,8 @@
       xmlns:crm="http://schemas.sage.com/crmErp/2008"
 	  xmlns:sync="http://schemas.sage.com/sdata/sync/2008/1">
  
-  <title>salesInvoice synchronization feed {0}</title>
-  <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices/$syncSource('{0}')</id>
+  <title>salesInvoice synchronization feed {1}</title>
+  <id>http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoices/$syncSource('{1}')</id>
   <updated>2008-03-31T13:46:45Z</updated>
 
   <category scheme="http://schemas.sage.com/sdata/categories" term="salesInvoice" label=""/>
@@ -23,15 +23,15 @@
   <sync:syncMode>catchUp</sync:syncMode>
  
   <sync:digest>
-    <sync:origin>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices</sync:origin>
+    <sync:origin>http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoices</sync:origin>
     <sync:digestEntry>
-      <sync:endpoint>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices</sync:endpoint>
+      <sync:endpoint>http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoices</sync:endpoint>
       <sync:tick>8</sync:tick>
       <sync:stamp>2010-10-30T17:23:08Z</sync:stamp>
       <sync:conflictPriority>1</sync:conflictPriority>
     </sync:digestEntry>
     <sync:digestEntry>
-      <sync:endpoint>http://www.simply.com/sdata/simply/crmErp/-/salesInvoices</sync:endpoint>
+      <sync:endpoint>http://www.simply.com/sdata/simply/crmErp/{0}/salesInvoices</sync:endpoint>
       <sync:tick>1</sync:tick>
       <sync:stamp>2010-10-30T12:16:51Z</sync:stamp>
       <sync:conflictPriority>2</sync:conflictPriority>
@@ -39,13 +39,13 @@
   </sync:digest>
  
   <entry>
-    <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14082')</id>
+    <id>http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoices('14082')</id>
     <title>Invoice 14082</title>
     <updated>2008-10-30T14:55:43.281Z</updated>
     <content>BB Invoice 14082</content>
  
     <sync:syncState>
-      <sync:endpoint>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices</sync:endpoint>
+      <sync:endpoint>http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoices</sync:endpoint>
       <sync:tick>8</sync:tick>
       <sync:stamp>2010-10-31T14:55:43.281Z</sync:stamp>
     </sync:syncState>
@@ -57,7 +57,7 @@
 		<crm:statusFlag>false</crm:statusFlag>
 		<crm:type>Normal</crm:type>
 		<crm:tradingAccount sdata:uuid="##43660##" 
-			sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('43660')"
+			sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts('43660')"
 			sdata:key="43660">
 		</crm:tradingAccount>
 		<crm:customerReference>I1248</crm:customerReference>
@@ -65,29 +65,29 @@
 		<crm:date>2010-03-31Z</crm:date>
 		<crm:time>13:46:45Z</crm:time>
 		<crm:taxDate>2010-03-31Z</crm:taxDate>
-		<crm:taxCodes sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14082')/taxCodes" />
+		<crm:taxCodes sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoices('14082')/taxCodes" />
 		<crm:deliveryRule>true</crm:deliveryRule>
 		<crm:currency>CAD</crm:currency>
 		<crm:operatingCompanyCurrency>CAD</crm:operatingCompanyCurrency>
 		<crm:operatingCompanyCurrencyExchangeRate>1</crm:operatingCompanyCurrencyExchangeRate>
 		<crm:operatingCompanyCurrencyExchangeRateOperator>*</crm:operatingCompanyCurrencyExchangeRateOperator>
 		<crm:operatingCompanyCurrencyExchangeRateDate>2010-03-31Z</crm:operatingCompanyCurrencyExchangeRateDate>
-		<crm:buyerContact sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/contacts('310')" />
-		<crm:salesInvoiceLines sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14082')/salesInvoiceLines">
+		<crm:buyerContact sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/contacts('310')" />
+		<crm:salesInvoiceLines sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoices('14082')/salesInvoiceLines">
 		  <crm:salesInvoiceLine sdata:key="97646">
 		    <crm:active>true</crm:active>
 			<crm:status>Printed</crm:status>
 			<crm:type>Standard Line</crm:type>
 			<crm:number>1</crm:number>
 			<crm:text>Invoice line 1</crm:text>
-			<crm:unitOfMeasure sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/unitsOfMeasure('each')" />
+			<crm:unitOfMeasure sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/unitsOfMeasure('each')" />
 			<crm:quantity>1</crm:quantity>
 			<crm:initialPrice>20</crm:initialPrice>
 			<crm:actualPrice>20</crm:actualPrice>
 			<crm:netTotal>20</crm:netTotal>
 			<crm:chargesTotal>20</crm:chargesTotal>
 			<crm:discountTotal>0</crm:discountTotal>
-			<crm:taxCodes sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoiceLines('97644')/taxCodes" />
+			<crm:taxCodes sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoiceLines('97644')/taxCodes" />
 			<crm:priceTax>0.5</crm:priceTax>
 			<crm:taxTotal>1</crm:taxTotal>
 			<crm:grossTotal>21</crm:grossTotal>
@@ -98,14 +98,14 @@
 			<crm:type>Standard Line</crm:type>
 			<crm:number>2</crm:number>
 			<crm:text>Invoice line 2</crm:text>
-			<crm:unitOfMeasure sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/unitsOfMeasure('each')" />
+			<crm:unitOfMeasure sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/unitsOfMeasure('each')" />
 			<crm:quantity>5</crm:quantity>
 			<crm:initialPrice>5</crm:initialPrice>
 			<crm:actualPrice>5</crm:actualPrice>
 			<crm:netTotal>25</crm:netTotal>
 			<crm:chargesTotal>25</crm:chargesTotal>
 			<crm:discountTotal>0</crm:discountTotal>
-			<crm:taxCodes sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoiceLines('97645')/taxCodes" />
+			<crm:taxCodes sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoiceLines('97645')/taxCodes" />
 			<crm:priceTax>0.5</crm:priceTax>
 			<crm:taxTotal>1</crm:taxTotal>
 			<crm:grossTotal>26</crm:grossTotal>

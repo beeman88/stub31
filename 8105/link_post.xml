@@ -8,12 +8,12 @@
        xmlns:http="http://schemas.sage.com/sdata/http/2008/1" 
        xmlns:sc="http://schemas.sage.com/sc/2009" 
        xmlns:crm="http://schemas.sage.com/crmErp/2008" >
-  <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts/$linked('32df9c30-5f72-11df-a08a-0800200c9a66')</id>
+  <id>http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts/$linked('32df9c30-5f72-11df-a08a-0800200c9a66')</id>
   <title>Linked account 32df9c30-5f72-11df-a08a-0800200c9a66</title>
   <updated>2010-05-25T13:27:19.207Z</updated>
   <payload xmlns="http://schemas.sage.com/sdata/2008/1">
     <crm:tradingAccount sdata:uuid="32df9c30-5f72-11df-a08a-0800200c9a66"
-      sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('8105')"
+      sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts('8105')"
       sdata:key="8105" 
       xmlns="http://schemas.sage.com/crmErp">
       <crm:name>Customer Name 8105</crm:name>

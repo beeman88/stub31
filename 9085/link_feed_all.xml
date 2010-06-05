@@ -11,22 +11,22 @@
       xmlns:crm="http://schemas.sage.com/crmErp/2008">
  
   <title>Billing Boss | Invoices</title>
-  <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices</id>
+  <id>http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoices</id>
   <updated>2010-03-31T13:46:45Z</updated>
   <author>
     <name>Billing Boss</name>
   </author>
  
-  <link rel="self" type="application/atom+xml; type=feed" title="Refresh" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices?select=tradingAccount,customerReference" />
-  <link rel="first" type="application/atom+xml; type=feed" title="First Page" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices?select=tradingAccount,customerReference&amp;startIndex=1&amp;count=10" />
-  <link rel="last" type="application/atom+xml; type=feed" title="Last Page" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices?select=tradingAccount,customerReference&amp;startIndex=1&amp;count=10" />
-  <link rel="next" type="application/atom+xml; type=feed" title="Next Page" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices?select=tradingAccount,customerReference&amp;startIndex=1&amp;count=10" />
-  <link rel="schema" type="application/xml" title="Schema" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices/$schema" />
-  <link rel="template" type="application/atom+xml; type=entry" title="Template" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices/$template" />
-  <link rel="post" type="application/atom+xml; type=entry" title="Post" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices" />
-  <link rel="service" type="application/atom+xml; type=feed" title="Service" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices/$service" />
+  <link rel="self" type="application/atom+xml; type=feed" title="Refresh" href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoices?select=tradingAccount,customerReference" />
+  <link rel="first" type="application/atom+xml; type=feed" title="First Page" href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoices?select=tradingAccount,customerReference&amp;startIndex=1&amp;count=10" />
+  <link rel="last" type="application/atom+xml; type=feed" title="Last Page" href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoices?select=tradingAccount,customerReference&amp;startIndex=1&amp;count=10" />
+  <link rel="next" type="application/atom+xml; type=feed" title="Next Page" href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoices?select=tradingAccount,customerReference&amp;startIndex=1&amp;count=10" />
+  <link rel="schema" type="application/xml" title="Schema" href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoices/$schema" />
+  <link rel="template" type="application/atom+xml; type=entry" title="Template" href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoices/$template" />
+  <link rel="post" type="application/atom+xml; type=entry" title="Post" href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoices" />
+  <link rel="service" type="application/atom+xml; type=feed" title="Service" href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoices/$service" />
  
-  <category scheme="http://schemas.sage.com/sdata/categories" term="salesInvoice" label=""/>
+  <category scheme="http://schemas.sage.com/sdata/categories" term="collection" label="Resource collection"/>
  
   <opensearch:totalResults>5</opensearch:totalResults>
   <opensearch:startIndex>1</opensearch:startIndex>
@@ -34,80 +34,80 @@
   
   
   <entry>
-    <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14081')</id>
+    <id>http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoices('14081')</id>
     <title>Invoice 14081</title>
     <updated>2010-03-31T13:46:45Z</updated>
-    <link rel="self" type="application/atom+xml; type=entry" title="self"   href="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14081')?select=tradingAccount,customerReference" />
-    <category scheme="http://schemas.sage.com/sdata/categories" term="salesInvoice" label=""/>
+    <link rel="self" type="application/atom+xml; type=entry" title="self"   href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoices('14081')?select=tradingAccount,customerReference" />
+    <category scheme="http://schemas.sage.com/sdata/categories" term="resource" label="Resource"/>
     <content>Invoice 14081</content>
  
     <sdata:payload>
       <crm:salesInvoice sdata:key="14081" sdata:uuid="##14081##">
-		<crm:tradingAccount sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('43660')" sdata:uuid="##43660##" />
+		<crm:tradingAccount sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts('43660')" sdata:uuid="##43660##" />
 		<crm:customerReference>I1247</crm:customerReference>
       </crm:salesInvoice>
     </sdata:payload>
   </entry>
   
   <entry>
-    <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14082')</id>
+    <id>http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoices('14082')</id>
     <title>Invoice 14082</title>
     <updated>2010-03-31T13:46:45Z</updated>
-    <link rel="self" type="application/atom+xml; type=entry" title="self"   href="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14082')?select=tradingAccount,customerReference" />
-    <category scheme="http://schemas.sage.com/sdata/categories" term="salesInvoice" label=""/>
+    <link rel="self" type="application/atom+xml; type=entry" title="self"   href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoices('14082')?select=tradingAccount,customerReference" />
+    <category scheme="http://schemas.sage.com/sdata/categories" term="resource" label="Resource"/>
     <content>Invoice 14082</content>
  
     <sdata:payload>
       <crm:salesInvoice sdata:key="14082" sdata:uuid="##14082##">
-		<crm:tradingAccount sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('43660')" sdata:uuid="##43660##" />
+		<crm:tradingAccount sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts('43660')" sdata:uuid="##43660##" />
 		<crm:customerReference>I1248</crm:customerReference>
       </crm:salesInvoice>
     </sdata:payload>
   </entry>
   
   <entry>
-    <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14083')</id>
+    <id>http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoices('14083')</id>
     <title>Invoice 14083</title>
     <updated>2010-03-31T13:46:45Z</updated>
-    <link rel="self" type="application/atom+xml; type=entry" title="self"   href="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14083')?select=tradingAccount,customerReference" />
-    <category scheme="http://schemas.sage.com/sdata/categories" term="salesInvoice" label=""/>
+    <link rel="self" type="application/atom+xml; type=entry" title="self"   href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoices('14083')?select=tradingAccount,customerReference" />
+    <category scheme="http://schemas.sage.com/sdata/categories" term="resource" label="Resource"/>
     <content>Invoice 14083</content>
  
     <sdata:payload>
       <crm:salesInvoice sdata:key="14083" sdata:uuid="##14083##">
-		<crm:tradingAccount sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('43660')" sdata:uuid="##43660##" />
+		<crm:tradingAccount sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts('43660')" sdata:uuid="##43660##" />
 		<crm:customerReference>I1249</crm:customerReference>
       </crm:salesInvoice>
     </sdata:payload>
   </entry>
   
   <entry>
-    <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14084')</id>
+    <id>http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoices('14084')</id>
     <title>Invoice 14084</title>
     <updated>2010-03-31T13:46:45Z</updated>
-    <link rel="self" type="application/atom+xml; type=entry" title="self"   href="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14084')?select=tradingAccount,customerReference" />
-    <category scheme="http://schemas.sage.com/sdata/categories" term="salesInvoice" label=""/>
+    <link rel="self" type="application/atom+xml; type=entry" title="self"   href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoices('14084')?select=tradingAccount,customerReference" />
+    <category scheme="http://schemas.sage.com/sdata/categories" term="resource" label="Resource"/>
     <content>Invoice 14084</content>
  
     <sdata:payload>
       <crm:salesInvoice sdata:key="14084" sdata:uuid="##14084##">
-		<crm:tradingAccount sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('43660')" sdata:uuid="##43660##" />
+		<crm:tradingAccount sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts('43660')" sdata:uuid="##43660##" />
 		<crm:customerReference>I1250</crm:customerReference>
       </crm:salesInvoice>
     </sdata:payload>
   </entry>
   
   <entry>
-    <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14085')</id>
+    <id>http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoices('14085')</id>
     <title>Invoice 14085</title>
     <updated>2010-03-31T13:46:45Z</updated>
-    <link rel="self" type="application/atom+xml; type=entry" title="self"   href="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14085')?select=tradingAccount,customerReference" />
-    <category scheme="http://schemas.sage.com/sdata/categories" term="salesInvoice" label=""/>
+    <link rel="self" type="application/atom+xml; type=entry" title="self"   href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoices('14085')?select=tradingAccount,customerReference" />
+    <category scheme="http://schemas.sage.com/sdata/categories" term="resource" label="Resource"/>
     <content>Invoice 14085</content>
  
     <sdata:payload>
       <crm:salesInvoice sdata:key="14085" sdata:uuid="##14085##">
-		<crm:tradingAccount sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('43660')" sdata:uuid="##43660##" />
+		<crm:tradingAccount sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts('43660')" sdata:uuid="##43660##" />
 		<crm:customerReference>I1251</crm:customerReference>
       </crm:salesInvoice>
     </sdata:payload>

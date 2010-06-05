@@ -15,6 +15,7 @@ global RECEIPTS
 global TOKEN_MARKER
 global uuids_dict
 global TAGS_DICT
+global company
 
 @route('/')
 def index():
@@ -64,9 +65,10 @@ def index(emailEQ):
 @route('/sdata/billingboss/crmErp/:dataset/receipts/$linked', method='GET')
 def index(dataset):
     global debug
-
-    log_method_start('Count of linked resources')
     
+    log_method_start('Count of linked resources')
+    set_company(dataset)
+
     authentication()
     if response.status != 200:
         return
@@ -95,6 +97,8 @@ def index(dataset):
 def index(dataset):
     global debug
     log_method_start('GET count of all resources or link feed')
+    set_company(dataset)
+    
     authentication()
     if response.status != 200:
         return
@@ -124,6 +128,7 @@ def index(dataset):
 def index(dataset):
     global debug
     log_method_start('Post new links')
+    set_company(dataset)
 
     authentication()
     if response.status != 200:
@@ -148,6 +153,7 @@ def index(dataset):
 def index(dataset):
     global debug
     log_method_start('Create sync request')
+    set_company(dataset)
 
     authentication()
     if response.status != 200:
@@ -197,6 +203,7 @@ def index(dataset, trackingID):
     global debug
     
     log_method_start('Request status of sync')
+    set_company(dataset)
 
     authentication()
     if response.status != 200:
@@ -229,6 +236,7 @@ def index(dataset, trackingID):
 def index(dataset, trackingID):
     global debug
     log_method_start('Delete (finish) sync request')
+    set_company(dataset)
 
     authentication()
     if response.status != 200:
@@ -247,7 +255,9 @@ def sdata_link_count_linked():
     return read_and_log('link_count_linked.xml')
 
 def read_and_log(filename):
+    global company
     xml = read_file(filename)
+    xml = xml.format(company)
     write_to_log(xml)
     return xml    
 
@@ -349,6 +359,7 @@ def set_response_location(uuid):
 
 # generic response to link request
 def sdata_link_post(resourceKind, resourceName, url, key, uuid):
+    global company
     return '''
     <entry xmlns:xs="http://www.w3.org/2001/XMLSchema" 
            xmlns:cf="http://www.microsoft.com/schemas/rss/core/2005" 
@@ -360,17 +371,17 @@ def sdata_link_post(resourceKind, resourceName, url, key, uuid):
            xmlns:http="http://schemas.sage.com/sdata/http/2008/1" 
            xmlns:sc="http://schemas.sage.com/sc/2009" 
            xmlns:crm="http://schemas.sage.com/crmErp/2008">
-      <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/{0}/$linked('{4}')</id>
-      <title>Linked {1} {4}</title>
+      <id>http://www.billingboss.com/sdata/billingboss/crmErp/{0}/{1}/$linked('{5}')</id>
+      <title>Linked {2} {5}</title>
       <updated>2010-05-25T13:27:19.207Z</updated>
       <sdata:payload>
-        <crm:{1} sdata:uuid="{4}"
-          sdata:url="{2}"
-          sdata:key="{3}">
-        </crm:{1}>
+        <crm:{1} sdata:uuid="{5}"
+          sdata:url="{3}"
+          sdata:key="{4}">
+        </crm:{2}>
       </sdata:payload>
     </entry>
-    '''.format(resourceKind, resourceName, url, key, uuid)
+    '''.format(company, resourceKind, resourceName, url, key, uuid)
     
 def sdata_sync_accepted():
     write_to_log("")    
@@ -388,13 +399,17 @@ def sdata_sync_feed(trackingID):
 def replace_tokens_in_feed(filename, trackingID=''):
     global debug
     global uuids_dict
+    global company
     import re
     
     feed = read_file(filename)
 
+    # replace {0} with company for all links
     # strip quotes off of tracking id parameter
     if len(trackingID) > 0:
-        feed = feed.format(trackingID.strip("'"))
+        feed = feed.format(company, trackingID.strip("'"))
+    else:
+        feed = feed.format(company)
 	
     # look for token marker 
     if feed.count(TOKEN_MARKER) > 0:
@@ -507,6 +522,10 @@ def initialize_uuids():
     uuids = open(uuids_filename, 'w')
     uuids.close()
 
+def set_company(dataset):
+    global company
+    company = dataset
+
 def to_unicode(obj, encoding='utf-8'):
     if isinstance(obj, str):
         write_to_log("obj is basestring")
@@ -545,6 +564,7 @@ TAGS_DICT = {'payload':        'sdata:payload',
              'url':            'sdata:url',
              'key':            'sdata:key',
              'entry':          'entry'}
+company = ""
 
 # initialize uuid file for the file test
 # TODO get rid of hard coded port number

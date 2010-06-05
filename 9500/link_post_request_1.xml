@@ -13,7 +13,7 @@
   <updated>2008-05-25T13:27:19.207Z</updated>
   <sdata:payload>
     <crm:receipt sdata:uuid="78e4ba50-6920-11df-a08a-0800200c9a66"
-      sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts('12011')"
+      sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/receipts('12011')"
 	  sdata:key="12011">
     </crm:receipt>
   </sdata:payload>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feed xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+      xmlns:cf="http://www.microsoft.com/schemas/rss/core/2005" 
+      xmlns="http://www.w3.org/2005/Atom" 
+      xmlns:sdata="http://schemas.sage.com/sdata/2008/1" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" 
+      xmlns:sme="http://schemas.sage.com/sdata/sme/2007" 
+      xmlns:http="http://schemas.sage.com/sdata/http/2008/1" 
+      xmlns:sc="http://schemas.sage.com/sc/2009" 
+      xmlns:crm="http://schemas.sage.com/crmErp/2008"
+      xmlns:bb="http://schemas.billingboss.com/bb/2010">
+ 
+  <title>Billing Boss | Users </title>
+  <id>https://billingboss.com/sdata/billingboss/bb/-/users(email eq 'user1@test.com')</id>
+
+  <updated>2010-03-31T13:46:45Z</updated>
+  <author>
+    <name>Billing Boss</name>
+  </author>
+ 
+  <link rel="self" type="application/atom+xml; type=feed" title="Refresh" href="https://billingboss.com/sdata/billingboss/bb/-/users(email eq 'user1@test.com')?include=bookkeepingClients" />
+  <link rel="first" type="application/atom+xml; type=feed" title="First Page" href="http://www.billingboss.com/sdata/billingboss/bb/-/users&amp;startIndex=1&amp;count=10" />
+  <link rel="last" type="application/atom+xml; type=feed" title="Last Page" href="http://www.billingboss.com/sdata/billingboss/bb/-/users&amp;startIndex=1&amp;count=10" />
+  <link rel="next" type="application/atom+xml; type=feed" title="Next Page" href="http://www.billingboss.com/sdata/billingboss/bb/-/users&amp;startIndex=1&amp;count=10" />
+  <link rel="http://schemas.sage.com/sdata/link-relations/schema" type="application/xml" title="Schema" href="http://www.billingboss.com/sdata/billingboss/bb/-/users/$schema" />
+ 
+  <category scheme="http://schemas.sage.com/sdata/categories" term="collection" label="Resource Collection"/>
+ 
+  <opensearch:totalResults>1</opensearch:totalResults>
+  <opensearch:startIndex>1</opensearch:startIndex>
+  <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
+ 
+  <entry>
+    <id>http://www.billingboss.com/sdata/billingboss/bb/-/users('1441')</id>
+    <title>User 1441</title>
+    <updated>2010-03-31T13:46:45Z</updated>
+    <link rel="self" type="application/atom+xml; type=entry" title="self" href="http://www.billingboss.com/sdata/billingboss/bb/-/users('1441')" />
+    <category scheme="http://schemas.sage.com/sdata/categories" term="resource" label="Resource"/>
+    <content>User 1441</content>
+
+    <sdata:payload>
+      <bb:user sdata:key="1441">
+        <bb:username>user1</bb:username>
+        <bb:email>user1@test.com</bb:email>
+        <bb:dataset>user1</bb:dataset>
+        <bb:subscribed>true</bb:subscribed>
+      </bb:user>
+    </sdata:payload>
+  </entry>
+ 
+</feed>

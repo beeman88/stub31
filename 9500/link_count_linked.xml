@@ -11,13 +11,13 @@
       xmlns:crm="http://schemas.sage.com/crmErp/2008">
  
   <title>Billing Boss receipt</title>
-  <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/receipts?count=0</id>
+  <id>http://www.billingboss.com/sdata/billingboss/crmErp/{0}/receipts?count=0</id>
 
   <author>
     <name>BillingBoss</name>
   </author>
  
-  <category scheme="http://schemas.sage.com/sdata/categories" term="receipt" label=""/>
+  <category scheme="http://schemas.sage.com/sdata/categories" term="collection" label="Resource collection"/>
  
   <opensearch:totalResults>1</opensearch:totalResults>
   <opensearch:startIndex>1</opensearch:startIndex>

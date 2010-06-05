@@ -11,32 +11,32 @@
       xmlns:crm="http://schemas.sage.com/crmErp/2008">
  
   <title>Billing Boss | Customers</title>
-  <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts</id>
+  <id>http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts</id>
   <updated>2010-03-31T13:46:45Z</updated>
   <author>
     <name>Billing Boss</name>
   </author>
  
-  <link rel="self" type="application/atom+xml; type=feed" title="Refresh" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts?select=name,customerSupplierFlag" />
-  <link rel="first" type="application/atom+xml; type=feed" title="First Page" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts?select=name,customerSupplierFlag&amp;startIndex=1&amp;count=10" />
-  <link rel="last" type="application/atom+xml; type=feed" title="Last Page" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts?select=name,customerSupplierFlag&amp;startIndex=1&amp;count=10" />
-  <link rel="next" type="application/atom+xml; type=feed" title="Next Page" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts?select=name,customerSupplierFlag&amp;startIndex=1&amp;count=10" />
-  <link rel="schema" type="application/xml" title="Schema" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts/$schema" />
-  <link rel="template" type="application/atom+xml; type=entry" title="Template" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts/$template" />
-  <link rel="post" type="application/atom+xml; type=entry" title="Post" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts" />
-  <link rel="service" type="application/atom+xml; type=feed" title="Service" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts/$service" />
+  <link rel="self" type="application/atom+xml; type=feed" title="Refresh" href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts?select=name,customerSupplierFlag" />
+  <link rel="first" type="application/atom+xml; type=feed" title="First Page" href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts?select=name,customerSupplierFlag&amp;startIndex=1&amp;count=10" />
+  <link rel="last" type="application/atom+xml; type=feed" title="Last Page" href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts?select=name,customerSupplierFlag&amp;startIndex=1&amp;count=10" />
+  <link rel="next" type="application/atom+xml; type=feed" title="Next Page" href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts?select=name,customerSupplierFlag&amp;startIndex=1&amp;count=10" />
+  <link rel="schema" type="application/xml" title="Schema" href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts/$schema" />
+  <link rel="template" type="application/atom+xml; type=entry" title="Template" href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts/$template" />
+  <link rel="post" type="application/atom+xml; type=entry" title="Post" href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts" />
+  <link rel="service" type="application/atom+xml; type=feed" title="Service" href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts/$service" />
  
-  <category scheme="http://schemas.sage.com/sdata/categories" term="tradingAccount" label=""/>
+  <category scheme="http://schemas.sage.com/sdata/categories" term="collection" label="Resource collection"/>
  
   <opensearch:totalResults>4</opensearch:totalResults>
   <opensearch:startIndex>1</opensearch:startIndex>
   <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
  
   <entry>
-    <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('43660')</id>
+    <id>http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts('43660')</id>
     <title>Customer 43660</title>
     <updated>2010-03-31T13:46:45Z</updated>
-    <link rel="self" type="application/atom+xml; type=entry" title="self"   href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('43660')?select=name,customerSupplierFlag" />
+    <link rel="self" type="application/atom+xml; type=entry" title="self"   href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts('43660')?select=name,customerSupplierFlag" />
     <category scheme="http://schemas.sage.com/sdata/categories" term="resource" label="Resource"/>
     <content>Customer 43660 select name,customerSupplierFlag</content>
  
@@ -49,10 +49,10 @@
   </entry>
  
   <entry>
-    <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('43661')</id>
+    <id>http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts('43661')</id>
     <title>Customer 43661</title>
     <updated>2010-03-31T13:46:45Z</updated>
-    <link rel="self" type="application/atom+xml; type=entry" title="self" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('43661')?select=name,customerSupplierFlag" />
+    <link rel="self" type="application/atom+xml; type=entry" title="self" href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts('43661')?select=name,customerSupplierFlag" />
     <category scheme="http://schemas.sage.com/sdata/categories" term="resource" label="Resource"/>
     <content>Customer 43661 select name</content>
  
@@ -65,11 +65,11 @@
   </entry>
   
   <entry>
-    <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('8082')</id>
+    <id>http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts('8082')</id>
     <title>Customer 8082</title>
     <updated>2010-03-31T13:46:45Z</updated>
-    <link rel="self" type="application/atom+xml; type=entry" title="self" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('8082')?select=name,customerSupplierFlag" />
-    <category scheme="http://schemas.sage.com/sdata/categories" term="tradingAccount" label=""/>
+    <link rel="self" type="application/atom+xml; type=entry" title="self" href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts('8082')?select=name,customerSupplierFlag" />
+    <category scheme="http://schemas.sage.com/sdata/categories" term="resource" label="Resource"/>
     <content>Customer 8082 select name</content>
  
     <sdata:payload>
@@ -81,11 +81,11 @@
   </entry>
 
   <entry>
-    <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('43671')</id>
+    <id>http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts('43671')</id>
     <title>Customer 43671</title>
     <updated>2010-03-31T13:46:45Z</updated>
-    <link rel="self" type="application/atom+xml; type=entry" title="self" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('43671')?select=name,customerSupplierFlag" />
-    <category scheme="http://schemas.sage.com/sdata/categories" term="tradingAccount" label=""/>
+    <link rel="self" type="application/atom+xml; type=entry" title="self" href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts('43671')?select=name,customerSupplierFlag" />
+    <category scheme="http://schemas.sage.com/sdata/categories" term="resource" label="Resource"/>
     <content>Customer 43671 select name</content>
  
     <sdata:payload>

@@ -14,7 +14,7 @@
   <updated>2008-05-25T13:27:19.207Z</updated>
   <sdata:payload>
     <crm:tradingAccount sdata:uuid="5ec1f640-5897-11df-a08a-0800200c9a66"
-      sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('8082')"
+      sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts('8082')"
 	  sdata:key="8082">
     </crm:tradingAccount>
   </sdata:payload>

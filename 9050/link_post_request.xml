@@ -13,7 +13,7 @@
   <updated>2008-05-25T13:27:19.207Z</updated>
   <sdata:payload>
     <crm:salesInvoice sdata:uuid="62559e90-5d1c-11df-a08a-0800200c9a66"
-      sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14081')"
+      sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoices('14081')"
 	  sdata:key="14081" >
     </crm:salesInvoice>
   </sdata:payload>
