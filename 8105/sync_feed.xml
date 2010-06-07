@@ -14,7 +14,7 @@
   <id>http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts/$syncSource('{1}')</id>
   <updated>2008-03-31T13:46:45Z</updated>
 
-  <category scheme="http://schemas.sage.com/sdata/categories" term="tradingAccount" label=""/>
+  <category scheme="http://schemas.sage.com/sdata/categories" term="collection" label="Resource collection"/>
  
   <opensearch:totalResults>2</opensearch:totalResults>
   <opensearch:startIndex>1</opensearch:startIndex>

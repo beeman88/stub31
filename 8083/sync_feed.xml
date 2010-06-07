@@ -17,7 +17,7 @@
   <link rel="first" type="application/atom+xml; type=feed" title="First Page" href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts/$syncSource('{1}')?startIndex=1&amp;count=10" />
   <link rel="next" type="application/atom+xml; type=feed" title="NextPage" href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts/$syncSource('{1}')?startIndex=11&amp;count=10" />
 
-  <category scheme="http://schemas.sage.com/sdata/categories" term="tradingAccount" label=""/>
+  <category scheme="http://schemas.sage.com/sdata/categories" term="collection" label="Resource collection"/>
  
   <opensearch:totalResults>2</opensearch:totalResults>
   <opensearch:startIndex>1</opensearch:startIndex>

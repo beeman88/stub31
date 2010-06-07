@@ -17,7 +17,7 @@
   <link rel="first" type="application/atom+xml; type=feed" title="First Page" href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/receipts/$syncSource('{1}')?startIndex=1&amp;count=10" />
   <link rel="next" type="application/atom+xml; type=feed" title="NextPage" href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/receipts/$syncSource('{1}')?startIndex=11&amp;count=10" />  
 
-  <category scheme="http://schemas.sage.com/sdata/categories" term="receipt" label=""/>
+  <category scheme="http://schemas.sage.com/sdata/categories" term="collection" label="Resource collection"/>
  
   <opensearch:totalResults>2</opensearch:totalResults>
   <opensearch:startIndex>1</opensearch:startIndex>
@@ -75,7 +75,7 @@
 		<crm:tradingAccountReference xsi:nil="true" />
 		<crm:priceList xsi:nil="true" />
 		<crm:originatorDocument>
-		  <salesInvoice sdata:uuid="##14081##"
+		  <crm:salesInvoice sdata:uuid="##14081##"
 			  sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoice('14081')"
 			  sdata:key="14081" />
 		</crm:originatorDocument>

@@ -21,7 +21,7 @@
         href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts/$syncSource('abc42b0d-d110-4f5c-ac79-d3aa11bd20cb')
 ?startIndex=11&amp;count=10" />
 
-  <category scheme="http://schemas.sage.com/sdata/categories" term="tradingAccount" label=""/>
+  <category scheme="http://schemas.sage.com/sdata/categories" term="collection" label="Resource collection"/>
  
   <opensearch:totalResults>0</opensearch:totalResults>
   <opensearch:startIndex>1</opensearch:startIndex>
