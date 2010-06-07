@@ -38,9 +38,9 @@ def index():
 @route('/sdata/billingboss/bb/-/users('':emailEQ'')', method='GET')
 def index(emailEQ):
 
-    authentication()
-    if response.status != 200:
-        return 
+##    authentication()
+##    if response.status != 200:
+##        return 
     
     response.content_type='application/atom+xml'    
 
@@ -69,9 +69,9 @@ def index(dataset):
     log_method_start('Count of linked resources')
     set_company(dataset)
 
-    authentication()
-    if response.status != 200:
-        return
+##    authentication()
+##    if response.status != 200:
+##        return
                  
     try:
         count = request.GET['count']
@@ -99,9 +99,9 @@ def index(dataset):
     log_method_start('GET count of all resources or link feed')
     set_company(dataset)
     
-    authentication()
-    if response.status != 200:
-        return
+##    authentication()
+##    if response.status != 200:
+##        return
 
     response.content_type='application/atom+xml'
 
@@ -130,9 +130,9 @@ def index(dataset):
     log_method_start('Post new links')
     set_company(dataset)
 
-    authentication()
-    if response.status != 200:
-        return
+##    authentication()
+##    if response.status != 200:
+##        return
     
     if request.url.find(TRADING_ACCOUNTS) > 0:
         return post_link_resource(TRADING_ACCOUNTS)
@@ -155,9 +155,9 @@ def index(dataset):
     log_method_start('Create sync request')
     set_company(dataset)
 
-    authentication()
-    if response.status != 200:
-        return
+##    authentication()
+##    if response.status != 200:
+##        return
 
     try:
         trackingID = request.GET['trackingID']
@@ -205,9 +205,9 @@ def index(dataset, trackingID):
     log_method_start('Request status of sync')
     set_company(dataset)
 
-    authentication()
-    if response.status != 200:
-        return
+##    authentication()
+##    if response.status != 200:
+##        return
     
     write_to_log('tracking id = {0}'.format(trackingID), debug)
     write_to_log('in_progress_count = {0}'.format(in_progress_count), debug)
@@ -238,9 +238,9 @@ def index(dataset, trackingID):
     log_method_start('Delete (finish) sync request')
     set_company(dataset)
 
-    authentication()
-    if response.status != 200:
-        return
+##    authentication()
+##    if response.status != 200:
+##        return
     
     write_to_log('tracking id = {0}'.format(trackingID), debug)
     response.status = 200
@@ -375,7 +375,7 @@ def sdata_link_post(resourceKind, resourceName, url, key, uuid):
       <title>Linked {2} {5}</title>
       <updated>2010-05-25T13:27:19.207Z</updated>
       <sdata:payload>
-        <crm:{1} sdata:uuid="{5}"
+        <crm:{2} sdata:uuid="{5}"
           sdata:url="{3}"
           sdata:key="{4}">
         </crm:{2}>
@@ -457,6 +457,7 @@ def authentication():
     # the bottle.py auth wasn't doing it 
     log_method_start('Authentication')    
     try:
+        write_to_log("start auth")
         header = request.environ.get('HTTP_AUTHORIZATION','')
         method, data = header.split(None, 1)
         if method.lower() == 'basic':
