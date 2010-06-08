@@ -60,13 +60,11 @@ def index(emailEQ):
 # /sdata/billingboss/crmErp/TradingAccounts/$linked?count=0
 # TODO because no tradingAccount entries are returned, the link for first, last, next page have count = 0
 # compare with Sage 50 - Act! implementation
-@route('/sdata/billingboss/crmErp/:dataset/tradingAccounts/$linked', method='GET')
-@route('/sdata/billingboss/crmErp/:dataset/salesInvoices/$linked', method='GET')
-@route('/sdata/billingboss/crmErp/:dataset/receipts/$linked', method='GET')
-def index(dataset):
+@route('/sdata/billingboss/crmErp/:dataset/:resourceKind/$linked', method='GET')
+def index(dataset, resourceKind):
     global debug
     
-    log_method_start('Count of linked resources')
+    log_method_start('Count of linked resources for %s' % resourceKind)
     set_company(dataset)
 
 ##    authentication()
@@ -91,19 +89,15 @@ def index(dataset):
 # TODO /sdata/billingboss/crmErp/dataset/tradingAccounts?select=name,customerSupplierFlag the real request?
 # /sdata/billingboss/crmErp/dataset/tradingAccounts
 # all customers, invoices
-@route('/sdata/billingboss/crmErp/:dataset/tradingAccounts', method='GET')
-@route('/sdata/billingboss/crmErp/:dataset/salesInvoices', method='GET')
-@route('/sdata/billingboss/crmErp/:dataset/receipts', method='GET')
-def index(dataset):
+@route('/sdata/billingboss/crmErp/:dataset/:resourceKind', method='GET')
+def index(dataset, resourceKind):
     global debug
-    log_method_start('GET count of all resources or link feed')
+    log_method_start('GET count of all resources or link feed for %s' % resourceKind)
     set_company(dataset)
     
 ##    authentication()
 ##    if response.status != 200:
 ##        return
-
-    response.content_type='application/atom+xml'
 
     # when count parameter exists, return count of all resources
     try:
@@ -113,46 +107,36 @@ def index(dataset):
     else:
         write_to_log('count = {0}'.format(count), debug)
         write_to_log('return count of all resources', debug)
+        response.content_type='application/atom+xml; type=entry'        
         return sdata_link_count_all()
 
     # return feed of resources
     # the select parameter specifies what fields to return is handled in the xml file
+    response.content_type='application/atom+xml; type=feed'    
     return sdata_link_feed_all()
 
 # 5. Post new links
 # POST request
 # response is one entry for Ashburton Reinforcing
-@route('/sdata/billingboss/crmErp/:dataset/tradingAccounts/$linked', method='POST')
-@route('/sdata/billingboss/crmErp/:dataset/salesInvoices/$linked', method='POST')
-@route('/sdata/billingboss/crmErp/:dataset/receipts/$linked', method='POST')
-def index(dataset):
+@route('/sdata/billingboss/crmErp/:dataset/:resourceKind/$linked', method='POST')
+def index(dataset, resourceKind):
     global debug
-    log_method_start('Post new links')
+    log_method_start('Post new links for %s' % resourceKind)
     set_company(dataset)
 
 ##    authentication()
 ##    if response.status != 200:
 ##        return
-    
-    if request.url.find(TRADING_ACCOUNTS) > 0:
-        return post_link_resource(TRADING_ACCOUNTS)
-    elif request.url.find(SALES_INVOICES) > 0: 
-        return post_link_resource(SALES_INVOICES)
-    elif request.url.find(RECEIPTS) > 0:
-        return post_link_resource(RECEIPTS)
-    else:
-        response.status = 404
-        write_to_log("Error Invalid Resource")
-        return sdata_link_post_error()
+
+    return post_link_resource(resourceKind)
+
 
 # 6. Create sync request
 # POST
-@route('/sdata/billingboss/crmErp/:dataset/tradingAccounts/$syncSource', method='POST')
-@route('/sdata/billingboss/crmErp/:dataset/salesInvoices/$syncSource', method='POST')
-@route('/sdata/billingboss/crmErp/:dataset/receipts/$syncSource', method='POST')
-def index(dataset):
+@route('/sdata/billingboss/crmErp/:dataset/:resourceKind/$syncSource', method='POST')
+def index(dataset, resourceKind):
     global debug
-    log_method_start('Create sync request')
+    log_method_start('Create sync request for %s' % resourceKind)
     set_company(dataset)
 
 ##    authentication()
@@ -194,15 +178,13 @@ def index(dataset):
 # 7b. Request status of sync request (Complete)
 # GET on location of previous request
 # /sdata/billingboss/crmErp/dataset/tradingAccounts/$syncSource('abc42b0d-d110-4f5c-ac79-d3aa11bd20cb')
-@route('/sdata/billingboss/crmErp/:dataset/tradingAccounts/$syncSource('':trackingID'')', method='GET')
-@route('/sdata/billingboss/crmErp/:dataset/salesInvoices/$syncSource('':trackingID'')', method='GET')
-@route('/sdata/billingboss/crmErp/:dataset/receipts/$syncSource('':trackingID'')', method='GET')
-def index(dataset, trackingID):
+@route('/sdata/billingboss/crmErp/:dataset/:resourceKind/$syncSource('':trackingID'')', method='GET')
+def index(dataset, resourceKind, trackingID):
     global in_progress_count 
     global in_progress_reqs
     global debug
     
-    log_method_start('Request status of sync')
+    log_method_start('Request status of sync for %s' % resourceKind)
     set_company(dataset)
 
 ##    authentication()
@@ -230,12 +212,10 @@ def index(dataset, trackingID):
 # 8. Delete (finish) sync request
 # DELETE request
 # /sdata/billingboss/crmErp/dataset/tradingAccounts/$syncSource('abc42b0d-d110-4f5c-ac79-d3aa11bd20cb')
-@route('/sdata/billingboss/crmErp/:dataset/tradingAccounts/$syncSource('':trackingID'')', method='DELETE')
-@route('/sdata/billingboss/crmErp/:dataset/salesInvoices/$syncSource('':trackingID'')', method='DELETE')
-@route('/sdata/billingboss/crmErp/:dataset/receipts/$syncSource('':trackingID'')', method='DELETE')
-def index(dataset, trackingID):
+@route('/sdata/billingboss/crmErp/:dataset/:resourceKind/$syncSource('':trackingID'')', method='DELETE')
+def index(dataset, resourceKind, trackingID):
     global debug
-    log_method_start('Delete (finish) sync request')
+    log_method_start('Delete (finish) sync request for %s' % resourceKind)
     set_company(dataset)
 
 ##    authentication()

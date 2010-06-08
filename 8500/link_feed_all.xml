@@ -34,30 +34,30 @@
  
   <entry>
     <id>http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes('6')</id>
-    <title>Tax Code 6</title>
+    <title>GST</title>
     <updated>2010-03-31T13:46:45Z</updated>
     <link rel="self" type="application/atom+xml; type=entry" title="self"   href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes('6')?select=reference2" />
     <category scheme="http://schemas.sage.com/sdata/categories" term="resource" label="Resource"/>
-    <content>Tax Code 6 select reference2</content>
+    <content>GST select reference2</content>
  
     <sdata:payload>
       <crm:taxCode sdata:key="6">
-        <crm:reference2>Tax Code 6</crm:reference2>
+        <crm:reference2>GST</crm:reference2>
       </crm:taxCode>
     </sdata:payload>
   </entry>
  
   <entry>
     <id>http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes('7')</id>
-    <title>Tax Code 7</title>
+    <title>PST</title>
     <updated>2010-03-31T13:46:45Z</updated>
     <link rel="self" type="application/atom+xml; type=entry" title="self" href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes('7')?select=reference2" />
     <category scheme="http://schemas.sage.com/sdata/categories" term="resource" label="Resource"/>
-    <content>Tax Code 7 select reference2</content>
+    <content>PST select reference2</content>
  
     <sdata:payload>
       <crm:taxCode sdata:key="7" sdata:uuid="ae3dee50-7326-11df-93f2-0800200c9a66">
-        <crm:reference2>Tax Code 7</crm:reference2>
+        <crm:reference2>PST</crm:reference2>
       </crm:taxCode>
     </sdata:payload>
   </entry>
