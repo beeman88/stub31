@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feed xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+      xmlns:cf="http://www.microsoft.com/schemas/rss/core/2005" 
+      xmlns="http://www.w3.org/2005/Atom" 
+      xmlns:sdata="http://schemas.sage.com/sdata/2008/1" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" 
+      xmlns:sme="http://schemas.sage.com/sdata/sme/2007" 
+      xmlns:http="http://schemas.sage.com/sdata/http/2008/1" 
+      xmlns:sc="http://schemas.sage.com/sc/2009" 
+      xmlns:crm="http://schemas.sage.com/crmErp/2008">
+ 
+  <title>Billing Boss | Tax Codes</title>
+  <id>http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes</id>
+  <updated>2010-03-31T13:46:45Z</updated>
+  <author>
+    <name>Billing Boss</name>
+  </author>
+ 
+  <link rel="self" type="application/atom+xml; type=feed" title="Refresh" href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes?select=reference2,taxationCountry" />
+  <link rel="first" type="application/atom+xml; type=feed" title="First Page" href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes?select=reference2,taxationCountry&amp;startIndex=1&amp;count=10" />
+  <link rel="last" type="application/atom+xml; type=feed" title="Last Page" href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes?select=reference2,taxationCountry&amp;startIndex=1&amp;count=10" />
+  <link rel="next" type="application/atom+xml; type=feed" title="Next Page" href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes?select=reference2,taxationCountry&amp;startIndex=1&amp;count=10" />
+  <link rel="schema" type="application/xml" title="Schema" href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes/$schema" />
+  <link rel="template" type="application/atom+xml; type=entry" title="Template" href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes/$template" />
+  <link rel="post" type="application/atom+xml; type=entry" title="Post" href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes" />
+  <link rel="service" type="application/atom+xml; type=feed" title="Service" href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes/$service" />
+ 
+  <category scheme="http://schemas.sage.com/sdata/categories" term="collection" label="Resource collection"/>
+ 
+  <opensearch:totalResults>2</opensearch:totalResults>
+  <opensearch:startIndex>1</opensearch:startIndex>
+  <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
+ 
+  <entry>
+    <id>http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes('6')</id>
+    <title>Tax Code 6</title>
+    <updated>2010-03-31T13:46:45Z</updated>
+    <link rel="self" type="application/atom+xml; type=entry" title="self"   href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes('6')?select=reference2,taxationCountry" />
+    <category scheme="http://schemas.sage.com/sdata/categories" term="resource" label="Resource"/>
+    <content>Tax Code 6 select reference2,taxationCountry</content>
+ 
+    <sdata:payload>
+      <crm:taxCode sdata:key="6">
+        <crm:reference2>Tax Code 6</crm:reference2>
+        <crm:taxationCountry>CA</crm:taxationCountry>
+      </crm:taxCode>
+    </sdata:payload>
+  </entry>
+ 
+  <entry>
+    <id>http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes('7')</id>
+    <title>Tax Code 7</title>
+    <updated>2010-03-31T13:46:45Z</updated>
+    <link rel="self" type="application/atom+xml; type=entry" title="self" href="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes('7')?select=reference2,taxationCountry" />
+    <category scheme="http://schemas.sage.com/sdata/categories" term="resource" label="Resource"/>
+    <content>Tax Code 7 select reference2,taxationCountry</content>
+ 
+    <sdata:payload>
+      <crm:taxCode sdata:key="7" sdata:uuid="ae3dee50-7326-11df-93f2-0800200c9a66">
+        <crm:reference2>Tax Code 7</crm:reference2>
+        <crm:taxationCountry>CA</crm:taxationCountry>
+      </crm:taxCode>
+    </sdata:payload>
+  </entry>
+</feed>

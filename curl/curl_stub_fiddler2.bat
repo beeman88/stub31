@@ -2,19 +2,19 @@
 
 IF "%1"=="" (
 echo "usage: curl_stub port trackingID email password username resource "
-echo "curl_stub 8080 abc42b0d-d110-4f5c-ac79-d3aa11bd20cb email password tradingAccounts(salesInvoices)"
+echo "curl_stub 8080 abc42b0d-d110-4f5c-ac79-d3aa11bd20cb email password tradingAccounts(salesInvoices, receipts, taxCodes)"
 GOTO :EOF
 )
 
 IF "%2"=="" (
 echo "usage: curl_stub port trackingID email password username resource"
-echo "curl_stub 8080 abc42b0d-d110-4f5c-ac79-d3aa11bd20cb email password tradingAccounts(salesInvoices)"
+echo "curl_stub 8080 abc42b0d-d110-4f5c-ac79-d3aa11bd20cb email password tradingAccounts(salesInvoices, receipts, taxCodes)"
 GOTO :EOF
 )
 
 IF "%6"=="" (
 echo "usage: curl_stub port trackingID email password username resource"
-echo "curl_stub 8080 abc42b0d-d110-4f5c-ac79-d3aa11bd20cb email password tradingAccounts(salesInvoices)"
+echo "curl_stub 8080 abc42b0d-d110-4f5c-ac79-d3aa11bd20cb email password tradingAccounts(salesInvoices, receipts, taxCodes)"
 GOTO :EOF
 )
 
@@ -24,10 +24,12 @@ echo %sp%
 IF "%6"=="tradingAccounts" set select="select=name,customerSupplierFlag"
 IF "%6"=="salesInvoices" set select="select=tradingAccount,customerReference"
 IF "%6"=="receipts" set select="select=tradingAccount,originatorDocument,date,netTotal"
+IF "%6"=="taxCodes" set select="select=reference2,taxationCountry"
 
 IF "%6"=="tradingAccounts" set syncSelect="select=name,customerSupplierFlag"
 IF "%6"=="salesInvoices" set syncSelect=""
 IF "%6"=="receipts" set syncSelect=""
+IF "%6"=="taxCodes" set syncSelect=""
 
 IF "%1"=="8080" GOTO LINK2
 IF "%1"=="8081" GOTO NOLINK
@@ -38,6 +40,7 @@ IF "%1"=="8095" GOTO 8095
 IF "%1"=="8097" GOTO NOLINK
 IF "%1"=="8099" GOTO NOLINK
 IF "%1"=="8105" GOTO LINK2
+IF "%1"=="8500" GOTO LINK2
 IF "%1"=="9050" GOTO 9050
 IF "%1"=="9060" GOTO NOLINK
 IF "%1"=="9070" GOTO NOLINK
