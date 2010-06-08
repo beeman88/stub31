@@ -88,6 +88,9 @@
 			<crm:chargesTotal>20</crm:chargesTotal>
 			<crm:discountTotal>0</crm:discountTotal>
 			<crm:taxCodes sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoiceLines('97644')/taxCodes" />
+				<crm:taxCode sdata:uuid="##6##" sdata:key="6" sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes('6')" />
+				<crm:taxCode sdata:uuid="##7##" sdata:key="7" sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes('7')" />				
+			</crm:taxCodes>
 			<crm:priceTax>0.5</crm:priceTax>
 			<crm:taxTotal>1</crm:taxTotal>
 			<crm:grossTotal>21</crm:grossTotal>
@@ -106,6 +109,9 @@
 			<crm:chargesTotal>20</crm:chargesTotal>
 			<crm:discountTotal>0</crm:discountTotal>
 			<crm:taxCodes sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoiceLines('97645')/taxCodes" />
+				<crm:taxCode sdata:uuid="##6##" sdata:key="6" sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes('6')" />
+				<crm:taxCode sdata:uuid="##7##" sdata:key="7" sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes('7')" />				
+			</crm:taxCodes>
 			<crm:priceTax>0.5</crm:priceTax>
 			<crm:taxTotal>1</crm:taxTotal>
 			<crm:grossTotal>21</crm:grossTotal>
