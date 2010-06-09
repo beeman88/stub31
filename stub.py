@@ -135,6 +135,8 @@ def index(dataset, resourceKind):
 @route('/sdata/billingboss/crmErp/:dataset/:resourceKind/$syncSource', method='POST')
 def index(dataset, resourceKind):
     global debug
+    import xml.dom.minidom
+    
     log_method_start('Create sync request for %s' % resourceKind)
     set_company(dataset)
 
@@ -166,10 +168,14 @@ def index(dataset, resourceKind):
     else:
         write_to_log('runStamp = {0}'.format(runStamp))
 
-    write_to_log('202 Accepted')
-    response.status = 202
+    verify_digest()
+    # status code = 400 indicates the digest was malformed, 202 is digest is ok
+    if response.status == 400:
+        return
+
     response.content_type='application/xml'
     response.headers['Location'] = 'http://localhost:{0}'.format(port_number) + request.path + "('" + trackingID + "')"
+    write_to_log('202 Accepted')    
     return sdata_sync_accepted()
 
 # First request return sync in progress, second request returns feed
@@ -365,6 +371,38 @@ def sdata_link_post(resourceKind, resourceName, url, key, uuid):
     xml = xml.format(company, resourceKind, resourceName, url, key, uuid)
     xml = xml.format(company) # twice?
     return xml
+
+def verify_digest():
+    import xml.dom.minidom
+    global debug
+    
+    doc = xml.dom.minidom.parse(request.body)
+    write_to_log(doc.toxml(), debug)
+
+    payload = doc.getElementsByTagName(TAGS_DICT['payload'])[0]
+    write_to_log(payload.toxml(), debug)
+    xml = ''
+
+    try:
+        digest = payload.getElementsByTagName(TAGS_DICT['digest'])[0]
+        write_to_log("digest = %s" % digest, debug)
+        origin = digest.getElementsByTagName(TAGS_DICT['origin'])[0]
+        write_to_log("origin = %s" % origin, debug)        
+        digestEntry = digest.getElementsByTagName(TAGS_DICT['digestEntry'])[0]
+        write_to_log("digestEntry = %s" % digestEntry, debug)        
+        endpoint = digestEntry.getElementsByTagName(TAGS_DICT['endpoint'])[0]
+        write_to_log("endpoint = %s" % endpoint, debug)        
+        tick = digestEntry.getElementsByTagName(TAGS_DICT['tick'])[0]
+        write_to_log("tick = %s" % tick, debug)        
+        stamp = digestEntry.getElementsByTagName(TAGS_DICT['stamp'])[0]
+        write_to_log("stamp = %s" % stamp, debug)        
+        conflictPriority = digestEntry.getElementsByTagName(TAGS_DICT['conflictPriority'])[0]
+        write_to_log("conflictPriority = %s" % conflictPriority, debug)
+        response.status = 202
+    except Exception as e:
+        write_to_log('Exception error is: %s' % e)
+        response.status = 400
+    return
     
 def sdata_sync_accepted():
     write_to_log("")    
@@ -537,15 +575,23 @@ in_progress_count = 0
 in_progress_reqs = 1
 TOKEN_MARKER = '##'
 uuids_dict = {}
-TAGS_DICT = {'payload':        'sdata:payload',
-             'tradingAccount': 'crm:tradingAccount',
-             'salesInvoice':   'crm:salesInvoice',
-             'receipt':        'crm:receipt',
-             'taxCode':        'crm:taxCode',
-             'uuid':           'sdata:uuid',
-             'url':            'sdata:url',
-             'key':            'sdata:key',
-             'entry':          'entry'}
+TAGS_DICT = {'payload':          'sdata:payload',
+             'tradingAccount':   'crm:tradingAccount',
+             'salesInvoice':     'crm:salesInvoice',
+             'receipt':          'crm:receipt',
+             'taxCode':          'crm:taxCode',
+             'uuid':             'sdata:uuid',
+             'url':              'sdata:url',
+             'key':              'sdata:key',
+             'entry':            'entry',
+             'digest':           'digest:digest',
+             'origin':           'digest:origin',
+             'digestEntry':      'digest:digestEntry',
+             'endpoint':         'digest:endpoint',
+             'tick':             'digest:tick',
+             'stamp':            'digest:stamp',
+             'conflictPriority': 'digest:conflictPriority'             
+             }
 company = ""
 
 # initialize uuid file for the file test
