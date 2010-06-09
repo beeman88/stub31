@@ -52,7 +52,7 @@
              sdata:key="14081" />
         </crm:originatorDocument>
         <crm:date>2010-03-31Z</crm:date>
-	    <crm:netTotal>42.00</crm:netTotal>
+	    <crm:netTotal>44.80</crm:netTotal>
       </crm:receipt>
     </sdata:payload>
   </entry>

@@ -162,7 +162,7 @@
 		<crm:bankAccountCurrencyExchangeRate xsi:nil="true" />
 		<crm:bankAccountCurrencyExchangeRateOperator xsi:nil="true" />
 		<crm:bankAccountCurrencyExchangeRateDate>2010-04-01Z</crm:bankAccountCurrencyExchangeRateDate>
-		<crm:netTotal>2.00</crm:netTotal>
+		<crm:netTotal>4.80</crm:netTotal>
 		<crm:balanceBefore>2.00</crm:balanceBefore>
 		<crm:balanceAfter>0</crm:balanceAfter>
 		<crm:discountTotal>0</crm:discountTotal>

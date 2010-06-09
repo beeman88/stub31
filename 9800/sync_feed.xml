@@ -89,13 +89,13 @@
 		<crm:bankAccountCurrencyExchangeRate xsi:nil="true" />
 		<crm:bankAccountCurrencyExchangeRateOperator xsi:nil="true" />
 		<crm:bankAccountCurrencyExchangeRateDate>2010-04-01Z</crm:bankAccountCurrencyExchangeRateDate>
-		<crm:netTotal>.01.00</crm:netTotal>
-		<crm:balanceBefore>.01.00</crm:balanceBefore>
+		<crm:netTotal>01.00</crm:netTotal>
+		<crm:balanceBefore>01.00</crm:balanceBefore>
 		<crm:balanceAfter>0</crm:balanceAfter>
 		<crm:discountTotal>0</crm:discountTotal>
 		<crm:chargesTotal xsi:nil="true" />
 		<crm:taxTotal xsi:nil="true" />
-		<crm:grossTotal>.01.00</crm:grossTotal>
+		<crm:grossTotal>01.00</crm:grossTotal>
 		<crm:name xsi:nil="true" />
 		<crm:description>receipt with wrong customer</crm:description>
 		<crm:text1 xsi:nil="true" />

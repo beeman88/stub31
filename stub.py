@@ -9,9 +9,6 @@ from bottle import route, run, request, response
 global debug
 global log
 global port_number
-global TRADING_ACCOUNTS
-global SALES_INVOICES
-global RECEIPTS
 global TOKEN_MARKER
 global uuids_dict
 global TAGS_DICT
@@ -37,6 +34,8 @@ def index():
 # - On failure return 401 Not Authorized
 @route('/sdata/billingboss/bb/-/users('':emailEQ'')', method='GET')
 def index(emailEQ):
+
+    log_method_start('Login Feed for %s' % emailEQ)
 
 ##    authentication()
 ##    if response.status != 200:
@@ -340,7 +339,8 @@ def set_response_location(uuid):
 # generic response to link request
 def sdata_link_post(resourceKind, resourceName, url, key, uuid):
     global company
-    return '''
+    # knucklebrain code here because format wasn't replacing company
+    xml = '''
     <entry xmlns:xs="http://www.w3.org/2001/XMLSchema" 
            xmlns:cf="http://www.microsoft.com/schemas/rss/core/2005" 
            xmlns="http://www.w3.org/2005/Atom" 
@@ -361,7 +361,10 @@ def sdata_link_post(resourceKind, resourceName, url, key, uuid):
         </crm:{2}>
       </sdata:payload>
     </entry>
-    '''.format(company, resourceKind, resourceName, url, key, uuid)
+    '''
+    xml = xml.format(company, resourceKind, resourceName, url, key, uuid)
+    xml = xml.format(company) # twice?
+    return xml
     
 def sdata_sync_accepted():
     write_to_log("")    
@@ -532,15 +535,13 @@ config = open(config_filename, 'r')
 # initialize
 in_progress_count = 0
 in_progress_reqs = 1
-TRADING_ACCOUNTS = "tradingAccounts"
-SALES_INVOICES = "salesInvoices"
-RECEIPTS = "receipts"
 TOKEN_MARKER = '##'
 uuids_dict = {}
 TAGS_DICT = {'payload':        'sdata:payload',
              'tradingAccount': 'crm:tradingAccount',
              'salesInvoice':   'crm:salesInvoice',
              'receipt':        'crm:receipt',
+             'taxCode':        'crm:taxCode',
              'uuid':           'sdata:uuid',
              'url':            'sdata:url',
              'key':            'sdata:key',

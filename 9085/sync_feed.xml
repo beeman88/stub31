@@ -91,9 +91,9 @@
 				<crm:taxCode sdata:uuid="##6##" sdata:key="6" sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes('6')" />
 				<crm:taxCode sdata:uuid="ae3dee50-7326-11df-93f2-0800200c9a66" sdata:key="7" sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes('7')" />				
 			</crm:taxCodes>
-			<crm:priceTax>0.5</crm:priceTax>
-			<crm:taxTotal>1</crm:taxTotal>
-			<crm:grossTotal>21</crm:grossTotal>
+			<crm:priceTax>.12</crm:priceTax>
+			<crm:taxTotal>2.40</crm:taxTotal>
+			<crm:grossTotal>22.40</crm:grossTotal>
 		  </crm:salesInvoiceLine>
 		  <crm:salesInvoiceLine sdata:key="97651">
 			<crm:active>true</crm:active>
@@ -112,9 +112,9 @@
 				<crm:taxCode sdata:uuid="##6##" sdata:key="6" sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes('6')" />
 				<crm:taxCode sdata:uuid="ae3dee50-7326-11df-93f2-0800200c9a66" sdata:key="7" sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes('7')" />				
 			</crm:taxCodes>
-			<crm:priceTax>0.5</crm:priceTax>
-			<crm:taxTotal>1</crm:taxTotal>
-			<crm:grossTotal>21</crm:grossTotal>
+			<crm:priceTax>.12</crm:priceTax>
+			<crm:taxTotal>2.40</crm:taxTotal>
+			<crm:grossTotal>22.40</crm:grossTotal>
 		  </crm:salesInvoiceLine>
 		  <crm:salesInvoiceLine sdata:key="97654">
 			<crm:active>true</crm:active>
@@ -133,9 +133,9 @@
 				<crm:taxCode sdata:uuid="##6##" sdata:key="6" sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes('6')" />
 				<crm:taxCode sdata:uuid="ae3dee50-7326-11df-93f2-0800200c9a66" sdata:key="7" sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes('7')" />				
 			</crm:taxCodes>
-			<crm:priceTax>0.5</crm:priceTax>
-			<crm:taxTotal>1</crm:taxTotal>
-			<crm:grossTotal>21</crm:grossTotal>
+			<crm:priceTax>.12</crm:priceTax>
+			<crm:taxTotal>2.40</crm:taxTotal>
+			<crm:grossTotal>22.40</crm:grossTotal>
 		  </crm:salesInvoiceLine>
 		</crm:salesInvoiceLines>
 		<crm:lineCount>3</crm:lineCount>
@@ -144,9 +144,9 @@
 		<crm:invoiceDiscountAmount>0</crm:invoiceDiscountAmount>
 		<crm:invoiceDiscountPercent>0</crm:invoiceDiscountPercent>
 		<crm:netTotal>60</crm:netTotal>
-		<crm:discountTotal>10</crm:discountTotal>
-		<crm:taxTotal>0</crm:taxTotal>
-		<crm:grossTotal>63</crm:grossTotal>
+		<crm:discountTotal>0</crm:discountTotal>
+		<crm:taxTotal>7.20</crm:taxTotal>
+		<crm:grossTotal>67.20</crm:grossTotal>
 		<crm:text2>Add a detail line</crm:text2>
 		<crm:user>Ryan</crm:user>
       </crm:salesInvoice>

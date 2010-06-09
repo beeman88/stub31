@@ -24,7 +24,7 @@ echo %sp%
 IF "%6"=="tradingAccounts" set select="select=name,customerSupplierFlag"
 IF "%6"=="salesInvoices" set select="select=tradingAccount,customerReference"
 IF "%6"=="receipts" set select="select=tradingAccount,originatorDocument,date,netTotal"
-IF "%6"=="taxCodes" set select="select=reference2,taxationCountry"
+IF "%6"=="taxCodes" set select="select=reference2"
 
 IF "%6"=="tradingAccounts" set syncSelect="select=name,customerSupplierFlag"
 IF "%6"=="salesInvoices" set syncSelect=""

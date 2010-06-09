@@ -91,15 +91,15 @@
 				<crm:taxCode sdata:uuid="##6##" sdata:key="6" sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes('6')" />
 				<crm:taxCode sdata:uuid="ae3dee50-7326-11df-93f2-0800200c9a66" sdata:key="7" sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes('7')" />				
 			</crm:taxCodes>
-			<crm:priceTax>0.5</crm:priceTax>
-			<crm:taxTotal>1</crm:taxTotal>
-			<crm:grossTotal>21</crm:grossTotal>
+			<crm:priceTax>.12</crm:priceTax>
+			<crm:taxTotal>2.40</crm:taxTotal>
+			<crm:grossTotal>22.40</crm:grossTotal>
 		  </crm:salesInvoiceLine>
 		  <crm:salesInvoiceLine sdata:key="97645">
 			<crm:active>true</crm:active>
 			<crm:status>Printed</crm:status>
 			<crm:type>Standard Line</crm:type>
-			<crm:number>1</crm:number>
+			<crm:number>2</crm:number>
 			<crm:text>Invoice line 2</crm:text>
 			<crm:unitOfMeasure sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/unitsOfMeasure('each')" />
 			<crm:quantity>2</crm:quantity>
@@ -112,9 +112,9 @@
 				<crm:taxCode sdata:uuid="##6##" sdata:key="6" sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes('6')" />
 				<crm:taxCode sdata:uuid="ae3dee50-7326-11df-93f2-0800200c9a66" sdata:key="7" sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes('7')" />				
 			</crm:taxCodes>
-			<crm:priceTax>0.5</crm:priceTax>
-			<crm:taxTotal>1</crm:taxTotal>
-			<crm:grossTotal>21</crm:grossTotal>
+			<crm:priceTax>.12</crm:priceTax>
+			<crm:taxTotal>2.40</crm:taxTotal>
+			<crm:grossTotal>22.40</crm:grossTotal>
 		  </crm:salesInvoiceLine>
 		</crm:salesInvoiceLines>
 		<crm:lineCount>2</crm:lineCount>
@@ -123,9 +123,9 @@
 		<crm:invoiceDiscountAmount>0</crm:invoiceDiscountAmount>
 		<crm:invoiceDiscountPercent>0</crm:invoiceDiscountPercent>
 		<crm:netTotal>40</crm:netTotal>
-		<crm:discountTotal>10</crm:discountTotal>
-		<crm:taxTotal>0</crm:taxTotal>
-		<crm:grossTotal>42</crm:grossTotal>
+		<crm:discountTotal>0</crm:discountTotal>
+		<crm:taxTotal>4.80</crm:taxTotal>
+		<crm:grossTotal>44.80</crm:grossTotal>
 		<crm:text2>Modify this invoice's non amount fields MODIFIED</crm:text2>
 		<crm:user>Ryan</crm:user>
       </crm:salesInvoice>
