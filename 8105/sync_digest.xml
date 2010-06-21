@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cf="http://www.microsoft.com/schemas/rss/core/2005" xmlns="http://www.w3.org/2005/Atom" xmlns:sdata="http://schemas.sage.com/sdata/2008/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:sync="http://schemas.sage.com/sdata/sync/2008/1" xmlns:sme="http://schemas.sage.com/sdata/sme/2007" xmlns:http="http://schemas.sage.com/sdata/http/2008/1" xmlns:digest="http://schemas.sage.com/sdata/sync/2008/1">
-  <id>http://www.SimplyAccounting.com/sdata/simply/crmErp/-/tradingAccounts/$syncDigest</id>
-  <link href="http://www.SimplyAccounting.com/sdata/simply/crmErp/-/tradingAccounts/$syncDigest" rel="self" type="application/atom+xml; type=feed" title="Refresh" />
+  <id>http://simply.comsdata/simply/crmErp/-/tradingAccounts/$syncDigest</id>
+  <link href="http://simply.comsdata/simply/crmErp/-/tradingAccounts/$syncDigest" rel="self" type="application/atom+xml; type=feed" title="Refresh" />
   <published>2010-06-04T13:21:34-07:00</published>
   <title>Synchronization digest for tradingAccount</title>
   <sync:syncState xsi:nil="true" />
   <sdata:payload>
-    <digest:digest sdata:url="http://www.SimplyAccounting.com/sdata/simply/crmErp/-/tradingAccounts/$syncDigest">
-      <digest:origin>http://www.SimplyAccounting.com/sdata/simply/crmErp/-/tradingAccounts</digest:origin>
+    <digest:digest sdata:url="http://simply.comsdata/simply/crmErp/-/tradingAccounts/$syncDigest">
+      <digest:origin>http://simply.comsdata/simply/crmErp/-/tradingAccounts</digest:origin>
       <digest:digestEntry>
-        <digest:endpoint>http://www.SimplyAccounting.com/sdata/simply/crmErp/-/tradingAccounts</digest:endpoint>
+        <digest:endpoint>http://simply.comsdata/simply/crmErp/-/tradingAccounts</digest:endpoint>
         <digest:tick>1</digest:tick>
         <digest:stamp>2010-06-04T13:20:52-07:00</digest:stamp>
         <digest:conflictPriority>1</digest:conflictPriority>
