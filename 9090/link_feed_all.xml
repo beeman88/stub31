@@ -43,7 +43,7 @@
     <sdata:payload>
       <crm:salesInvoice sdata:key="14081" sdata:uuid="##14081##">
 		<crm:tradingAccount sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts('43660')" sdata:uuid="##43660##" />
-		<crm:customerReference>I1247</crm:customerReference>
+		<crm:reference2>I1247</crm:reference2>
       </crm:salesInvoice>
     </sdata:payload>
   </entry>
@@ -59,7 +59,7 @@
     <sdata:payload>
       <crm:salesInvoice sdata:key="14082" sdata:uuid="##14082##">
 		<crm:tradingAccount sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts('43660')" sdata:uuid="##43660##" />
-		<crm:customerReference>I1248</crm:customerReference>
+		<crm:reference2>I1248</crm:reference2>
       </crm:salesInvoice>
     </sdata:payload>
   </entry>
@@ -75,7 +75,7 @@
     <sdata:payload>
       <crm:salesInvoice sdata:key="14083" sdata:uuid="##14083##">
 		<crm:tradingAccount sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts('43660')" sdata:uuid="##43660##" />
-		<crm:customerReference>I1249</crm:customerReference>
+		<crm:reference2>I1249</crm:reference2>
       </crm:salesInvoice>
     </sdata:payload>
   </entry>
@@ -91,7 +91,7 @@
     <sdata:payload>
       <crm:salesInvoice sdata:key="14084" sdata:uuid="##14084##">
 		<crm:tradingAccount sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts('43660')" sdata:uuid="##43660##" />
-		<crm:customerReference>I1250</crm:customerReference>
+		<crm:reference2>I1250</crm:reference2>
       </crm:salesInvoice>
     </sdata:payload>
   </entry>
@@ -107,7 +107,7 @@
     <sdata:payload>
       <crm:salesInvoice sdata:key="14085" sdata:uuid="##14085##">
 		<crm:tradingAccount sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts('43660')" sdata:uuid="##43660##" />
-		<crm:customerReference>I1251</crm:customerReference>
+		<crm:reference2>I1251</crm:reference2>
       </crm:salesInvoice>
     </sdata:payload>
   </entry>
