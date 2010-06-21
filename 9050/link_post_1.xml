@@ -17,7 +17,7 @@
       sdata:key="14082" 
       xmlns="http://schemas.sage.com/crmErp">
 		<crm:tradingAccount sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts('43660')" sdata:uuid="88815929-A503-4fcb-B5CC-F1BB8ECFC874" />
-		<crm:customerReference>I1248</crm:customerReference>
+		<crm:reference2>I1248</crm:reference2>
     </crm:salesInvoice>
   </payload>
 </entry>
