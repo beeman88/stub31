@@ -49,87 +49,144 @@
       <sync:tick>9</sync:tick>
       <sync:stamp>2010-10-31T14:55:43.281Z</sync:stamp>
     </sync:syncState>
- 
-    <sdata:payload>
-      <crm:salesInvoice sdata:key="14083" sdata:uuid="##14083##">
-		<crm:active>true</crm:active>
-		<crm:status>Printed</crm:status>
-		<crm:statusFlag>false</crm:statusFlag>
-		<crm:type>Normal</crm:type>
-		<crm:tradingAccount sdata:uuid="##43660##" 
-			sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts('43660')"
-			sdata:key="43660" >
-		</crm:tradingAccount>
-		<crm:customerReference>I1249</crm:customerReference>
-		<crm:copyFlag>false</crm:copyFlag>
-		<crm:date>2010-03-31Z</crm:date>
-		<crm:time>13:46:45Z</crm:time>
-		<crm:taxDate>2010-03-31Z</crm:taxDate>
-		<crm:taxCodes sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoices('14083')/taxCodes" />
-		<crm:deliveryRule>true</crm:deliveryRule>
-		<crm:currency>CAD</crm:currency>
-		<crm:operatingCompanyCurrency>CAD</crm:operatingCompanyCurrency>
-		<crm:operatingCompanyCurrencyExchangeRate>1</crm:operatingCompanyCurrencyExchangeRate>
-		<crm:operatingCompanyCurrencyExchangeRateOperator>*</crm:operatingCompanyCurrencyExchangeRateOperator>
-		<crm:operatingCompanyCurrencyExchangeRateDate>2010-03-31Z</crm:operatingCompanyCurrencyExchangeRateDate>
-		<crm:buyerContact sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/contacts('310')" />
-		<crm:salesInvoiceLines sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoices('14083')/salesInvoiceLines">
-		  <crm:salesInvoiceLine sdata:key="97648">
-		    <crm:active>true</crm:active>
-			<crm:status>Printed</crm:status>
-			<crm:type>Standard Line</crm:type>
-			<crm:number>1</crm:number>
-			<crm:text>Invoice line 1 MODIFIED</crm:text>
-			<crm:unitOfMeasure sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/unitsOfMeasure('each')" />
-			<crm:quantity>1</crm:quantity>
-			<crm:initialPrice>20</crm:initialPrice>
-			<crm:actualPrice>20</crm:actualPrice>
-			<crm:netTotal>20</crm:netTotal>
-			<crm:chargesTotal>20</crm:chargesTotal>
-			<crm:discountTotal>0</crm:discountTotal>
-			<crm:taxCodes sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoiceLines('97644')/taxCodes" />
-				<crm:taxCode sdata:uuid="##6##" sdata:key="6" sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes('6')" />
-				<crm:taxCode sdata:uuid="ae3dee50-7326-11df-93f2-0800200c9a66" sdata:key="7" sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes('7')" />				
-			</crm:taxCodes>
-			<crm:priceTax.12</crm:priceTax>
-			<crm:taxTotal>2.40</crm:taxTotal>
-			<crm:grossTotal>22.40</crm:grossTotal>
-		  </crm:salesInvoiceLine>
-		  <crm:salesInvoiceLine sdata:key="97649">
-			<crm:active>true</crm:active>
-			<crm:status>Printed</crm:status>
-			<crm:type>Standard Line</crm:type>
-			<crm:number>2</crm:number>
-			<crm:text>Invoice line 2 MODIFIED</crm:text>
-			<crm:unitOfMeasure sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/unitsOfMeasure('each')" />
-			<crm:quantity>2</crm:quantity>
-			<crm:initialPrice>10</crm:initialPrice>
-			<crm:actualPrice>10</crm:actualPrice>
-			<crm:netTotal>20</crm:netTotal>
-			<crm:chargesTotal>20</crm:chargesTotal>
-			<crm:discountTotal>0</crm:discountTotal>
-			<crm:taxCodes sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoiceLines('97645')/taxCodes" />
-				<crm:taxCode sdata:uuid="##6##" sdata:key="6" sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes('6')" />
-				<crm:taxCode sdata:uuid="ae3dee50-7326-11df-93f2-0800200c9a66" sdata:key="7" sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes('7')" />				
-			</crm:taxCodes>
-			<crm:priceTax>.12</crm:priceTax>
-			<crm:taxTotal>2.40</crm:taxTotal>
-			<crm:grossTotal>22.40</crm:grossTotal>
-		  </crm:salesInvoiceLine>
-		</crm:salesInvoiceLines>
-		<crm:lineCount>2</crm:lineCount>
-		<crm:settlementDiscountIncludedInTotal>false</crm:settlementDiscountIncludedInTotal>
-		<crm:invoiceDiscountType>Percent</crm:invoiceDiscountType>
-		<crm:invoiceDiscountAmount>0</crm:invoiceDiscountAmount>
-		<crm:invoiceDiscountPercent>0</crm:invoiceDiscountPercent>
-		<crm:netTotal>40</crm:netTotal>
-		<crm:discountTotal>0</crm:discountTotal>
-		<crm:taxTotal>4.80</crm:taxTotal>
-		<crm:grossTotal>44.80</crm:grossTotal>
-		<crm:text2>Modify this invoice's detail line</crm:text2>
-		<crm:user>Ryan</crm:user>
-      </crm:salesInvoice>
-    </sdata:payload>
+	
+    <sdata:payload>    
+      <crmErp:salesInvoice sdata:uuid="##14083##" sdata:key="14083" sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoices('14083')">
+        <crmErp:departments xsi:nil="true"/>
+        <crmErp:settlementDiscountTerms xsi:nil="true"/>
+        <crmErp:reference>Invoice_14083</crmErp:reference>
+        <crmErp:carrierTradingAccount xsi:nil="true"/>
+        <crmErp:text1 xsi:nil="true"/>
+        <crmErp:statusFlag>false</crmErp:statusFlag>
+        <crmErp:time>2010-06-15T19:13:21+00:00</crmErp:time>
+        <crmErp:copyFlag>false</crmErp:copyFlag>
+        <crmErp:projects xsi:nil="true"/>
+        <crmErp:customerTradingAccountCurrencyExchangeRate xsi:nil="true"/>
+        <crmErp:tradingAccount sdata:uuid="##43660##" sdata:key="43660" sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts('43660')"/>
+        <crmErp:invoiceDiscountType>percent</crmErp:invoiceDiscountType>
+        <crmErp:profitTotal xsi:nil="true"/>
+        <crmErp:operatingCompanyCurrency>TODO</crmErp:operatingCompanyCurrency>
+        <crmErp:currency>CAD</crmErp:currency>
+        <crmErp:carrierSalesInvoice xsi:nil="true"/>
+        <crmErp:receipts sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoice('14083')/receipts"/>
+        <crmErp:buyerContact sdata:key="59" sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/contacts('59')"/>
+        <crmErp:invoiceAdditionalDiscount1Percent xsi:nil="true"/>
+        <crmErp:carrierCompany xsi:nil="true"/>
+        <crmErp:costCentres xsi:nil="true"/>
+        <crmErp:settlementDiscountPercent xsi:nil="true"/>
+        <crmErp:user>-</crmErp:user>
+        <crmErp:taxTotal>0.0</crmErp:taxTotal>
+        <crmErp:deliveryStatus xsi:nil="true"/>
+        <crmErp:pricelist xsi:nil="true"/>
+        <crmErp:interactions xsi:nil="true"/>
+        <crmErp:operatingCompanyCurrencyExchangeRateOperator>*</crmErp:operatingCompanyCurrencyExchangeRateOperator>
+        <crmErp:postalAddresses xsi:nil="true"/>
+        <crmErp:customerTradingAccountCurrency>CAD</crmErp:customerTradingAccountCurrency>
+        <crmErp:costTotal xsi:nil="true"/>
+        <crmErp:carrierTotalPrice xsi:nil="true"/>
+        <crmErp:salesInvoiceLines sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoice('14083')/salesInvoiceLines">
+          <crmErp:salesInvoiceLine sdata:key="292" sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoiceLines('292')">
+            <crmErp:status>Draft</crmErp:status>
+            <crmErp:number>1</crmErp:number>
+            <crmErp:type>Standard Line</crmErp:type>
+            <crmErp:carrierSalesInvoiceLine xsi:nil="true"/>
+            <crmErp:pricelist xsi:nil="true"/>
+            <crmErp:settlementDiscountType xsi:nil="true"/>
+            <crmErp:costTotal xsi:nil="true"/>
+            <crmErp:actualPrice>44.8</crmErp:actualPrice>
+            <crmErp:carrierTradingAccount xsi:nil="true"/>
+            <crmErp:invoiceLineSubtotalDiscountAmount xsi:nil="true"/>
+            <crmErp:receiptLines xsi:nil="true"/>
+            <crmErp:reference>LineItem_292</crmErp:reference>
+            <crmErp:carrierPurchaseInvoiceLine xsi:nil="true"/>
+            <crmErp:carrierTaxCodes xsi:nil="true"/>
+            <crmErp:discountTotal xsi:nil="true"/>
+            <crmErp:profitTotal xsi:nil="true"/>
+            <crmErp:text>Modify Invoice Detail Line</crmErp:text>
+            <crmErp:originatorDocumentLine xsi:nil="true"/>
+            <crmErp:carrierNetPrice xsi:nil="true"/>
+            <crmErp:invoiceLineSubtotalDiscountPercent xsi:nil="true"/>
+            <crmErp:notes xsi:nil="true"/>
+            <crmErp:deliveryTerms xsi:nil="true"/>
+            <crmErp:carrierReference xsi:nil="true"/>
+            <crmErp:settlementDiscountPercent xsi:nil="true"/>
+            <crmErp:invoiceLineDiscountType xsi:nil="true"/>
+            <crmErp:chargesTotal xsi:nil="true"/>
+            <crmErp:commodity xsi:nil="true"/>
+            <crmErp:carrierTaxPrice xsi:nil="true"/>
+            <crmErp:fOBPoint xsi:nil="true"/>
+            <crmErp:receipts xsi:nil="true"/>
+            <crmErp:financialAccounts xsi:nil="true"/>
+            <crmErp:priceTax>0</crmErp:priceTax>
+            <crmErp:active>true</crmErp:active>
+            <crmErp:reference2 xsi:nil="true"/>
+            <crmErp:settlementDiscountTerms xsi:nil="true"/>
+            <crmErp:invoiceLineDiscountAmount xsi:nil="true"/>
+            <crmErp:taxCodes sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoiceLine('292')/taxCodes"/>
+            <crmErp:grossTotal>44.8</crmErp:grossTotal>
+            <crmErp:commodityVariant xsi:nil="true"/>
+            <crmErp:carrierTotalPrice xsi:nil="true"/>
+            <crmErp:projectLine xsi:nil="true"/>
+            <crmErp:costCentres xsi:nil="true"/>
+            <crmErp:unitOfMeasure xsi:nil="true"/>
+            <crmErp:invoiceLineDiscountPercent xsi:nil="true"/>
+            <crmErp:netTotal>44.8</crmErp:netTotal>
+            <crmErp:commodityDimension xsi:nil="true"/>
+            <crmErp:salesOrderDeliveryLines xsi:nil="true"/>
+            <crmErp:departments xsi:nil="true"/>
+            <crmErp:quantity>1.0</crmErp:quantity>
+            <crmErp:initialPrice>44.8</crmErp:initialPrice>
+            <crmErp:invoiceLineSubtotalDiscountType xsi:nil="true"/>
+          </crmErp:salesInvoiceLine>
+        </crmErp:salesInvoiceLines>
+        <crmErp:invoiceAdditionalDiscount1Amount xsi:nil="true"/>
+        <crmErp:date>2010-06-15</crmErp:date>
+        <crmErp:netTotal>44.8</crmErp:netTotal>
+        <crmErp:deliveryDate xsi:nil="true"/>
+        <crmErp:financialAccounts xsi:nil="true"/>
+        <crmErp:lineCount>1</crmErp:lineCount>
+        <crmErp:settlementDiscountAmount xsi:nil="true"/>
+        <crmErp:opportunity xsi:nil="true"/>
+        <crmErp:reference2>I1249</crmErp:reference2>
+        <crmErp:chargesTotal xsi:nil="true"/>
+        <crmErp:allocationStatus xsi:nil="true"/>
+        <crmErp:customerReference>O123</crmErp:customerReference>
+        <crmErp:invoiceAdditionalDiscount2Percent xsi:nil="true"/>
+        <crmErp:carrierReference xsi:nil="true"/>
+        <crmErp:status>Draft</crmErp:status>
+        <crmErp:invoiceAdditionalDiscount1Type xsi:nil="true"/>
+        <crmErp:contract xsi:nil="true"/>
+        <crmErp:carrierTaxPrice xsi:nil="true"/>
+        <crmErp:grossTotal>44.8</crmErp:grossTotal>
+        <crmErp:deliveryMethod xsi:nil="true"/>
+        <crmErp:deliveryRule>true</crmErp:deliveryRule>
+        <crmErp:settlementDiscountType xsi:nil="true"/>
+        <crmErp:invoiceDiscountPercent xsi:nil="true"/>
+        <crmErp:notes xsi:nil="true"/>
+        <crmErp:discountTotal>0.0</crmErp:discountTotal>
+        <crmErp:customerTradingAccountCurrencyExchangeRateDate xsi:nil="true"/>
+        <crmErp:invoiceAdditionalDiscount2Amount xsi:nil="true"/>
+        <crmErp:operatingCompanyCurrencyExchangeRateDate>2010-06-15T19:13:21+00:00</crmErp:operatingCompanyCurrencyExchangeRateDate>
+        <crmErp:carrierTaxCodes xsi:nil="true"/>
+        <crmErp:type>Accrual</crmErp:type>
+        <crmErp:taxDate>2010-06-15</crmErp:taxDate>
+        <crmErp:settlementDiscountIncludedInTotal xsi:nil="true"/>
+        <crmErp:active>true</crmErp:active>
+        <crmErp:carrierNetPrice xsi:nil="true"/>
+        <crmErp:deliveryTerms xsi:nil="true"/>
+        <crmErp:statusFlagText xsi:nil="true"/>
+        <crmErp:text2>Modify this invoice's detail line non amount fields</crmErp:text2>
+        <crmErp:invoiceDiscountAmount>0.0</crmErp:invoiceDiscountAmount>
+        <crmErp:customerTradingAccountCurrencyExchangeRateOperator>*</crmErp:customerTradingAccountCurrencyExchangeRateOperator>
+        <crmErp:cases xsi:nil="true"/>
+        <crmErp:salespersons/>
+        <crmErp:carrierPurchaseInvoice xsi:nil="true"/>
+        <crmErp:operatingCompanyCurrencyExchangeRate>1</crmErp:operatingCompanyCurrencyExchangeRate>
+        <crmErp:invoiceAdditionalDiscount2Type xsi:nil="true"/>
+        <crmErp:taxCodes sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoice('14083')/taxCodes"/>
+      </crmErp:salesInvoice>
+    </sdata:payload>	
+	
   </entry>
     
  </feed>
