@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<entry xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+<entry xmlns:xs="http://www.w3.org/2001/XMLSchema"
       xmlns:cf="http://www.microsoft.com/schemas/rss/core/2005" 
       xmlns="http://www.w3.org/2005/Atom" 
       xmlns:sdata="http://schemas.sage.com/sdata/2008/1" 
@@ -9,7 +9,7 @@
       xmlns:http="http://schemas.sage.com/sdata/http/2008/1" 
       xmlns:sc="http://schemas.sage.com/sc/2009" 
       xmlns:crm="http://schemas.sage.com/crmErp/2008"
-      xmlns:bb="http://schemas.billingboss.com/bb/2010">
+      xmlns:bb="http://www.billingboss.com/schemas/sdata">
 	  
     <id>http://www.billingboss.com/sdata/billingboss/bb/-/users('1441')</id>
     <title>User 1441</title>
@@ -19,12 +19,12 @@
     <content>User 1441</content>
 
     <sdata:payload>
-      <bb:user sdata:key="1441">
-        <bb:username>user1</bb:username>
+      <bb:user sdata:key="1441" sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/user1/users('1441')">
+        <bb:billerId>37</bb:billerId>
         <bb:email>user1@test.com</bb:email>
-        <bb:dataset>user1</bb:dataset>
-        <bb:subscribed>true</bb:subscribed>
+        <bb:bookkeeperId>37</bb:bookkeeperId>
+        <bb:id>1441</bb:id>
+        <bb:sageUsername>user1</bb:sageUsername>
       </bb:user>
     </sdata:payload>
   </entry>
-
