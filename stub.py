@@ -37,11 +37,11 @@ def index(emailEQ):
 
     log_method_start('Login Feed for %s' % emailEQ)
 
-##    authentication()
-##    if response.status != 200:
-##        return 
+    authentication()
+    if response.status != 200:
+        return 
     
-    response.content_type='application/atom+xml'    
+    response.content_type='application/atom+xml; type=entry'
 
     try:
         include = request.GET['include']
@@ -50,6 +50,10 @@ def index(emailEQ):
     else:
         write_to_log("include = %s" % include, debug)
         write_to_log("returning bookkeeping clients", debug)
+
+##    for key, value in response.headerlist:
+##        write_to_log("key = %s" % key)
+##        write_to_log("value = %s" % value)        
 
     return login_feed()
 
@@ -66,9 +70,9 @@ def index(dataset, resourceKind):
     log_method_start('Count of linked resources for %s' % resourceKind)
     set_company(dataset)
 
-##    authentication()
-##    if response.status != 200:
-##        return
+    authentication()
+    if response.status != 200:
+        return
                  
     try:
         count = request.GET['count']
@@ -94,9 +98,9 @@ def index(dataset, resourceKind):
     log_method_start('GET count of all resources or link feed for %s' % resourceKind)
     set_company(dataset)
     
-##    authentication()
-##    if response.status != 200:
-##        return
+    authentication()
+    if response.status != 200:
+        return
 
     # when count parameter exists, return count of all resources
     try:
@@ -123,9 +127,9 @@ def index(dataset, resourceKind):
     log_method_start('Post new links for %s' % resourceKind)
     set_company(dataset)
 
-##    authentication()
-##    if response.status != 200:
-##        return
+    authentication()
+    if response.status != 200:
+        return
 
     return post_link_resource(resourceKind)
 
@@ -140,9 +144,9 @@ def index(dataset, resourceKind):
     log_method_start('Create sync request for %s' % resourceKind)
     set_company(dataset)
 
-##    authentication()
-##    if response.status != 200:
-##        return
+    authentication()
+    if response.status != 200:
+        return
 
     try:
         trackingID = request.GET['trackingID']
@@ -192,9 +196,9 @@ def index(dataset, resourceKind, trackingID):
     log_method_start('Request status of sync for %s' % resourceKind)
     set_company(dataset)
 
-##    authentication()
-##    if response.status != 200:
-##        return
+    authentication()
+    if response.status != 200:
+        return
     
     write_to_log('tracking id = {0}'.format(trackingID), debug)
     write_to_log('in_progress_count = {0}'.format(in_progress_count), debug)
@@ -223,9 +227,9 @@ def index(dataset, resourceKind, trackingID):
     log_method_start('Delete (finish) sync request for %s' % resourceKind)
     set_company(dataset)
 
-##    authentication()
-##    if response.status != 200:
-##        return
+    authentication()
+    if response.status != 200:
+        return
     
     write_to_log('tracking id = {0}'.format(trackingID), debug)
     response.status = 200
@@ -234,6 +238,7 @@ def index(dataset, resourceKind, trackingID):
 ##################################################
 
 def login_feed():
+    write_to_log("LOGIN FEED")
     return read_and_log('login_feed.xml')
 
 def sdata_link_count_linked():
@@ -241,6 +246,7 @@ def sdata_link_count_linked():
 
 def read_and_log(filename):
     global company
+    write_to_log("READ AND LOG")
     xml = read_file(filename)
     xml = xml.format(company)
     write_to_log(xml)
@@ -456,8 +462,7 @@ def read_file(filename):
     write_to_log('read file {0}'.format(filename), debug)    
     write_to_log('port = {0}'.format(port_number), debug)
     path_filename = os.path.join(str(port_number), filename)
-    if debug == "1":
-        write_to_log('path and filename = {0}'.format(path_filename))
+    write_to_log('path and filename = {0}'.format(path_filename), debug)
     f = open(path_filename, 'r')
     xml = f.read()
     write_to_log(xml, debug)
@@ -474,13 +479,25 @@ def log_method_start(line):
     write_to_log(request.url)
 
 def authentication():
+
+##    # temporary return 200 until simply build is fixed june 21
+##    response.status = 200
+##    return
+
     import base64
     # the bottle.py auth wasn't doing it 
     log_method_start('Authentication')    
     try:
         write_to_log("start auth")
+
+        for key, value in request.header.items():
+            write_to_log("key = %s" % key)
+            write_to_log("value = %s" % value)
+        
         header = request.environ.get('HTTP_AUTHORIZATION','')
+        write_to_log("header = %s" % header)
         method, data = header.split(None, 1)
+
         if method.lower() == 'basic':
             by = data.encode('ascii')
             write_to_log("encoded basic auth = %s" % by.decode('ascii'), debug)
@@ -503,7 +520,9 @@ def authentication():
             
     except Exception as e:
         response.status = 401
+        response.headers['WWW-Authenticate'] = 'Basic realm="Application"'
         write_to_log('Exception error is: %s' % e)
+        return
 
     response.status = 200
     return
