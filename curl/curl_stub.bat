@@ -54,12 +54,6 @@ IF "%1"=="9500" GOTO LINK2
 REM authorization request OK
 curl -v -u%3:%4 http://localhost:%1/sdata/billingboss/bb/-/users('email%sp%eq%sp%%3')
 
-REM get count linked customers
-curl -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/%5/%6/$linked?count=0
-
-REM get count all customers
-curl -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/%5/%6?count=0
-
 REM get all customers
 curl -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/%5/%6?%select%
 
@@ -85,12 +79,6 @@ GOTO EOF
 REM authorization request OK
 curl -v -u%3:%4 http://localhost:%1/sdata/billingboss/bb/-/users('email%sp%eq%sp%%3')
 
-REM get count linked customers
-curl -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/%5/%6/$linked?count=0
-
-REM get count all customers
-curl -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/%5/%6?count=0
-
 REM get all customers
 curl -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/%5/%6?%select%
 
@@ -113,12 +101,6 @@ GOTO EOF
 
 REM authorization request OK
 curl -v -u%3:%4 http://localhost:%1/sdata/billingboss/bb/-/users('email%sp%eq%sp%%3')
-
-REM get count linked customers
-curl -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/%5/%6/$linked?count=0
-
-REM get count all customers
-curl -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/%5/%6?count=0
 
 REM get all customers
 curl -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/%5/%6?%select%
@@ -146,12 +128,6 @@ GOTO EOF
 REM authorization request OK
 curl -v -u%3:%4 http://localhost:%1/sdata/billingboss/bb/-/users('email%sp%eq%sp%%3')
 
-REM get count linked customers
-curl -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/%5/%6/$linked?count=0
-
-REM get count all customers
-curl -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/%5/%6?count=0
-
 REM get all customers
 curl -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/%5/%6?%select%
 
@@ -176,12 +152,6 @@ GOTO EOF
 
 REM authorization request OK
 curl -v -u%3:%4 http://localhost:%1/sdata/billingboss/bb/-/users('email%sp%eq%sp%%3')
-
-REM get count linked invoices
-curl -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/%5/%6/$linked?count=0
-
-REM get count all invoices
-curl -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/%5/%6?count=0
 
 REM get all invoices
 curl -v -u%3:%4 http://localhost:%1/sdata/billingboss/crmErp/%5/%6?%select%
