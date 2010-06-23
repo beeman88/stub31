@@ -97,7 +97,7 @@
             <crmErp:carrierTaxCodes xsi:nil="true"/>
             <crmErp:discountTotal xsi:nil="true"/>
             <crmErp:profitTotal xsi:nil="true"/>
-            <crmErp:text xsi:nil="true"/>
+            <crmErp:text>Desk</crmErp:text>
             <crmErp:originatorDocumentLine xsi:nil="true"/>
             <crmErp:carrierNetPrice xsi:nil="true"/>
             <crmErp:invoiceLineSubtotalDiscountPercent xsi:nil="true"/>
@@ -170,7 +170,7 @@
         <crmErp:carrierNetPrice xsi:nil="true"/>
         <crmErp:deliveryTerms xsi:nil="true"/>
         <crmErp:statusFlagText xsi:nil="true"/>
-        <crmErp:text2 xsi:nil="true"/>
+        <crmErp:text2>Invoice Message</crmErp:text2>
         <crmErp:invoiceDiscountAmount>0.0</crmErp:invoiceDiscountAmount>
         <crmErp:customerTradingAccountCurrencyExchangeRateOperator>*</crmErp:customerTradingAccountCurrencyExchangeRateOperator>
         <crmErp:cases xsi:nil="true"/>

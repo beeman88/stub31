@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*- 
-from bottle import route, run, request, response
+from bottle import route, run, request, response, debug, error, validate
 
 
 # globals
@@ -57,36 +57,8 @@ def index(emailEQ):
 
     return login_feed()
 
-# 2. Get Count of linked customers, invoices
-#    Return 0 linked resources
-# GET request
-# /sdata/billingboss/crmErp/TradingAccounts/$linked?count=0
-# TODO because no tradingAccount entries are returned, the link for first, last, next page have count = 0
-# compare with Sage 50 - Act! implementation
-@route('/sdata/billingboss/crmErp/:dataset/:resourceKind/$linked', method='GET')
-def index(dataset, resourceKind):
-    global debug
-    
-    log_method_start('Count of linked resources for %s' % resourceKind)
-    set_company(dataset)
-
-    authentication()
-    if response.status != 200:
-        return
-                 
-    try:
-        count = request.GET['count']
-    except Exception:
-        write_to_log('count does not exist')
-        return
-    else:
-        write_to_log("count = %s" % count, debug)
-        write_to_log("return count linked resources", debug)
-        response.content_type='application/atom+xml'    
-        return sdata_link_count_linked()
-
 # GET requests  
-# 3a. Get count of all customers, invoices
+# 2. Get count of all customers, invoices
 # /sdata/billingboss/crmErp/dataset/tradingAccounts?count=0
 
 # TODO /sdata/billingboss/crmErp/dataset/tradingAccounts?select=name,customerSupplierFlag the real request?
@@ -95,30 +67,19 @@ def index(dataset, resourceKind):
 @route('/sdata/billingboss/crmErp/:dataset/:resourceKind', method='GET')
 def index(dataset, resourceKind):
     global debug
-    log_method_start('GET count of all resources or link feed for %s' % resourceKind)
+    log_method_start('GET link feed for %s' % resourceKind)
     set_company(dataset)
     
     authentication()
     if response.status != 200:
         return
 
-    # when count parameter exists, return count of all resources
-    try:
-        count = request.GET['count']
-    except Exception:
-        write_to_log('count does not exist', debug)
-    else:
-        write_to_log('count = {0}'.format(count), debug)
-        write_to_log('return count of all resources', debug)
-        response.content_type='application/atom+xml; type=entry'        
-        return sdata_link_count_all()
-
     # return feed of resources
     # the select parameter specifies what fields to return is handled in the xml file
     response.content_type='application/atom+xml; type=feed'    
     return sdata_link_feed_all()
 
-# 5. Post new links
+# 3. Post new links
 # POST request
 # response is one entry for Ashburton Reinforcing
 @route('/sdata/billingboss/crmErp/:dataset/:resourceKind/$linked', method='POST')
@@ -134,7 +95,7 @@ def index(dataset, resourceKind):
     return post_link_resource(resourceKind)
 
 
-# 6. Create sync request
+# 4. Create sync request
 # POST
 @route('/sdata/billingboss/crmErp/:dataset/:resourceKind/$syncSource', method='POST')
 def index(dataset, resourceKind):
@@ -183,8 +144,8 @@ def index(dataset, resourceKind):
     return sdata_sync_accepted()
 
 # First request return sync in progress, second request returns feed
-# 7a. Request status of sync request (In progress)
-# 7b. Request status of sync request (Complete)
+# 5a. Request status of sync request (In progress)
+# 5b. Request status of sync request (Complete)
 # GET on location of previous request
 # /sdata/billingboss/crmErp/dataset/tradingAccounts/$syncSource('abc42b0d-d110-4f5c-ac79-d3aa11bd20cb')
 @route('/sdata/billingboss/crmErp/:dataset/:resourceKind/$syncSource('':trackingID'')', method='GET')
@@ -218,7 +179,7 @@ def index(dataset, resourceKind, trackingID):
         response.headers['Location'] = request.url
         return sdata_sync_feed(trackingID)
 
-# 8. Delete (finish) sync request
+# 6. Delete (finish) sync request
 # DELETE request
 # /sdata/billingboss/crmErp/dataset/tradingAccounts/$syncSource('abc42b0d-d110-4f5c-ac79-d3aa11bd20cb')
 @route('/sdata/billingboss/crmErp/:dataset/:resourceKind/$syncSource('':trackingID'')', method='DELETE')

@@ -22,19 +22,13 @@
  
   <sync:syncMode>catchUp</sync:syncMode>
  
-  <sync:digest xmlns="http://schemas.sage.com/sdata/sync/2008/1">
+  <sync:digest>
     <sync:origin>http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoices</sync:origin>
     <sync:digestEntry>
       <sync:endpoint>http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoices</sync:endpoint>
       <sync:tick>7</sync:tick>
       <sync:stamp>2010-10-30T17:23:08Z</sync:stamp>
-      <sync:conflictPriority>1</sync:conflictPriority>
-    </sync:digestEntry>
-    <sync:digestEntry>
-      <sync:endpoint>http://www.simply.com/sdata/simply/crmErp/{0}/salesInvoices</sync:endpoint>
-      <sync:tick>1</sync:tick>
-      <sync:stamp>2010-10-30T12:16:51Z</sync:stamp>
-      <sync:conflictPriority>2</sync:conflictPriority>
+      <sync:conflictPriority/>
     </sync:digestEntry>
   </sync:digest>
  
@@ -56,7 +50,7 @@
         <crmErp:settlementDiscountTerms xsi:nil="true"/>
         <crmErp:reference>Invoice_14081</crmErp:reference>
         <crmErp:carrierTradingAccount xsi:nil="true"/>
-        <crmErp:text1 xsi:nil="true"/>
+		<crmErp:text1 xsi:nil="true"/>
         <crmErp:statusFlag>false</crmErp:statusFlag>
         <crmErp:time>2010-06-15T19:13:21+00:00</crmErp:time>
         <crmErp:copyFlag>false</crmErp:copyFlag>
@@ -102,7 +96,7 @@
             <crmErp:carrierTaxCodes xsi:nil="true"/>
             <crmErp:discountTotal xsi:nil="true"/>
             <crmErp:profitTotal xsi:nil="true"/>
-            <crmErp:text xsi:nil="true"/>
+            <crmErp:text>Desk MODIFIED</crmErp:text>
             <crmErp:originatorDocumentLine xsi:nil="true"/>
             <crmErp:carrierNetPrice xsi:nil="true"/>
             <crmErp:invoiceLineSubtotalDiscountPercent xsi:nil="true"/>
@@ -175,7 +169,7 @@
         <crmErp:carrierNetPrice xsi:nil="true"/>
         <crmErp:deliveryTerms xsi:nil="true"/>
         <crmErp:statusFlagText xsi:nil="true"/>
-        <crmErp:text2>Modify this invoice's non amount fields MODIFIED</crmErp:text2>
+        <crmErp:text2>Invoice Message MODIFIED</crmErp:text2>
         <crmErp:invoiceDiscountAmount>0.0</crmErp:invoiceDiscountAmount>
         <crmErp:customerTradingAccountCurrencyExchangeRateOperator>*</crmErp:customerTradingAccountCurrencyExchangeRateOperator>
         <crmErp:cases xsi:nil="true"/>
