@@ -66,7 +66,7 @@
 	    <crm:value>5</crm:value>
 	    <crm:valueText>5</crm:valueText>
 	    <crm:primaryIndicator>false</crm:primaryIndicator>
-	    <crm:orderOfPrecedence>1</crm:orderOfPrecedence>
+	    <crm:orderOfPrecedence>0</crm:orderOfPrecedence>
 	    <crm:notes xsi:nil="true" />
 	  </crm:taxCode>
     </sdata:payload>
@@ -90,14 +90,14 @@
 		sdata:key="7" >
 	    <crm:active>true</crm:active>
 	    <crm:reference>7</crm:reference>
-	    <crm:reference2>BB Tax Code 7</crm:reference2>
+	    <crm:reference2>PST</crm:reference2>
 	    <crm:type>PST</crm:type>
 	    <crm:taxationCountry>CA</crm:taxationCountry>
 	    <crm:taxationLocale xsi:nil="true" />
 	    <crm:value>7</crm:value>
 	    <crm:valueText>7</crm:valueText>
 	    <crm:primaryIndicator>false</crm:primaryIndicator>
-	    <crm:orderOfPrecedence>1</crm:orderOfPrecedence>
+	    <crm:orderOfPrecedence>0</crm:orderOfPrecedence>
 	    <crm:notes xsi:nil="true" />
 	  </crm:taxCode>
     </sdata:payload>

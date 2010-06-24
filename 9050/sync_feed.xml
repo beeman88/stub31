@@ -70,7 +70,7 @@
         <crmErp:costCentres xsi:nil="true"/>
         <crmErp:settlementDiscountPercent xsi:nil="true"/>
         <crmErp:user>-</crmErp:user>
-        <crmErp:taxTotal>0.0</crmErp:taxTotal>
+        <crmErp:taxTotal>4.8</crmErp:taxTotal>
         <crmErp:deliveryStatus xsi:nil="true"/>
         <crmErp:pricelist xsi:nil="true"/>
         <crmErp:interactions xsi:nil="true"/>
@@ -81,14 +81,14 @@
         <crmErp:carrierTotalPrice xsi:nil="true"/>
         <crmErp:salesInvoiceLines sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoice('14081')/salesInvoiceLines">
           <crmErp:salesInvoiceLine sdata:key="290" sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoiceLines('290')">
-            <crmErp:status>Draft</crmErp:status>
+            <crmErp:status>Sent</crmErp:status>
             <crmErp:number>1</crmErp:number>
             <crmErp:type>Standard Line</crmErp:type>
             <crmErp:carrierSalesInvoiceLine xsi:nil="true"/>
             <crmErp:pricelist xsi:nil="true"/>
             <crmErp:settlementDiscountType xsi:nil="true"/>
             <crmErp:costTotal xsi:nil="true"/>
-            <crmErp:actualPrice>44.8</crmErp:actualPrice>
+            <crmErp:actualPrice>40.0</crmErp:actualPrice>
             <crmErp:carrierTradingAccount xsi:nil="true"/>
             <crmErp:invoiceLineSubtotalDiscountAmount xsi:nil="true"/>
             <crmErp:receiptLines xsi:nil="true"/>
@@ -117,7 +117,10 @@
             <crmErp:reference2 xsi:nil="true"/>
             <crmErp:settlementDiscountTerms xsi:nil="true"/>
             <crmErp:invoiceLineDiscountAmount xsi:nil="true"/>
-            <crmErp:taxCodes sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoiceLine('290')/taxCodes"/>
+            <crmErp:taxCodes sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoiceLine('290')/taxCodes">
+				<crmErp:taxCode sdata:uuid="##6##" sdata:key="6" sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes('6')" />
+				<crmErp:taxCode sdata:uuid="ae3dee50-7326-11df-93f2-0800200c9a66" sdata:key="7" sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/taxCodes('7')" />				
+			</crmErp:taxCodes>
             <crmErp:grossTotal>44.8</crmErp:grossTotal>
             <crmErp:commodityVariant xsi:nil="true"/>
             <crmErp:carrierTotalPrice xsi:nil="true"/>
@@ -125,18 +128,18 @@
             <crmErp:costCentres xsi:nil="true"/>
             <crmErp:unitOfMeasure xsi:nil="true"/>
             <crmErp:invoiceLineDiscountPercent xsi:nil="true"/>
-            <crmErp:netTotal>44.8</crmErp:netTotal>
+            <crmErp:netTotal>40.0</crmErp:netTotal>
             <crmErp:commodityDimension xsi:nil="true"/>
             <crmErp:salesOrderDeliveryLines xsi:nil="true"/>
             <crmErp:departments xsi:nil="true"/>
             <crmErp:quantity>1.0</crmErp:quantity>
-            <crmErp:initialPrice>44.8</crmErp:initialPrice>
+            <crmErp:initialPrice>40.0</crmErp:initialPrice>
             <crmErp:invoiceLineSubtotalDiscountType xsi:nil="true"/>
           </crmErp:salesInvoiceLine>
         </crmErp:salesInvoiceLines>
         <crmErp:invoiceAdditionalDiscount1Amount xsi:nil="true"/>
         <crmErp:date>2010-06-15</crmErp:date>
-        <crmErp:netTotal>44.8</crmErp:netTotal>
+        <crmErp:netTotal>40.0</crmErp:netTotal>
         <crmErp:deliveryDate xsi:nil="true"/>
         <crmErp:financialAccounts xsi:nil="true"/>
         <crmErp:lineCount>1</crmErp:lineCount>
@@ -148,7 +151,7 @@
         <crmErp:customerReference>O123</crmErp:customerReference>
         <crmErp:invoiceAdditionalDiscount2Percent xsi:nil="true"/>
         <crmErp:carrierReference xsi:nil="true"/>
-        <crmErp:status>Draft</crmErp:status>
+        <crmErp:status>Sent</crmErp:status>
         <crmErp:invoiceAdditionalDiscount1Type xsi:nil="true"/>
         <crmErp:contract xsi:nil="true"/>
         <crmErp:carrierTaxPrice xsi:nil="true"/>
@@ -231,7 +234,7 @@
         <crmErp:carrierTotalPrice xsi:nil="true"/>
         <crmErp:salesInvoiceLines sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoice('14082')/salesInvoiceLines">
           <crmErp:salesInvoiceLine sdata:key="291" sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoiceLines('291')">
-            <crmErp:status>Draft</crmErp:status>
+            <crmErp:status>Sent</crmErp:status>
             <crmErp:number>1</crmErp:number>
             <crmErp:type>Standard Line</crmErp:type>
             <crmErp:carrierSalesInvoiceLine xsi:nil="true"/>
@@ -298,7 +301,7 @@
         <crmErp:customerReference>O123</crmErp:customerReference>
         <crmErp:invoiceAdditionalDiscount2Percent xsi:nil="true"/>
         <crmErp:carrierReference xsi:nil="true"/>
-        <crmErp:status>Draft</crmErp:status>
+        <crmErp:status>Sent</crmErp:status>
         <crmErp:invoiceAdditionalDiscount1Type xsi:nil="true"/>
         <crmErp:contract xsi:nil="true"/>
         <crmErp:carrierTaxPrice xsi:nil="true"/>
@@ -381,7 +384,7 @@
         <crmErp:carrierTotalPrice xsi:nil="true"/>
         <crmErp:salesInvoiceLines sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoice('14083')/salesInvoiceLines">
           <crmErp:salesInvoiceLine sdata:key="292" sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoiceLines('292')">
-            <crmErp:status>Draft</crmErp:status>
+            <crmErp:status>Sent</crmErp:status>
             <crmErp:number>1</crmErp:number>
             <crmErp:type>Standard Line</crmErp:type>
             <crmErp:carrierSalesInvoiceLine xsi:nil="true"/>
@@ -448,7 +451,7 @@
         <crmErp:customerReference>O123</crmErp:customerReference>
         <crmErp:invoiceAdditionalDiscount2Percent xsi:nil="true"/>
         <crmErp:carrierReference xsi:nil="true"/>
-        <crmErp:status>Draft</crmErp:status>
+        <crmErp:status>Sent</crmErp:status>
         <crmErp:invoiceAdditionalDiscount1Type xsi:nil="true"/>
         <crmErp:contract xsi:nil="true"/>
         <crmErp:carrierTaxPrice xsi:nil="true"/>
@@ -531,7 +534,7 @@
         <crmErp:carrierTotalPrice xsi:nil="true"/>
         <crmErp:salesInvoiceLines sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoice('14084')/salesInvoiceLines">
           <crmErp:salesInvoiceLine sdata:key="293" sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoiceLines('293')">
-            <crmErp:status>Draft</crmErp:status>
+            <crmErp:status>Sent</crmErp:status>
             <crmErp:number>1</crmErp:number>
             <crmErp:type>Standard Line</crmErp:type>
             <crmErp:carrierSalesInvoiceLine xsi:nil="true"/>
@@ -598,7 +601,7 @@
         <crmErp:customerReference>O123</crmErp:customerReference>
         <crmErp:invoiceAdditionalDiscount2Percent xsi:nil="true"/>
         <crmErp:carrierReference xsi:nil="true"/>
-        <crmErp:status>Draft</crmErp:status>
+        <crmErp:status>Sent</crmErp:status>
         <crmErp:invoiceAdditionalDiscount1Type xsi:nil="true"/>
         <crmErp:contract xsi:nil="true"/>
         <crmErp:carrierTaxPrice xsi:nil="true"/>
@@ -681,7 +684,7 @@
         <crmErp:carrierTotalPrice xsi:nil="true"/>
         <crmErp:salesInvoiceLines sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoice('14085')/salesInvoiceLines">
           <crmErp:salesInvoiceLine sdata:key="294" sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoiceLines('294')">
-            <crmErp:status>Draft</crmErp:status>
+            <crmErp:status>Sent</crmErp:status>
             <crmErp:number>1</crmErp:number>
             <crmErp:type>Standard Line</crmErp:type>
             <crmErp:carrierSalesInvoiceLine xsi:nil="true"/>
@@ -734,7 +737,7 @@
             <crmErp:invoiceLineSubtotalDiscountType xsi:nil="true"/>
           </crmErp:salesInvoiceLine>
           <crmErp:salesInvoiceLine sdata:key="295" sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoiceLines('295')">
-            <crmErp:status>Draft</crmErp:status>
+            <crmErp:status>Sent</crmErp:status>
             <crmErp:number>2</crmErp:number>
             <crmErp:type>Standard Line</crmErp:type>
             <crmErp:carrierSalesInvoiceLine xsi:nil="true"/>
@@ -801,7 +804,7 @@
         <crmErp:customerReference>O123</crmErp:customerReference>
         <crmErp:invoiceAdditionalDiscount2Percent xsi:nil="true"/>
         <crmErp:carrierReference xsi:nil="true"/>
-        <crmErp:status>Draft</crmErp:status>
+        <crmErp:status>Sent</crmErp:status>
         <crmErp:invoiceAdditionalDiscount1Type xsi:nil="true"/>
         <crmErp:contract xsi:nil="true"/>
         <crmErp:carrierTaxPrice xsi:nil="true"/>
