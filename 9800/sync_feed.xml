@@ -54,63 +54,63 @@
     </sync:syncState>
 	
     <sdata:payload>
-	  <crm:receipt sdata:key="12015" sdata:uuid="##12015##"
+	  <crmErp:receipt sdata:key="12015" sdata:uuid="##12015##"
 			sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/receipts('12015')" >
-	    <crm:active>true</crm:active>
-		<crm:type>payment</crm:type>
-		<crm:bankAccount xsi:nil="true" />
-		<crm:source>cheque</crm:source>
-		<crm:status>cleared</crm:status>
-		<crm:tenderType>cheque</crm:tenderType>
-		<crm:tenderReference nil="true" />
-		<crm:externalReference nil="true" />
-		<crm:reference xsi:nil="true" />
-		<crm:reference2 xsi:nil="true" />
-		<crm:date>2010-03-31Z</crm:date>
-		<crm:processDate>2010-04-01Z</crm:processDate>
-		<crm:tradingAccount sdata:uuid="138BB530-18CB-410d-8969-753F9EB8BC08"
+	    <crmErp:active>true</crmErp:active>
+		<crmErp:type>payment</crmErp:type>
+		<crmErp:bankAccount xsi:nil="true" />
+		<crmErp:source>cheque</crmErp:source>
+		<crmErp:status>cleared</crmErp:status>
+		<crmErp:tenderType>cheque</crmErp:tenderType>
+		<crmErp:tenderReference nil="true" />
+		<crmErp:externalReference nil="true" />
+		<crmErp:reference>Payment 12015</crmErp:reference>
+		<crmErp:reference2>12015</crmErp:reference2>
+		<crmErp:date>2010-03-31Z</crmErp:date>
+		<crmErp:processDate>2010-04-01Z</crmErp:processDate>
+		<crmErp:tradingAccount sdata:uuid="138BB530-18CB-410d-8969-753F9EB8BC08"
 			sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts('43661')"
 			sdata:key="43661" >
-		</crm:tradingAccount>
-		<crm:tradingAccountReference xsi:nil="true" />
-		<crm:priceList xsi:nil="true" />
-		<crm:originatorDocument>
-		  <crm:salesInvoice sdata:uuid="##14082##"
+		</crmErp:tradingAccount>
+		<crmErp:tradingAccountReference xsi:nil="true" />
+		<crmErp:priceList xsi:nil="true" />
+		<crmErp:originatorDocument>
+		  <crmErp:salesInvoice sdata:uuid="##14082##"
 			  sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/salesInvoice('14082')"
 			  sdata:key="14082" />
-		</crm:originatorDocument>
-		<crm:taxCode xsi:nil="true" />
-		<crm:salesPerson xsi:nil="true" />
-		<crm:currency>CAD</crm:currency>
-		<crm:operatingCompanyCurrency>CAD</crm:operatingCompanyCurrency>
-		<crm:operatingCompanyCurrencyExchangeRate>1</crm:operatingCompanyCurrencyExchangeRate>
-		<crm:operatingCompanyCurrencyExchangeRateOperator>*</crm:operatingCompanyCurrencyExchangeRateOperator>
-		<crm:bankAccountCurrency>CAD</crm:bankAccountCurrency>
-		<crm:bankAccountCurrencyExchangeRate xsi:nil="true" />
-		<crm:bankAccountCurrencyExchangeRateOperator xsi:nil="true" />
-		<crm:bankAccountCurrencyExchangeRateDate>2010-04-01Z</crm:bankAccountCurrencyExchangeRateDate>
-		<crm:netTotal>01.00</crm:netTotal>
-		<crm:balanceBefore>01.00</crm:balanceBefore>
-		<crm:balanceAfter>0</crm:balanceAfter>
-		<crm:discountTotal>0</crm:discountTotal>
-		<crm:chargesTotal xsi:nil="true" />
-		<crm:taxTotal xsi:nil="true" />
-		<crm:grossTotal>01.00</crm:grossTotal>
-		<crm:name xsi:nil="true" />
-		<crm:description>receipt with wrong customer</crm:description>
-		<crm:text1 xsi:nil="true" />
-		<crm:text2 xsi:nil="true" />
-		<crm:receiptLines xsi:nil="true" />
-		<crm:lineCount xsi:nil="true" />
-		<crm:user>myusername</crm:user>
-		<crm:financialAccounts xsi:nil="true" />
-		<crm:costCentres xsi:nil="true" />
-		<crm:departments xsi:nil="true" />
-		<crm:projects xsi:nil="true" />
-		<crm:projectLines xsi:nil="true" />
-		<crm:interactions xsi:nil="true" />
-		<crm:notes xsi:nil="true" />
-	  </crm:receipt>
+		</crmErp:originatorDocument>
+		<crmErp:taxCode xsi:nil="true" />
+		<crmErp:salesPerson xsi:nil="true" />
+		<crmErp:currency>CAD</crmErp:currency>
+		<crmErp:operatingCompanyCurrency>CAD</crmErp:operatingCompanyCurrency>
+		<crmErp:operatingCompanyCurrencyExchangeRate>1</crmErp:operatingCompanyCurrencyExchangeRate>
+		<crmErp:operatingCompanyCurrencyExchangeRateOperator>*</crmErp:operatingCompanyCurrencyExchangeRateOperator>
+		<crmErp:bankAccountCurrency>CAD</crmErp:bankAccountCurrency>
+		<crmErp:bankAccountCurrencyExchangeRate xsi:nil="true" />
+		<crmErp:bankAccountCurrencyExchangeRateOperator xsi:nil="true" />
+		<crmErp:bankAccountCurrencyExchangeRateDate>2010-04-01Z</crmErp:bankAccountCurrencyExchangeRateDate>
+		<crmErp:netTotal>01.00</crmErp:netTotal>
+		<crmErp:balanceBefore>01.00</crmErp:balanceBefore>
+		<crmErp:balanceAfter>0</crmErp:balanceAfter>
+		<crmErp:discountTotal>0</crmErp:discountTotal>
+		<crmErp:chargesTotal xsi:nil="true" />
+		<crmErp:taxTotal xsi:nil="true" />
+		<crmErp:grossTotal>01.00</crmErp:grossTotal>
+		<crmErp:name xsi:nil="true" />
+		<crmErp:description>receipt with wrong customer</crmErp:description>
+		<crmErp:text1 xsi:nil="true" />
+		<crmErp:text2 xsi:nil="true" />
+		<crmErp:receiptLines xsi:nil="true" />
+		<crmErp:lineCount xsi:nil="true" />
+		<crmErp:user>myusername</crmErp:user>
+		<crmErp:financialAccounts xsi:nil="true" />
+		<crmErp:costCentres xsi:nil="true" />
+		<crmErp:departments xsi:nil="true" />
+		<crmErp:projects xsi:nil="true" />
+		<crmErp:projectLines xsi:nil="true" />
+		<crmErp:interactions xsi:nil="true" />
+		<crmErp:notes xsi:nil="true" />
+	  </crmErp:receipt>
     </sdata:payload>	
   </entry>
   

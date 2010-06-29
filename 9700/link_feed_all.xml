@@ -66,7 +66,7 @@
     <content>Receipt 12011 select name</content>
  
     <sdata:payload>
-      <crm:receipt sdata:key="12011" sdata:uuid="##12011##">
+      <crm:receipt sdata:key="12011" sdata:uuid="78e4ba50-6920-11df-a08a-0800200c9a66">
         <crm:tradingAccount sdata:uuid="##43660##"
           sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/{0}/tradingAccounts('43660')"
           sdata:key="43660" >
