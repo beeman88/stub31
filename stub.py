@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*- 
 from bottle import route, run, request, response, debug, error, validate
+import sys, os
 
 
 # globals
-# global in_progress_count 
-# global in_progress_reqs 
+global in_progress_count 
+global in_progress_reqs 
 
 global debug
 global log
@@ -536,54 +537,76 @@ def to_unicode(obj, encoding='utf-8'):
             obj = str(obj, encoding)
     return obj    
 
-# bottom
+# main
+def main(argv):
+    global debug
+    global log
+    global port_number
+    global TOKEN_MARKER
+    global uuids_dict
+    global TAGS_DICT
+    global company
+    global in_progress_count 
+    global in_progress_reqs 
+    
+    # input port number
+    import csv
+    import os.path
+    ## port_number = input("Enter port number == folder where xml responses stored: ")
 
-# input port number
-import csv
-import os.path
-port_number = input("Enter port number == folder where xml responses stored: ")
+    if len(argv) == 1:
+        port_number = argv[0]
+        clear_uuids = 'n'
+    elif len(argv) > 1:
+        port_number = argv[0]
+        clear_uuids = argv[1]
+    else:
+        return
 
-# open log file
-log_filename = os.path.join(str(port_number), 'log.txt')
-log = open(log_filename, 'w')
+    # open log file
+    log_filename = os.path.join(str(port_number), 'log.txt')
+    log = open(log_filename, 'w')
 
-config_filename = os.path.join(str(port_number), 'config.csv')
-config = open(config_filename, 'r')
+    config_filename = os.path.join(str(port_number), 'config.csv')
+    config = open(config_filename, 'r')
+ 
+    # initialize
+    in_progress_count = 0
+    in_progress_reqs = 1
+    TOKEN_MARKER = '##'
+    uuids_dict = {}
+    TAGS_DICT = {'payload':          'sdata:payload',
+                 'tradingAccount':   'crm:tradingAccount',
+                 'salesInvoice':     'crm:salesInvoice',
+                 'receipt':          'crm:receipt',
+                 'taxCode':          'crm:taxCode',
+                 'uuid':             'sdata:uuid',
+                 'url':              'sdata:url',
+                 'key':              'sdata:key',
+                 'entry':            'entry',
+                 'digest':           'digest:digest',
+                 'origin':           'digest:origin',
+                 'digestEntry':      'digest:digestEntry',
+                 'endpoint':         'digest:endpoint',
+                 'tick':             'digest:tick',
+                 'stamp':            'digest:stamp',
+                 'conflictPriority': 'digest:conflictPriority'             
+                 }
+    company = ""
 
-# initialize
-in_progress_count = 0
-in_progress_reqs = 1
-TOKEN_MARKER = '##'
-uuids_dict = {}
-TAGS_DICT = {'payload':          'sdata:payload',
-             'tradingAccount':   'crm:tradingAccount',
-             'salesInvoice':     'crm:salesInvoice',
-             'receipt':          'crm:receipt',
-             'taxCode':          'crm:taxCode',
-             'uuid':             'sdata:uuid',
-             'url':              'sdata:url',
-             'key':              'sdata:key',
-             'entry':            'entry',
-             'digest':           'digest:digest',
-             'origin':           'digest:origin',
-             'digestEntry':      'digest:digestEntry',
-             'endpoint':         'digest:endpoint',
-             'tick':             'digest:tick',
-             'stamp':            'digest:stamp',
-             'conflictPriority': 'digest:conflictPriority'             
-             }
-company = ""
+    # initialize uuid file for the file test
+    # TODO get rid of hard coded port number
+    if clear_uuids == "y" or clear_uuids == "Y":
+        initialize_uuids()
 
-# initialize uuid file for the file test
-# TODO get rid of hard coded port number
-if port_number == "8080":
-    initialize_uuids()
+    #read debug flag
+    debug = config.readline()
+    write_to_log('debug = {0}'.format(debug))
+    config.close()
 
-#read debug flag
-debug = config.readline()
-write_to_log('debug = {0}'.format(debug))
-config.close()
+    run(host='localhost', port=port_number)
 
-run(host='localhost', port=port_number)
+if __name__ == "__main__":
+    main(sys.argv[1:])
 
 
