@@ -549,9 +549,9 @@ def main(argv):
     global in_progress_count 
     global in_progress_reqs 
     
-    # input port number
     import csv
     import os.path
+    # input port number    
     ## port_number = input("Enter port number == folder where xml responses stored: ")
 
     if len(argv) == 1:
@@ -595,7 +595,6 @@ def main(argv):
     company = ""
 
     # initialize uuid file for the file test
-    # TODO get rid of hard coded port number
     if clear_uuids == "y" or clear_uuids == "Y":
         initialize_uuids()
 
