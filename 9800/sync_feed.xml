@@ -7,7 +7,7 @@
       xmlns:sme="http://schemas.sage.com/sdata/sme/2007" 
       xmlns:http="http://schemas.sage.com/sdata/http/2008/1" 
       xmlns:sc="http://schemas.sage.com/sc/2009" 
-      xmlns:crm="http://schemas.sage.com/crmErp/2008"
+      xmlns:crmErp="http://schemas.sage.com/crmErp/2008"
 	  xmlns:sync="http://schemas.sage.com/sdata/sync/2008/1">
  
   <title>receipt synchronization feed {1}</title>
